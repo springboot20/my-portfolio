@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f2f2f2];
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg  bg-white p-6 w-full border flex flex-col space-y-8 items-start;
+  }
+
+  .card .card-body {
+    @apply space-y-3;
+  }
+
+  .card .card-body > .card-title {
+    @apply text-2xl font-semibold text-port-black capitalize;
+  }
+
+  .card-body .card-description {
+    @apply text-xl font-semibold text-port-gray;
+  }
+
+  .recommender-profile {
+    @apply flex space-x-3 items-center justify-center;
+  }
+
+  .recommender-avatar {
+    @apply h-28 w-28 rounded-full border;
+  }
+
+  .ratings {
+    @apply flex items-center space-x-3 justify-start pt-4;
+  }
+
+  .ratings .icon {
+    @apply h-7 text-port-yellow;
+  }
+
+  .university {
+    @apply flex flex-col gap-14 items-start justify-center md:flex-row border-b border-port-gray/40 py-8;
+  }
+
+  .university:nth-child(3) {
+    @apply border-none;
+  }
+
+  .university-name {
+    @apply text-2xl font-semibold text-port-black capitalize;
+  }
+
+  .university-description {
+    @apply text-xl font-semibold text-port-gray flex items-center capitalize space-x-10;
+  }
+}
