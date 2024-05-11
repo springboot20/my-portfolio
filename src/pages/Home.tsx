@@ -5,6 +5,7 @@ import { HeroSection } from '../components/Hero';
 import { Recommendation } from '../components/Recommendation';
 import { Education } from '../components/Education';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { Portfolio } from '../components/Portfolio';
 
 export const Home = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -36,6 +37,12 @@ export const Home = () => {
       {/* Education section begins */}
       <ScrollReveal>
         <Education />
+      </ScrollReveal>
+      {/* Education section ends */}
+
+      {/* Education section begins */}
+      <ScrollReveal>
+        <Portfolio />
       </ScrollReveal>
       {/* Education section ends */}
     </Fragment>

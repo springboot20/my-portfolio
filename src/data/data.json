@@ -1,0 +1,37 @@
+[
+  {
+    "image": "./assets/socialmedia-dashboard.jpg",
+    "url": "https://bespoke-melomakarona-bf7929.netlify.app",
+    "github-url": "https://github.com/springboot20/social-dashboard-with-theme",
+    "project-title": "Social dashboard with Theme",
+    "project-description": ""
+  },
+  {
+    "image": "./assets/flip-game.jpg",
+    "url": "https://myflip-card-game.netlify.app",
+    "github-url": "https://github.com/springboot20/Flip-game",
+    "project-title": "Flip Game",
+    "project-description": ""
+  },
+  {
+    "image": "./assets/weight-converter.jpg",
+    "url": "https://weight-converter-min-app.netlify.app",
+    "github-url": "https://github.com/springboot20/Weigh-converter",
+    "project-title": "Weight Converter",
+    "project-description": ""
+  },
+  {
+    "image": "./assets/bookmark-landing-page.jpg",
+    "url": "https://elaborate-faun-568fba.netlify.app",
+    "github-url": "https://github.com/springboot20/Weigh-converter",
+    "project-title": "Bookmark Landing Page",
+    "project-description": ""
+  },
+  {
+    "image": "./assets/rest-countries.jpg",
+    "url": "https://rest-countries-ae7h50ynr-springboot20s-projects.vercel.app/",
+    "github-url": "https://vercel.com/springboot20s-projects/rest-countries",
+    "project-title": "Rest Countries",
+    "project-description": ""
+  }
+]
