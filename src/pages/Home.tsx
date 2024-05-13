@@ -6,6 +6,7 @@ import { Recommendation } from '../components/Recommendation';
 import { Education } from '../components/Education';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { Portfolio } from '../components/Portfolio';
+import { Contact } from '../components/Contact';
 
 export const Home = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -40,11 +41,17 @@ export const Home = () => {
       </ScrollReveal>
       {/* Education section ends */}
 
-      {/* Education section begins */}
+      {/* Portfolio section begins */}
       <ScrollReveal>
         <Portfolio />
       </ScrollReveal>
-      {/* Education section ends */}
+      {/* Portfolio section ends */}
+
+      {/* Contact section begins */}
+      <ScrollReveal>
+        <Contact />
+      </ScrollReveal>
+      {/* Contact section ends */}
     </Fragment>
   );
 };
