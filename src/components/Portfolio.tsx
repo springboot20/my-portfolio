@@ -18,14 +18,14 @@ export const Portfolio = () => {
           </p>
         </header>
 
-        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
           {projects.map((project) => {
             return (
               <div
-                className='group space-y-0  card overflow-hidden cursor-pointer relative p-0 h-[20rem] w-auto'
+                className='group space-y-0  card overflow-hidden relative p-0 h-[20rem] w-full'
                 key={project.url}>
                 <header>
-                  <img src={project.image} className='block absolute h-full' />
+                  <img src={project.image} className='block absolute h-full w-full' />
                 </header>
 
                 <div className='group-hover:opacity-100 group-hover:scale-100 origin-top transition-all flex items-center justify-center space-x-8 scale-0  text-white  opacity-0 absolute top-0 left-0 right-0 bg-black/50 z-10 h-full'>

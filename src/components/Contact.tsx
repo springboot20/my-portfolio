@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const Contact = () => {
   return (
     <section className='pt-20 pb-28 px-6 lg:px-0'>
-      <div className='mx-auto max-w-8xl grid grid-cols-1 md:grid-cols-3 gap-9'>
+      <div className='mx-auto max-w-8xl grid grid-cols-1 md:grid-cols-2 gap-9'>
         {/* contact form start */}
-        <div className='space-y-4 col-span-2'>
+        <div className='space-y-4 col-span-1'>
           <h1 className='text-port-black text-3xl font-bold capitalize'>Send me a Message</h1>
           <form action='' className='rounded-lg bg-white p-8 border space-y-5'>
             <div className='space-y-2'>
