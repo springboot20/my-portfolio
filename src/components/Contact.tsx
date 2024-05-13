@@ -100,7 +100,7 @@ export const Contact = () => {
               <div className=''>
                 <p className='text-xl text-gray-500 font-semibold flex justify-between items-center'>
                   <span>Github :</span>
-                  <a href='https://github.com/springboo20'>https://github.com/springboo20</a>
+                  <a href='https://github.com/springboot20'>https://github.com/springboot20</a>
                 </p>
               </div>
             </div>
