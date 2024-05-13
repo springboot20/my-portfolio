@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Contact = () => {
   return (
-    <section className='pt-20 pb-28 px-6 lg:px-0'>
+    <section className='pt-20 pb-28 px-6 lg:px-0' id="contact">
       <div className='mx-auto max-w-8xl grid grid-cols-1 md:grid-cols-2 gap-9'>
         {/* contact form start */}
         <div className='space-y-4 col-span-1'>

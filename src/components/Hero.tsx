@@ -15,12 +15,9 @@ export const HeroSection = () => {
   });
 
   return (
-    <Disclosure
-      as='section'
-      id='home'
-      className='flex items-center justify-center mt-28 min-h-screen px-8 lg:px-0'>
-      <div className='relative'>
-        <div className='absolute bg-gradient-to-r inset-0 z-0 from-port-yellow to-port-yellow/20 transform -skew-y-6 md:skew-y-0 md:-rotate-6 rounded-lg'></div>
+    <Disclosure as='section' id='home' className='flex justify-center items-center min-h-[70vh]  mt-28 px-8 lg:px-0'>
+      <div className='relative mt-24'>
+        <div className='absolute bg-gradient-to-r inset-5 z-0 from-port-yellow to-port-yellow/20 transform -skew-y-6 md:skew-y-0 md:-rotate-6 rounded-lg'></div>
         <div className='relative z-10 max-w-9xl flex items-center justify-center flex-col md:flex-row bg-white p-12 rounded-lg'>
           <div className='space-y-10'>
             <h1

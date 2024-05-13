@@ -8,7 +8,7 @@ export const Portfolio = () => {
   const projects = projectsData;
 
   return (
-    <section className='pt-20 pb-28 px-6 lg:px-0'>
+    <section className='pt-20 pb-28 px-6 lg:px-0' id="projects">
       <div className='mx-auto max-w-8xl'>
         <header className='text-center space-y-4'>
           <h1 className='text-port-black text-3xl font-bold capitalize'>Projects</h1>

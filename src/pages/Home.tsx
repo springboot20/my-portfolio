@@ -7,6 +7,7 @@ import { Education } from '../components/Education';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { Portfolio } from '../components/Portfolio';
 import { Contact } from '../components/Contact';
+import { About } from '../components/About';
 
 export const Home = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -26,6 +27,12 @@ export const Home = () => {
       {/* Hero section begins */}
       <ScrollReveal>
         <HeroSection />
+      </ScrollReveal>
+      {/* Hero section ends */}
+
+      {/* Hero section begins */}
+      <ScrollReveal>
+        <About />
       </ScrollReveal>
       {/* Hero section ends */}
 
