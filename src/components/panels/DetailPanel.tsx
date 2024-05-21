@@ -9,11 +9,10 @@ import {
   faLinkedin,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { faClose,faDownload } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 export const DetailPanel: React.FC<{
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
