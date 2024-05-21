@@ -4,6 +4,7 @@
     "url": "https://bespoke-melomakarona-bf7929.netlify.app",
     "github-url": "https://github.com/springboot20/social-dashboard-with-theme",
     "project-title": "Social dashboard with Theme",
+    "alt": "Social dashboard with Theme",
     "project-description": ""
   },
   {
@@ -11,6 +12,7 @@
     "url": "https://myflip-card-game.netlify.app",
     "github-url": "https://github.com/springboot20/Flip-game",
     "project-title": "Flip Game",
+    "alt": "Flip Game",
     "project-description": ""
   },
   {
@@ -18,6 +20,7 @@
     "url": "https://weight-converter-min-app.netlify.app",
     "github-url": "https://github.com/springboot20/Weigh-converter",
     "project-title": "Weight Converter",
+    "alt": "Weight Converter",
     "project-description": ""
   },
   {
@@ -25,6 +28,7 @@
     "url": "https://elaborate-faun-568fba.netlify.app",
     "github-url": "https://github.com/springboot20/Weigh-converter",
     "project-title": "Bookmark Landing Page",
+    "alt": "Bookmark Landing Page",
     "project-description": ""
   },
   {
@@ -32,6 +36,7 @@
     "url": "https://rest-countries-ae7h50ynr-springboot20s-projects.vercel.app/",
     "github-url": "https://vercel.com/springboot20s-projects/rest-countries",
     "project-title": "Rest Countries",
+    "alt": "Rest Countries",
     "project-description": ""
   }
 ]

@@ -18,11 +18,11 @@
   }
 
   .card .card-body > .card-title {
-    @apply text-2xl font-semibold text-port-black capitalize;
+    @apply text-xl sm:text-2xl font-semibold text-port-black capitalize;
   }
 
   .card-body .card-description {
-    @apply text-xl font-semibold text-port-gray;
+    @apply text-sm sm:text-xl font-semibold text-port-gray;
   }
 
   .recommender-profile {

@@ -12,7 +12,7 @@ export const Recommendation = () => {
   });
 
   return (
-    <section className='pt-20 pb-28 px-6 lg:px-0' id="recommendation">
+    <section className='pt-20 pb-28 px-6 lg:px-0' id='recommendation'>
       <div className='mx-auto max-w-8xl'>
         <header className='text-center space-y-4'>
           <h1 className='text-port-black text-3xl font-bold capitalize'>recommendations</h1>
@@ -43,8 +43,8 @@ export const Recommendation = () => {
             <div className='recommender-profile' id='developer-recommendation-profile'>
               <div className='recommender-avatar'></div>
               <p className='capitalize'>
-                <span className='text-2xl font-semibold block'>adewole ridwan</span>
-                <span className='text-xl text-port-gray font-medium block'>
+                <span className='text-xl sm:text-2xl font-semibold block'>adewole ridwan</span>
+                <span className='text-lg sm:text-xl text-port-gray font-medium block'>
                   front-end developer
                 </span>
               </p>
@@ -71,8 +71,8 @@ export const Recommendation = () => {
             <div className='recommender-profile' id='developer-recommendation-profile'>
               <div className='recommender-avatar'></div>
               <p className='capitalize'>
-                <span className='text-2xl font-semibold block'>adewole ridwan</span>
-                <span className='text-xl text-port-gray font-medium block'>
+                <span className='text-xl sm:text-2xl  font-semibold block'>adewole ridwan</span>
+                <span className='text-lg sm:text-xl text-port-gray font-medium block'>
                   front-end developer
                 </span>
               </p>
@@ -99,8 +99,8 @@ export const Recommendation = () => {
             <div className='recommender-profile' id='developer-recommendation-profile'>
               <div className='recommender-avatar'></div>
               <p className='capitalize'>
-                <span className='text-2xl font-semibold block'>adewole ridwan</span>
-                <span className='text-xl text-port-gray font-medium block'>
+                <span className='text-xl sm:text-2xl font-semibold block'>adewole ridwan</span>
+                <span className='text-lg sm:text-xl text-port-gray font-medium block'>
                   front-end developer
                 </span>
               </p>
