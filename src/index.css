@@ -42,7 +42,7 @@
   }
 
   .university {
-    @apply flex flex-col gap-14 items-start justify-center md:flex-row border-b border-port-gray/40 py-8;
+    @apply flex flex-col gap-8 sm:gap-14 items-start justify-center md:flex-row border-b border-port-gray/40 py-8;
   }
 
   .university:nth-child(3) {
@@ -50,10 +50,10 @@
   }
 
   .university-name {
-    @apply text-2xl font-semibold text-port-black capitalize;
+    @apply text-lg sm:text-2xl font-semibold text-port-black capitalize;
   }
 
   .university-description {
-    @apply text-xl font-semibold text-port-gray flex items-center capitalize space-x-10;
+    @apply text-base sm:text-xl font-semibold text-port-gray flex items-center text-justify capitalize space-x-10;
   }
 }

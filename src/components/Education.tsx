@@ -14,9 +14,9 @@ export const Education = () => {
           <div className='university'>
             <div className='space-y-6 w-full'>
               <h1 className='university-name'>SQI ICT school of coding</h1>
-              <p className='text-2xl font-semibold text-port-gray flex items-start flex-col capitalize space-y-2'>
+              <p className='text-sm sm:text-2xl  font-semibold text-port-gray flex items-start flex-col capitalize space-y-2'>
                 <span>student</span>
-                <span className='block py-1 text-xl px-3 bg-port-yellow text-white capitalize'>
+                <span className='block py-1 text-sm sm:text-xl px-3 bg-port-yellow text-white capitalize'>
                   aug 2021 - jan 2022
                 </span>
               </p>
@@ -35,9 +35,9 @@ export const Education = () => {
           <div className='university'>
             <div className='space-y-6 w-full'>
               <h1 className='university-name'>ladoke akintola university of technology</h1>
-              <p className='text-2xl font-semibold text-port-gray flex items-start flex-col capitalize space-y-2'>
+              <p className='text-sm sm:text-2xl font-semibold text-port-gray flex items-start flex-col capitalize space-y-2'>
                 <span>student</span>
-                <span className='block py-1 text-xl px-3 bg-port-yellow text-white capitalize'>
+                <span className='block py-1 text-sm sm:text-xl px-3 bg-port-yellow text-white capitalize'>
                   aug 2020
                 </span>
               </p>
@@ -56,9 +56,9 @@ export const Education = () => {
           <div className='university'>
             <div className='space-y-6 w-full'>
               <h1 className='university-name'>ladoke akintola university of technology</h1>
-              <p className='text-2xl font-semibold text-port-gray flex items-start flex-col capitalize space-y-2'>
+              <p className='text-sm sm:text-2xl  font-semibold text-port-gray flex items-start flex-col capitalize space-y-2'>
                 <span>student</span>
-                <span className='block py-1 text-xl px-3 bg-port-yellow text-white capitalize'>
+                <span className='block py-1 text-sm sm:text-xl px-3 bg-port-yellow text-white capitalize'>
                   aug 2020
                 </span>
               </p>
