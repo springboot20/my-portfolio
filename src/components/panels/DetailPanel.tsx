@@ -58,11 +58,12 @@ export const DetailPanel: React.FC<{
         },
       }}
       className={classNames(
-        'fixed top-5 bottom-5 z-20 bg-white h-auto w-1/2 lg:w-1/4 border border-port-gray rounded-xl py-8 px-12 overflow-y-scroll'
+        'fixed top-5 bottom-5 z-20 bg-white h-auto w-3/4 lg:w-1/4 border border-port-gray rounded-xl py-8 px-12 overflow-y-scroll'
       )}>
       <button
         onClick={() => setOpen((prev) => !prev)}
         className='fixed right-4 top-4 inline-flex items-center justify-center rounded-md p-2 dark:text-white text-gray-900 hover:dark:bg-gray-700 hover:dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+        <span className='sr-only'>Close button</span>
         <FontAwesomeIcon icon={faClose} className='h-10 text-gray-800 ' />
       </button>
       <div className='space-y-5'>
