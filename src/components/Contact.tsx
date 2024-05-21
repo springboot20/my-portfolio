@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Contact = () => {
   return (
-    <section className='pt-20 pb-28 px-6 lg:px-0' id="contact">
+    <section className='pt-20 pb-28 px-6 lg:px-0' id='contact'>
       <div className='mx-auto max-w-8xl grid grid-cols-1 md:grid-cols-2 gap-9'>
         {/* contact form start */}
         <div className='space-y-4 col-span-1'>
@@ -15,6 +15,7 @@ export const Contact = () => {
               </label>
               <input
                 type='text'
+                aria-label='full-name'
                 className='px-4 py-4 border border-gray-300 w-full block rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700'
               />
             </div>
@@ -25,6 +26,7 @@ export const Contact = () => {
               </label>
               <input
                 type='email'
+                aria-label='email'
                 className='px-4 py-4 border border-gray-300 w-full block rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700'
               />
             </div>
@@ -35,17 +37,19 @@ export const Contact = () => {
               </label>
               <input
                 type='text'
+                aria-label='subject'
                 className='px-4 py-4 border border-gray-300 w-full block rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700'
               />
             </div>
 
             <div className='space-y-2'>
-              <label htmlFor='' className='block text-lg font-semibold text-gray-500'>
+              <label htmlFor='message' className='block text-lg font-semibold text-gray-500'>
                 Your Message
               </label>
               <textarea
                 cols={10}
                 rows={10}
+                aria-label='message'
                 className='px-4 py-4 border border-gray-300 w-full block rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700'></textarea>
             </div>
 
