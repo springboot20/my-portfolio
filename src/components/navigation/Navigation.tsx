@@ -44,6 +44,7 @@ export const Navigation: React.FC<{
             <div className='relative flex h-24 items-center justify-between'>
               <div className='absolute inset-y-0 left-0 flex items-center lg:hidden'>
                 <Disclosure.Button className='inline-flex items-center justify-center rounded-md p-2 dark:text-white text-gray-900 hover:dark:bg-gray-700 hover:dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+                  <span className='sr-only'>{open ? 'Close' : 'Open'} button</span>
                   {open ? (
                     <FontAwesomeIcon icon={faClose} className='h-10 text-gray-800 ' />
                   ) : (
@@ -80,6 +81,7 @@ export const Navigation: React.FC<{
               <button
                 onClick={() => setOpen(true)}
                 className='flex items-center justify-center rounded-full p-2 h-14 w-14 bg-port-gray text-gray-900 hover:dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+                  <span className="sr-only">user icon</span>
                 <FontAwesomeIcon icon={faUser} className='h-8 text-white drop-shadow-md' />
               </button>
             </div>
