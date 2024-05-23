@@ -9,8 +9,7 @@ import {
   faLinkedin,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faClose,faDownload } from '@fortawesome/free-solid-svg-icons';
-
+import { faClose, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 
@@ -18,26 +17,31 @@ export const DetailPanel: React.FC<{
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   open: boolean;
 }> = ({ setOpen, open }) => {
-  const socialLinks: { to: string; icon: JSX.Element }[] = [
+  const socialLinks: { to: string; icon: JSX.Element; name: string }[] = [
     {
       to: '#facebook',
+      name: 'Facebook icon',
       icon: <FontAwesomeIcon icon={faFacebook} className='h-6 text-port-black' />,
     },
     {
       to: '#instagram',
+      name: 'Instagram icon',
       icon: <FontAwesomeIcon icon={faInstagram} className='h-6 text-port-black' />,
     },
     {
       to: '#twitter',
+      name: 'Twitter icon',
       icon: <FontAwesomeIcon icon={faTwitter} className='h-6 text-port-black' />,
     },
     {
       to: '#linkedin',
+      name: 'Linkedin icon',
       icon: <FontAwesomeIcon icon={faLinkedin} className='h-6 text-port-black' />,
     },
     {
       to: 'https://github.com/springboot20/',
       icon: <FontAwesomeIcon icon={faGithub} className='h-6 text-port-black' />,
+      name: 'Github icon',
     },
   ];
 
@@ -77,12 +81,14 @@ export const DetailPanel: React.FC<{
           </div>
 
           <div className='inline-flex space-x-4 mt-4'>
-            {socialLinks.map(({ to, icon }) => {
+            {socialLinks.map(({ to, name, icon }) => {
               return (
                 <Link
                   key={to}
                   to={to}
+                  arial-label={name}
                   className='flex items-center justify-center h-12 w-12 rounded-full bg-port-yellow'>
+                  <span className='sr-only'>{name}</span>
                   {icon}
                 </Link>
               );

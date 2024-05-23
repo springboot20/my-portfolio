@@ -22,7 +22,7 @@
   }
 
   .card-body .card-description {
-    @apply text-sm sm:text-xl font-semibold text-port-gray;
+    @apply text-base sm:text-xl font-semibold text-port-gray;
   }
 
   .recommender-profile {
