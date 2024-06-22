@@ -15,9 +15,9 @@ export const HeroSection = () => {
     scrollReveal.reveal('#hire-button', { delay: 400 })
   })
 
-  const { textToDisplay } = useTypeWriter()
+  setTimeout(() => type(), 600)
 
-  console.log(textToDisplay)
+  const { textToDisplay, type } = useTypeWriter()
 
   return (
     <Disclosure
