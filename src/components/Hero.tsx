@@ -13,11 +13,9 @@ export const HeroSection = () => {
     scrollReveal.reveal('#developer-description', { delay: 300 })
     scrollReveal.reveal('#developer-img', { delay: 400 })
     scrollReveal.reveal('#hire-button', { delay: 400 })
-  })
+  }, [])
 
-  setTimeout(() => type(), 600)
-
-  const { textToDisplay, type } = useTypeWriter()
+  const { textToDisplay } = useTypeWriter()
 
   return (
     <Disclosure
@@ -37,7 +35,7 @@ export const HeroSection = () => {
               <small className="text-port-yellow inline-block text-5xl">
                 front-end
               </small>{' '}
-              <span>{textToDisplay.current}</span>
+              <span className='border-r-4 border-port-black '>{textToDisplay}</span>
             </h1>
 
             <p

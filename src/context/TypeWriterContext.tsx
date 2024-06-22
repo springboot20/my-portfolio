@@ -7,69 +7,55 @@ import React, {
   useCallback,
 } from 'react'
 
-interface TypeWriterContext {
-  textToDisplay: React.MutableRefObject<string>
-  type: () => void
+interface TypeWriterContextProps {
+  textToDisplay: string
 }
 
-export const TypeWriterContext = createContext<TypeWriterContext>(
-  {} as TypeWriterContext,
+export const TypeWriterContext = createContext<TypeWriterContextProps>(
+  {} as TypeWriterContextProps,
 )
 
 export const TypeWriterProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false)
-  const textToDisplay = useRef('')
-  // eslint-disable-next-line prefer-const
+  const [textToDisplay, setTextToDisplay] = useState<string>('')
   const wait = useRef<number>(600)
-
-  let currentWordIndex = 0
+  const currentWordIndex = useRef<number>(0)
   const words = useMemo(() => ['Developer', 'Designer'], [])
-  const speed = useRef<number>(600)
+  const speed = useRef<number>(300)
 
   const type = useCallback(() => {
-    const current = currentWordIndex % words.length
+    const current = currentWordIndex.current % words.length
     const fullText = words[current]
 
     if (isDeleting) {
-      textToDisplay.current = fullText.substring(0, fullText.length - 1)
+      setTextToDisplay((prev) => fullText.substring(0, prev.length - 1))
     } else {
-      textToDisplay.current = fullText.substring(0, fullText.length + 1)
-    }
-    console.log(textToDisplay.current)
-
-    if (isDeleting) {
-      speed.current /= 2
+      setTextToDisplay((prev) => fullText.substring(0, prev.length + 1))
     }
 
-
-    if (!isDeleting && textToDisplay.current === fullText) {
-      speed.current = wait.current
-
+    if (!isDeleting && textToDisplay === fullText) {
       setIsDeleting(true)
-    } else if (isDeleting && textToDisplay.current === '') {
+      speed.current = wait.current
+    } else if (isDeleting && textToDisplay === '') {
       setIsDeleting(false)
-
-      currentWordIndex++
-
+      currentWordIndex.current++
       speed.current = 500
+    } else {
+      speed.current = isDeleting ? 100 : 200
     }
-    setTimeout(() => type(), speed.current)
-  }, [currentWordIndex, isDeleting, words])
+  }, [isDeleting, textToDisplay, words])
 
   useEffect(() => {
-    type()
+    setTimeout(type, speed.current)
   }, [type])
-
-  console.log(textToDisplay)
 
   const values = useMemo(
     () => ({
       textToDisplay,
-      type,
     }),
-    [textToDisplay, type],
+    [textToDisplay],
   )
 
   return (
