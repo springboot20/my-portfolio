@@ -23,7 +23,7 @@ export const TypeWriterProvider: React.FC<{ children: React.ReactNode }> = ({
   const wait = useRef<number>(600)
   const currentWordIndex = useRef<number>(0)
   const words = useMemo(() => ['Developer', 'Designer'], [])
-  const speed = useRef<number>(300)
+  const speed = useRef<number>(900)
 
   const type = useCallback(() => {
     const current = currentWordIndex.current % words.length
@@ -41,10 +41,11 @@ export const TypeWriterProvider: React.FC<{ children: React.ReactNode }> = ({
     } else if (isDeleting && textToDisplay === '') {
       setIsDeleting(false)
       currentWordIndex.current++
-      speed.current = 500
-    } else {
-      speed.current = isDeleting ? 100 : 200
-    }
+      speed.current = 900
+    } 
+    // else {
+    //   speed.current = isDeleting ? 100 : 200
+    // }
   }, [isDeleting, textToDisplay, words])
 
   useEffect(() => {
