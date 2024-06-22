@@ -17,7 +17,7 @@ export const About = () => {
         </h1>
 
         <div className='bg-white rounded-lg border grid sm:grid-cols-1 md:grid-cols-2 p-9 gap-8'>
-          <div className='space-y-4'>
+          <div className='space-y-4 h-full'>
             <h3
               className='text-2xl font-semibold text-gray-700 uppercase text-center'
               id='about-title'>
