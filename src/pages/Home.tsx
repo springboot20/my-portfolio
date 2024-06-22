@@ -1,16 +1,15 @@
-import { Navigation } from '../components/navigation/Navigation';
-import { Fragment, useState } from 'react';
-import { DetailPanel } from '../components/panels/DetailPanel';
-import { HeroSection } from '../components/Hero';
-import { Recommendation } from '../components/Recommendation';
-import { Education } from '../components/Education';
-import { ScrollReveal } from '../components/ScrollReveal';
-import { Portfolio } from '../components/Portfolio';
-import { Contact } from '../components/Contact';
-import { About } from '../components/About';
+import { Navigation } from '../components/navigation/Navigation'
+import { Fragment, useState } from 'react'
+import { DetailPanel } from '../components/panels/DetailPanel'
+import { HeroSection } from '../components/Hero'
+import { Recommendation } from '../components/Recommendation'
+import { ScrollReveal } from '../components/ScrollReveal'
+import { Portfolio } from '../components/Portfolio'
+import { Contact } from '../components/Contact'
+import { About } from '../components/About'
 
 export const Home = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false)
 
   return (
     <Fragment>
@@ -42,12 +41,6 @@ export const Home = () => {
       </ScrollReveal>
       {/* Recommendation section ends */}
 
-      {/* Education section begins */}
-      <ScrollReveal>
-        <Education />
-      </ScrollReveal>
-      {/* Education section ends */}
-
       {/* Portfolio section begins */}
       <ScrollReveal>
         <Portfolio />
@@ -60,5 +53,5 @@ export const Home = () => {
       </ScrollReveal>
       {/* Contact section ends */}
     </Fragment>
-  );
-};
+  )
+}
