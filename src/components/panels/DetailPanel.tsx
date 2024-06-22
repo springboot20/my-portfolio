@@ -1,6 +1,6 @@
 import { classNames } from '../../utils'
 import { motion } from 'framer-motion'
-import ProfileImg from '../../assets/profile-img.jpg'
+import ProfileImg from '../../assets/my-pics.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
@@ -11,7 +11,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { faClose, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-import { Fragment } from 'react'
 import myCV from '../../assets/my-cv.pdf'
 
 export const DetailPanel: React.FC<{
@@ -82,13 +81,9 @@ export const DetailPanel: React.FC<{
       </button>
       <div className="space-y-5">
         <div className="py-6 flex justify-center items-center flex-col space-y-3 border-b-2 border-port-gray/30">
-          <Fragment>
-            <img
-              src={ProfileImg}
-              className="rounded-full h-64"
-              alt="profile img"
-            />
-          </Fragment>
+          <div className="relative flex items-center justify-center overflow-hidden h-64 w-64 rounded-full">
+            <img src={ProfileImg} className="absolute" alt="profile img" />
+          </div>
 
           <div className="text-center space-y-2">
             <h3 className="text-3xl font-bold capitalize text-port-black">

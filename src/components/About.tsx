@@ -1,4 +1,4 @@
-import ProfileImage from '../assets/img-03.png';
+import ProfileImage from '../assets/my-pics.jpg';
 import { scrollReveal } from '../utils/scrollreveal.config';
 import { useEffect } from 'react';
 
@@ -16,7 +16,7 @@ export const About = () => {
           about me
         </h1>
 
-        <div className='bg-white rounded-lg border grid sm:grid-cols-1 md:grid-cols-2 p-9'>
+        <div className='bg-white rounded-lg border grid sm:grid-cols-1 md:grid-cols-2 p-9 gap-8'>
           <div className='space-y-4'>
             <h3
               className='text-2xl font-semibold text-gray-700 uppercase text-center'
@@ -29,8 +29,8 @@ export const About = () => {
               doloremque odio fugit aut, esse pariatur blanditiis? Earum quia accusamus dignissimos.
             </p>
           </div>
-          <div className=''>
-            <img src={ProfileImage} alt='' id='profile-image' />
+          <div className='rounded-xl relative  w-full overflow-hidden h-[44rem]'>
+            <img src={ProfileImage} alt='' id='profile-image' className="absolute" />
           </div>
         </div>
       </div>
