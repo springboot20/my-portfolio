@@ -7,10 +7,6 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      maxWidth: {
-        '8xl': '90rem',
-        '9xl': '94rem',
-      },
       colors: {
         'port-yellow': '#ffb400',
         'port-black': '#2B2B2B',
@@ -20,6 +16,9 @@ export default {
         emerald: colors.emerald,
         ...defaultTheme.colors,
       },
+      fontFamily: {
+        inter: '"Inter", sans-serif',
+      }
     },
   },
   plugins: [],

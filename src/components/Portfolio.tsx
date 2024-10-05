@@ -24,7 +24,7 @@ export const Portfolio = () => {
           {projects.map((project) => {
             return (
               <div
-                className="group space-y-0  card overflow-hidden relative p-0 h-[20rem] w-full"
+                className="group space-y-0  card overflow-hidden relative p-0 h-[22rem] w-full"
                 key={project.url}
               >
                 <header>

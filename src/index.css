@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url(./font/static/Inter-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url(./font/static/Inter-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url(./font/static/Inter-Medium.ttf);
+  font-weight: 500;
+}
+
 @layer base {
   body {
     @apply bg-[#f2f2f2];
@@ -10,19 +28,15 @@
 
 @layer components {
   .card {
-    @apply rounded-lg bg-white p-6 w-full border flex flex-col space-y-8 items-start;
+    @apply rounded-lg bg-white p-6 w-full border flex flex-col space-y-4 items-start;
   }
 
-  .card .card-body {
-    @apply space-y-3;
-  }
-
-  .card .card-body > .card-title {
-    @apply text-xl sm:text-2xl font-semibold text-port-black capitalize;
+  .card .card-body>.card-title {
+    @apply text-lg font-medium font-inter text-port-black capitalize;
   }
 
   .card-body .card-description {
-    @apply text-base sm:text-xl font-semibold text-port-gray;
+    @apply text-base font-normal font-inter text-port-gray;
   }
 
   .recommender-profile {
@@ -30,15 +44,15 @@
   }
 
   .recommender-avatar {
-    @apply h-28 w-28 rounded-full border;
+    @apply h-12 w-12 rounded-full border;
   }
 
   .ratings {
-    @apply flex items-center space-x-3 justify-start pt-4;
+    @apply flex items-center space-x-3 justify-start;
   }
 
   .ratings .icon {
-    @apply h-7 text-port-yellow;
+    @apply h-5 text-port-yellow;
   }
 
   .university {

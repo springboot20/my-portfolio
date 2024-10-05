@@ -42,10 +42,7 @@ export const TypeWriterProvider: React.FC<{ children: React.ReactNode }> = ({
       setIsDeleting(false)
       currentWordIndex.current++
       speed.current = 900
-    } 
-    // else {
-    //   speed.current = isDeleting ? 100 : 200
-    // }
+    }
   }, [isDeleting, textToDisplay, words])
 
   useEffect(() => {
