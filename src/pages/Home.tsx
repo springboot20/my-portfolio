@@ -4,7 +4,8 @@ import { HeroSection } from "../components/Hero";
 import { Recommendation } from "../components/Recommendation";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { Portfolio } from "../components/Portfolio";
-import { Contact } from "../components/Contact";;
+import { Contact } from "../components/Contact";
+import ServiceSection from "../components/Service";
 
 export const Home = () => {
   return (
@@ -14,6 +15,12 @@ export const Home = () => {
         <HeroSection />
       </ScrollReveal>
       {/* Hero section ends */}
+
+      {/* service section begins */}
+      <ScrollReveal>
+        <ServiceSection />
+      </ScrollReveal>
+      {/* service section ends */}
 
       {/* Recommendation section begins */}
       <ScrollReveal>
@@ -35,4 +42,3 @@ export const Home = () => {
     </Fragment>
   );
 };
-
