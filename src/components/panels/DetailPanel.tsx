@@ -11,7 +11,7 @@ import {
 import { faClose, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import myCV from "../../assets/my-cv.pdf";
-// import { Disclosure } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 
 type DetailPanelProps = {
   close: (focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>) => void;
@@ -50,17 +50,14 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
   return (
     <div
       className={classNames(
-        // open ? "translate-x-0" : "-translate-x-full",
-        "relative top-0 left-0 bottom-5 z-20 bg-white h-auto w-[22rem] p-6 xl:block",
+        open ? "translate-x-0 fixed" : "-translate-x-full",
+        "top-0 left-0 bottom-5 z-20 bg-white transition-transform h-auto w-[22rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
       )}
     >
-      {/* <Disclosure.Button
-        onClick={() => close()}
-        className="absolute right-4 top-1 inline-flex items-center justify-center rounded-md p-2 dark:text-white text-gray-900 hover:dark:bg-gray-700 hover:dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-      >
+      <Disclosure.Button className="absolute right-4 xl:hidden top-1 inline-flex items-center justify-center rounded-md p-2 dark:text-white text-gray-900 hover:dark:bg-gray-700 hover:dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
         <span className="sr-only">Close button</span>
-        <FontAwesomeIcon icon={faClose} className="h-5 text-gray-800 " />
-      </Disclosure.Button> */}
+        <FontAwesomeIcon icon={faClose} className="h-5 text-gray-800" />
+      </Disclosure.Button>
 
       <div className="space-y-3">
         <div className="py-6 flex justify-center items-center flex-col space-y-3 border-b-2 border-port-gray/30">
@@ -69,8 +66,12 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
           </div>
 
           <div className="text-center">
-            <h3 className="text-xl font-medium font-inter capitalize text-port-black">yunus abbas opeyemi</h3>
-            <p className="font-normal font-inter text-lg text-port-gray capitalize">front-end developer</p>
+            <h3 className="text-xl font-medium font-inter capitalize text-port-black">
+              yunus abbas opeyemi
+            </h3>
+            <p className="font-normal font-inter text-lg text-port-gray capitalize">
+              front-end developer
+            </p>
           </div>
 
           <div className="inline-flex space-x-4 mt-4">
@@ -130,7 +131,9 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
 
             <li className="space-y-2">
               <div className="flex justify-between items-center">
-                <span className="capitalize text-lg font-normal font-inter text-port-gray">yoruba:</span>
+                <span className="capitalize text-lg font-normal font-inter text-port-gray">
+                  yoruba:
+                </span>
                 <span className="text-lg font-inter font-normal text-port-gray">90%</span>
               </div>
               <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-[90%] before:bg-port-yellow before:h-1 before:rounded-md'></span>
@@ -143,21 +146,27 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
           <ul className="space-y-1.5">
             <li className="space-y-1.5">
               <div className="flex justify-between items-center">
-                <span className="capitalize text-lg font-normal font-inter text-port-gray">html:</span>
+                <span className="capitalize text-lg font-normal font-inter text-port-gray">
+                  html:
+                </span>
                 <span className="text-lg font-inter font-normal text-port-gray">90%</span>
               </div>
               <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-[90%] before:bg-port-yellow before:h-1 before:rounded-md'></span>
             </li>
             <li className="space-y-2">
               <div className="flex justify-between items-center">
-                <span className="uppercase text-lg font-normal font-inter text-port-gray">css:</span>
+                <span className="uppercase text-lg font-normal font-inter text-port-gray">
+                  css:
+                </span>
                 <span className="text-lg font-inter font-normal text-port-gray">75%</span>
               </div>
               <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></span>
             </li>
             <li className="space-y-2">
               <div className="flex justify-between items-center">
-                <span className="capitalize text-lg font-normal font-inter text-port-gray">js:</span>
+                <span className="capitalize text-lg font-normal font-inter text-port-gray">
+                  js:
+                </span>
                 <span className="text-lg font-inter font-normal text-port-gray">75%</span>
               </div>
               <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></span>
@@ -166,7 +175,9 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
         </div>
 
         <div className="space-y-3 py-3 border-b-2 border-port-gray/30">
-          <h1 className="text-xl font-inter font-medium text-port-black capitalize">extra skills</h1>
+          <h1 className="text-xl font-inter font-medium text-port-black capitalize">
+            extra skills
+          </h1>
           <ul className="space-y-3 flex flex-col items-start">
             <li className="space-x-2 inline-flex items-center">
               <svg
@@ -198,7 +209,9 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
                 <rect x="0.5" y="0.5" width="9" height="9" stroke="#FFB400" />
                 <rect x="5.5" y="5.5" width="9" height="9" stroke="#FFB400" />
               </svg>
-              <small className="text-lg capitalize text-port-gray font-inter font-medium">sass</small>
+              <small className="text-lg capitalize text-port-gray font-inter font-medium">
+                sass
+              </small>
             </li>
             <li className="space-x-2 inline-flex items-center">
               <svg
@@ -230,7 +243,9 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
                 <rect x="0.5" y="0.5" width="9" height="9" stroke="#FFB400" />
                 <rect x="5.5" y="5.5" width="9" height="9" stroke="#FFB400" />
               </svg>
-              <small className="text-lg capitalize text-port-gray font-inter font-medium">webpack</small>
+              <small className="text-lg capitalize text-port-gray font-inter font-medium">
+                webpack
+              </small>
             </li>
           </ul>
         </div>

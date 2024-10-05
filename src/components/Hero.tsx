@@ -21,7 +21,7 @@ export const HeroSection = () => {
     <Disclosure
       as="section"
       id="home"
-      className="flex justify-start items-start sm:justify-center sm:items-center h-screen p-4 w-full"
+      className="flex justify-start items-start sm:justify-center sm:items-center p-4 w-full"
     >
       <div className="relative w-full">
         <div className="absolute bg-gradient-to-r inset-5 z-0 from-port-yellow to-port-yellow/20 transform -skew-y-6 md:skew-y-0 md:-rotate-6 rounded-lg"></div>

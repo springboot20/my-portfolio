@@ -5,9 +5,9 @@ import { truncate } from "../utils";
 export const Contact = () => {
   return (
     <section className="p-4" id="contact">
-      <div className="flex gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         {/* contact form start */}
-        <div className="space-y-4 max-w-3xl w-full">
+        <div className="space-y-4 xl:max-w-3xl w-full">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">
             Send me a Message
           </h1>
@@ -65,7 +65,7 @@ export const Contact = () => {
               ></textarea>
             </div>
 
-            <button className="text-xl font-semibold text-gray-700 uppercase bg-port-yellow rounded-lg py-3.5 px-6">
+            <button className="text-lg font-semibold font-inter text-gray-700 uppercase bg-port-yellow rounded-lg py-3 px-6">
               Send Message
             </button>
           </form>
@@ -73,7 +73,7 @@ export const Contact = () => {
         {/* contact form ends */}
 
         {/* contact information start */}
-        <div className="space-y-4 max-w-2xl flex-grow flex-shrink-0">
+        <div className="space-y-4 xl:max-w-2xl w-full xl:flex-grow xl:flex-shrink-0">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">
             Contact Information
           </h1>
