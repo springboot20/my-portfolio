@@ -21,12 +21,12 @@ export const HeroSection = () => {
     <Disclosure
       as="section"
       id="home"
-      className="flex justify-start items-start sm:justify-center sm:items-center lg:min-h-[70vh] p-4 w-full"
+      className="flex justify-start items-start sm:justify-center sm:items-center h-screen p-4 w-full"
     >
       <div className="relative w-full">
-        <div className="absolute max-w-7xl mx-auto bg-gradient-to-r inset-5 z-0 from-port-yellow to-port-yellow/20 transform -skew-y-6 md:skew-y-0 md:-rotate-6 rounded-lg"></div>
-        <div className="relative max-w-7xl mx-auto z-10 flex items-center flex-col md:flex-row bg-white p-4 sm:p-8 rounded-lg overflow-hidden">
-          <div className="space-y-6 max-w-2xl">
+        <div className="absolute bg-gradient-to-r inset-5 z-0 from-port-yellow to-port-yellow/20 transform -skew-y-6 md:skew-y-0 md:-rotate-6 rounded-lg"></div>
+        <div className="relative z-10 flex items-center flex-col md:flex-row lg:h-[467px] bg-white p-4 sm:p-8 rounded-lg overflow-hidden">
+          <div className="space-y-6 max-w-2xl lg:max-w-3xl">
             <h1
               className="text-2xl sm:text-3xl xl:text-5xl !leading-[1.2] font-inter font-bold text-port-black capitalize"
               id="developer-name"
@@ -37,7 +37,7 @@ export const HeroSection = () => {
             </h1>
 
             <p
-              className="text-base sm:text-lg font-inter font-normal text-port-gray"
+              className="text-lg sm:text-xl font-inter font-normal text-port-gray !leading-relaxed"
               id="developer-description"
             >
               A passionate Front-end developer with a zeal for crafting intuitive and responsive
@@ -52,7 +52,7 @@ export const HeroSection = () => {
               </button>
             </Link>
           </div>
-          <div className="relative w-full flex items-center justify-center -bottom-8">
+          <div className="relative w-full flex items-center justify-center lg:h-[25rem]">
             <img
               src={ProfileImage}
               alt="profile avatar"
