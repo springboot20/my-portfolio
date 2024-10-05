@@ -14,11 +14,10 @@ import myCV from "../../assets/my-cv.pdf";
 import { Disclosure } from "@headlessui/react";
 
 type DetailPanelProps = {
-  close: (focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>) => void;
   open: boolean;
 };
 
-export const DetailPanel: React.FC<DetailPanelProps> = ({ close, open }) => {
+export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
   const socialLinks: { to: string; icon: JSX.Element; name: string }[] = [
     {
       to: "#facebook",

@@ -8,10 +8,10 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 export default function PortfolioLayout() {
   return (
     <Disclosure>
-      {({ open, close }) => (
+      {({ open }) => (
         <Fragment>
           <div className="relative flex items-stretch flex-shrink-0">
-            <DetailPanel open={open} close={close} />
+            <DetailPanel open={open}/>
             <div className="absolute left-0 xl:left-[22rem] w-full xl:w-[calc(100%-22rem)] min-h-screen">
               <Outlet />
             </div>
