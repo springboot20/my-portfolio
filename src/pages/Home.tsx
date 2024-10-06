@@ -6,6 +6,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 import { Portfolio } from "../components/Portfolio";
 import { Contact } from "../components/Contact";
 import ServiceSection from "../components/Service";
+import Footer from "../components/Footer";
 
 export const Home = () => {
   return (
@@ -39,6 +40,8 @@ export const Home = () => {
         <Contact />
       </ScrollReveal>
       {/* Contact section ends */}
+
+      <Footer />
     </Fragment>
   );
 };
