@@ -8,56 +8,51 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faClose, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import myCV from "../../assets/my-cv.pdf";
-import { Disclosure } from "@headlessui/react";
+import { motion } from "framer-motion";
 
 type DetailPanelProps = {
   open: boolean;
 };
 
-export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
-  const socialLinks: { to: string; icon: JSX.Element; name: string }[] = [
-    {
-      to: "#facebook",
-      name: "Facebook icon",
-      icon: <FontAwesomeIcon icon={faFacebook} className="h-5 text-gray-800" />,
-    },
-    {
-      to: "#instagram",
-      name: "Instagram icon",
-      icon: <FontAwesomeIcon icon={faInstagram} className="h-5 text-gray-800" />,
-    },
-    {
-      to: "#twitter",
-      name: "Twitter icon",
-      icon: <FontAwesomeIcon icon={faTwitter} className="h-5 text-gray-800" />,
-    },
-    {
-      to: "#linkedin",
-      name: "Linkedin icon",
-      icon: <FontAwesomeIcon icon={faLinkedin} className="h-5 text-gray-800" />,
-    },
-    {
-      to: "https://github.com/springboot20/",
-      icon: <FontAwesomeIcon icon={faGithub} className="h-5 text-gray-800" />,
-      name: "Github icon",
-    },
-  ];
+const socialLinks: { to: string; icon: JSX.Element; name: string }[] = [
+  {
+    to: "#facebook",
+    name: "Facebook icon",
+    icon: <FontAwesomeIcon icon={faFacebook} className="h-5 text-gray-800" />,
+  },
+  {
+    to: "#instagram",
+    name: "Instagram icon",
+    icon: <FontAwesomeIcon icon={faInstagram} className="h-5 text-gray-800" />,
+  },
+  {
+    to: "#twitter",
+    name: "Twitter icon",
+    icon: <FontAwesomeIcon icon={faTwitter} className="h-5 text-gray-800" />,
+  },
+  {
+    to: "#linkedin",
+    name: "Linkedin icon",
+    icon: <FontAwesomeIcon icon={faLinkedin} className="h-5 text-gray-800" />,
+  },
+  {
+    to: "https://github.com/springboot20/",
+    icon: <FontAwesomeIcon icon={faGithub} className="h-5 text-gray-800" />,
+    name: "Github icon",
+  },
+];
 
+export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
   return (
     <div
       className={classNames(
-        open ? "translate-x-0 fixed" : "-translate-x-full",
-        "top-0 left-0 bottom-5 z-20 bg-white transition-transform h-auto w-[22rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
+        open ? "translate-x-0 fixed overflow-y-scroll h-screen" : "-translate-x-full",
+        "top-0 left-0 bottom-5 z-20 bg-white transition-transform xl:h-auto w-[22rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
       )}
     >
-      <Disclosure.Button className="absolute right-4 xl:hidden top-1 inline-flex items-center justify-center rounded-md p-2 dark:text-white text-gray-900 hover:dark:bg-gray-700 hover:dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-        <span className="sr-only">Close button</span>
-        <FontAwesomeIcon icon={faClose} className="h-5 text-gray-800" />
-      </Disclosure.Button>
-
       <div className="space-y-3">
         <div className="py-6 flex justify-center items-center flex-col space-y-3 border-b-2 border-port-gray/30">
           <div className="relative flex items-center justify-center overflow-hidden h-32 w-32 rounded-full">
@@ -92,40 +87,40 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
 
         <ul className="space-y-4 border-b-2 border-port-gray/30 py-3  ">
           <li className="flex justify-between items-center">
-            <p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
+            <motion.p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
               age:
-            </p>
-            <p className="text-lg font-inter font-normal text-port-gray">20</p>
+            </motion.p>
+            <motion.p className="text-lg font-inter font-normal text-port-gray">20</motion.p>
           </li>
           <li className="flex justify-between items-center">
-            <p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
+            <motion.p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
               residence:
-            </p>
+            </motion.p>
             <p className="text-lg font-inter font-normal text-port-gray">20</p>
           </li>
           <li className="flex justify-between items-center">
-            <p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
+            <motion.p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
               freelance:
-            </p>
+            </motion.p>
             <p className="text-lg font-inter font-normal text-port-green capitalize">available</p>
           </li>
           <li className="flex justify-between items-center">
-            <p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
+            <motion.p className="block py-1.5 px-2 bg-port-yellow capitalize text-base font-normal font-inter text-port-black">
               address:
-            </p>
-            <p className="text-lg font-inter font-normal text-port-gray">20</p>
+            </motion.p>
+            <motion.p className="text-lg font-inter font-normal text-port-gray">20</motion.p>
           </li>
         </ul>
 
         <div className="space-y-3 py-3 border-b-2 border-port-gray/30">
           <h1 className="text-xl font-medium font-inter text-port-black capitalize">languages</h1>
-          <ul className="space-y-1.5">
-            <li className="space-y-1">
+          <ul className="space-y-1.5 language-list">
+            <li className="space-y-1 language-item">
               <div className="flex justify-between items-center">
                 <p className="capitalize text-lg font-normal font-inter text-port-gray">english:</p>
                 <p className="text-lg font-inter font-normal text-port-gray">75%</p>
               </div>
-              <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></span>
+              <motion.span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></motion.span>
             </li>
 
             <li className="space-y-2">
@@ -135,7 +130,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
                 </span>
                 <span className="text-lg font-inter font-normal text-port-gray">90%</span>
               </div>
-              <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-[90%] before:bg-port-yellow before:h-1 before:rounded-md'></span>
+              <motion.span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-[90%] before:bg-port-yellow before:h-1 before:rounded-md'></motion.span>
             </li>
           </ul>
         </div>
@@ -150,7 +145,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
                 </span>
                 <span className="text-lg font-inter font-normal text-port-gray">90%</span>
               </div>
-              <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-[90%] before:bg-port-yellow before:h-1 before:rounded-md'></span>
+              <motion.span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-[90%] before:bg-port-yellow before:h-1 before:rounded-md'></motion.span>
             </li>
             <li className="space-y-2">
               <div className="flex justify-between items-center">
@@ -159,7 +154,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
                 </span>
                 <span className="text-lg font-inter font-normal text-port-gray">75%</span>
               </div>
-              <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></span>
+              <motion.span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></motion.span>
             </li>
             <li className="space-y-2">
               <div className="flex justify-between items-center">
@@ -168,7 +163,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
                 </span>
                 <span className="text-lg font-inter font-normal text-port-gray">75%</span>
               </div>
-              <span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></span>
+              <motion.span className='block rounded-md ring-1 ring-offset-1 ring-port-yellow w-full h-1 relative before:absolute before:content-[""] before:w-3/4 before:bg-port-yellow before:h-1 before:rounded-md'></motion.span>
             </li>
           </ul>
         </div>
@@ -249,11 +244,13 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
           </ul>
         </div>
 
-        <Link to={"/"} download={myCV} className="mt-4 block">
-          <button className="w-full text-lg sm:text-xl font-inter font-medium uppercase py-2.5 px-8 bg-port-yellow flex items-center space-x-3 justify-center">
-            <small>download cv</small>
-            <FontAwesomeIcon icon={faDownload} className="h-5 text-gray-800" />
-          </button>
+        <Link
+          to={"/"}
+          download={myCV}
+          className="w-full text-lg sm:text-xl font-inter font-medium uppercase py-2.5 px-8 bg-port-yellow flex items-center space-x-3 justify-center mt-4"
+        >
+          <small>download cv</small>
+          <FontAwesomeIcon icon={faDownload} className="h-5 text-gray-800" />
         </Link>
       </div>
     </div>

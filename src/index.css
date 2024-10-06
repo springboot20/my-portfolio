@@ -70,4 +70,14 @@
   .university-description {
     @apply text-base sm:text-xl font-semibold text-port-gray flex items-center text-justify capitalize space-x-10;
   }
+
+  .language-list{
+
+  }
+
+
+
+  @keyframes loader {
+    
+  }
 }
