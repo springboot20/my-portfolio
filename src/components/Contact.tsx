@@ -7,7 +7,7 @@ export const Contact = () => {
     <section className="p-4" id="contact">
       <div className="flex flex-col lg:flex-row gap-4">
         {/* contact form start */}
-        <div className="space-y-4 xl:max-w-3xl w-full">
+        <div className="space-y-4 xl:max-w-4xl w-full">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">
             Send me a Message
           </h1>
@@ -73,7 +73,7 @@ export const Contact = () => {
         {/* contact form ends */}
 
         {/* contact information start */}
-        <div className="space-y-4 xl:max-w-2xl w-full xl:flex-grow xl:flex-shrink-0">
+        <div className="space-y-4 xl:max-w-md w-full">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">
             Contact Information
           </h1>
