@@ -22,7 +22,7 @@ export const Contact = () => {
               <input
                 type="text"
                 aria-label="full-name"
-                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700"
+                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-sm font-normal font-inter text-gray-700"
               />
             </div>
 
@@ -36,7 +36,7 @@ export const Contact = () => {
               <input
                 type="email"
                 aria-label="email"
-                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700"
+                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-sm font-normal font-inter text-gray-700"
               />
             </div>
 
@@ -47,7 +47,7 @@ export const Contact = () => {
               <input
                 type="text"
                 aria-label="subject"
-                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700"
+                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-sm font-normal font-inter text-gray-700"
               />
             </div>
 
@@ -61,7 +61,7 @@ export const Contact = () => {
               <textarea
                 rows={5}
                 aria-label="message"
-                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-xl font-medium text-gray-700"
+                className="w-full block px-3 py-2.5 border border-gray-300 bg-[#F0F0F6] rounded-md focus:ring-1 focus:ring-port-yellow outline-port-yellow outline-1 text-sm font-normal font-inter text-gray-700"
               ></textarea>
             </div>
 
