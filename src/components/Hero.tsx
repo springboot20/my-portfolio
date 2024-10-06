@@ -46,9 +46,9 @@ export const HeroSection = () => {
             </p>
 
             <Link to="#" className="inline-block" id="hire-button">
-              <button className="text-base sm:text-lg font-inter font-medium py-3.5 px-8 space-x-5 rounded-md bg-port-yellow flex items-center justify-center uppercase">
+              <button className="text-base sm:text-lg font-inter font-medium py-3 px-6 space-x-3 rounded-md bg-port-yellow flex items-center justify-center uppercase">
                 <span>hire me</span>
-                <FontAwesomeIcon icon={faArrowRight} className="h-6 text-port-black" />
+                <FontAwesomeIcon icon={faArrowRight} className="h-5 text-port-black" />
               </button>
             </Link>
           </div>
