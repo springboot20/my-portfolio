@@ -65,7 +65,6 @@ export const HeroSection = () => {
   };
 
   useEffect(() => {
-    console.log(inView);
     if (inView) {
       control.start("final");
     } else {
@@ -94,7 +93,7 @@ export const HeroSection = () => {
           initial="initial"
           className="absolute bg-gradient-to-r inset-5 z-0 from-port-yellow to-port-yellow/20 rounded-lg"
         ></motion.div>
-        <div className="relative z-10 flex items-center flex-col md:flex-row lg:h-[467px] bg-white p-4 sm:p-8 rounded-lg overflow-hidden">
+        <motion.div className="relative z-10 flex items-center flex-col md:flex-row lg:h-[467px] bg-white p-4 sm:p-8 rounded-lg">
           <motion.div
             ref={ref}
             variants={descriptionVariants}
@@ -145,12 +144,8 @@ export const HeroSection = () => {
               id="developer-img"
             />
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </Disclosure>
   );
 };
-
-/*
- * 08029150459
- */
