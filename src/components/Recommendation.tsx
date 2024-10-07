@@ -1,14 +1,42 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
-import { scrollReveal } from "../utils/scrollreveal.config";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const Recommendation = () => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  const containerVariants = {
+    final: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const cardItemVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+
+    final: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
   useEffect(() => {
-    scrollReveal.reveal("#developer-recommendation-rating", {});
-    scrollReveal.reveal("#developer-recommendation-title", {});
-    scrollReveal.reveal("#developer-recommendation-info", { delay: 250 });
-    scrollReveal.reveal("#developer-recommendation-profile", { interval: 300 });
+    if (inView) {
+      control.start("final");
+    } else {
+      control.start("initial");
+    }
   });
 
   return (
@@ -24,8 +52,20 @@ export const Recommendation = () => {
           </p>
         </header>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          <div className="card">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="initial"
+          animate={control}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+        >
+          <motion.div
+            ref={ref}
+            animate={control}
+            initial="initial"
+            variants={cardItemVariants}
+            className="card"
+          >
             <div className="ratings" id="developer-recommendation-rating">
               <FontAwesomeIcon icon={faStar} className="icon" />
               <FontAwesomeIcon icon={faStar} className="icon" />
@@ -52,8 +92,14 @@ export const Recommendation = () => {
                 </p>
               </div>
             </div>
-          </div>
-          <div className="card">
+          </motion.div>
+          <motion.div
+            ref={ref}
+            animate={control}
+            initial="initial"
+            variants={cardItemVariants}
+            className="card"
+          >
             <div className="ratings" id="developer-recommendation-rating">
               <FontAwesomeIcon icon={faStar} className="icon" />
               <FontAwesomeIcon icon={faStar} className="icon" />
@@ -80,9 +126,15 @@ export const Recommendation = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="card">
+          <motion.div
+            ref={ref}
+            animate={control}
+            initial="initial"
+            variants={cardItemVariants}
+            className="card"
+          >
             <div className="ratings" id="developer-recommendation-rating">
               <FontAwesomeIcon icon={faStar} className="icon" />
               <FontAwesomeIcon icon={faStar} className="icon" />
@@ -109,8 +161,8 @@ export const Recommendation = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -46,23 +46,9 @@ const socialLinks: { to: string; icon: JSX.Element; name: string }[] = [
 ];
 
 export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
-  const variants = {
-    initial: {
-      x: -300,
-      opacity: 0,
-    },
-
-    final: {
-      opacity: 1,
-      x: 0,
-    },
-  };
 
   return (
-    <motion.div
-      variants={variants}
-      animate={"final"}
-      initial="initial"
+    <div
       className={classNames(
         open ? "translate-x-0 fixed overflow-y-scroll h-screen" : "-translate-x-full",
         "top-0 left-0 bottom-5 z-20 bg-white transition-transform xl:h-auto w-[22rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
@@ -272,6 +258,6 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
           <FontAwesomeIcon icon={faDownload} className="h-5 text-gray-800" />
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 };

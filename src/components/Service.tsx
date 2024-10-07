@@ -1,4 +1,43 @@
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
 export default function ServiceSection() {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  const containerVariants = {
+    final: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const cardItemVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+
+    final: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: "easeInOut",
+        duration: 0.6,
+      },
+    },
+  };
+
+  useEffect(() => {
+    if (inView) {
+      control.start("final");
+    } else {
+      control.start("initial");
+    }
+  });
+
   return (
     <section className="p-4">
       <div className="">
@@ -10,8 +49,20 @@ export default function ServiceSection() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-6">
-          <div className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="initial"
+          animate={control}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8 gap-6"
+        >
+          <motion.div
+            ref={ref}
+            animate={control}
+            initial="initial"
+            variants={cardItemVariants}
+            className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border"
+          >
             <svg
               width="68"
               height="68"
@@ -45,9 +96,15 @@ export default function ServiceSection() {
                 blog, e-commerce
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border">
+          <motion.div
+            ref={ref}
+            animate={control}
+            initial="initial"
+            variants={cardItemVariants}
+            className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border"
+          >
             <svg
               width="68"
               height="68"
@@ -55,7 +112,7 @@ export default function ServiceSection() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_2_6426)">
+              <g clipPath="url(#clip0_2_6426)">
                 <path
                   d="M31.6094 49.3384C31.0591 49.3384 30.6133 49.7844 30.6133 50.3345C30.6133 50.8846 31.0591 51.3306 31.6094 51.3306H36.3906C36.9409 51.3306 37.3867 50.8846 37.3867 50.3345C37.3867 49.7844 36.9409 49.3384 36.3906 49.3384H31.6094Z"
                   fill="#FFB400"
@@ -98,9 +155,15 @@ export default function ServiceSection() {
                 mobile app, website design
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border">
+          <motion.div
+            ref={ref}
+            animate={control}
+            initial="initial"
+            variants={cardItemVariants}
+            className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border"
+          >
             <svg
               width="82"
               height="82"
@@ -206,11 +269,11 @@ export default function ServiceSection() {
             <div className="space-y-4 text-center">
               <h3 className="font-inter font-medium text-lg sm:text-xl capitalize">game design</h3>
               <p className="font-inter font-normal text-lg capitalize text-port-gray">
-              Character Design, Props & Objects
+                Character Design, Props & Objects
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
