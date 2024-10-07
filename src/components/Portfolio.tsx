@@ -46,13 +46,10 @@ export const Portfolio = () => {
 
   return (
     <section
-      className="p-4"
+      className="p-4 lg:h-[70vh]"
       id="projects"
-      style={{
-        perspective: "1000px",
-      }}
     >
-      <div className="mx-auto max-w-8xl">
+      <div className="h-full flex flex-col justify-center w-full items-center">
         <header className="text-center space-y-4 max-w-xl mx-auto">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">Projects</h1>
           <p className="text-lg font-inter font-normal text-port-gray">
@@ -66,7 +63,7 @@ export const Portfolio = () => {
           variants={containerVariants}
           initial="initial"
           animate={control}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full"
         >
           {projects.map((project) => {
             return (

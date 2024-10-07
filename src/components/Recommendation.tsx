@@ -40,8 +40,8 @@ export const Recommendation = () => {
   });
 
   return (
-    <section className="p-4" id="recommendation">
-      <div className="mx-auto max-w-8xl">
+    <section className="p-4 lg:h-[70vh]" id="recommendation">
+      <div className="h-full flex justify-center items-center flex-col">
         <header className="text-center space-y-4 max-w-2xl mx-auto">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">
             recommendations

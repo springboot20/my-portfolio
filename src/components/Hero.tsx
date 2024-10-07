@@ -84,7 +84,7 @@ export const HeroSection = () => {
     <Disclosure
       as="section"
       id="home"
-      className="flex justify-start items-start sm:justify-center sm:items-center p-4 w-full mt-8"
+      className="flex justify-start items-start sm:justify-center sm:items-center lg:h-[90vh] p-4 w-full mt-8"
     >
       <div className="relative w-full">
         <motion.div

@@ -39,8 +39,8 @@ export default function ServiceSection() {
   });
 
   return (
-    <section className="p-4">
-      <div className="">
+    <section className="p-4 lg:h-[70vh] ">
+      <div className="h-full flex justify-center items-center flex-col">
         <header className="text-center space-y-4 max-w-xl mx-auto">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">my sevice</h1>
           <p className="text-lg font-inter font-normal text-port-gray">
@@ -54,7 +54,7 @@ export default function ServiceSection() {
           variants={containerVariants}
           initial="initial"
           animate={control}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 w-full lg:grid-cols-3 mt-8 gap-6"
         >
           <motion.div
             ref={ref}
