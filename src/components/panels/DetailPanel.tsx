@@ -1,5 +1,5 @@
 import { classNames } from "../../utils";
-import ProfileImg from "../../assets/my-pics.jpg";
+import ProfileImg from "../../assets/hero-image.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -46,8 +46,23 @@ const socialLinks: { to: string; icon: JSX.Element; name: string }[] = [
 ];
 
 export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
+  const variants = {
+    initial: {
+      x: -300,
+      opacity: 0,
+    },
+
+    final: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
   return (
-    <div
+    <motion.div
+      variants={variants}
+      animate={"final"}
+      initial="initial"
       className={classNames(
         open ? "translate-x-0 fixed overflow-y-scroll h-screen" : "-translate-x-full",
         "top-0 left-0 bottom-5 z-20 bg-white transition-transform xl:h-auto w-[22rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
@@ -55,8 +70,12 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
     >
       <div className="space-y-3">
         <div className="py-6 flex justify-center items-center flex-col space-y-3 border-b-2 border-port-gray/30">
-          <div className="relative flex items-center justify-center overflow-hidden h-32 w-32 rounded-full">
-            <img src={ProfileImg} className="absolute" alt="profile img" />
+          <div className="relative flex items-center justify-center overflow-hidden h-32 w-32 rounded-full border">
+            <img
+              src={ProfileImg}
+              className="h-full w-full object-cover object-top"
+              alt="profile img"
+            />
           </div>
 
           <div className="text-center">
@@ -253,6 +272,6 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
           <FontAwesomeIcon icon={faDownload} className="h-5 text-gray-800" />
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
