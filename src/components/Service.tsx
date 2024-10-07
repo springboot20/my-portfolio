@@ -9,7 +9,7 @@ export default function ServiceSection() {
   const containerVariants = {
     final: {
       transition: {
-        staggerChildren: 0.25,
+        staggerChildren: 0.35,
       },
     },
   };
