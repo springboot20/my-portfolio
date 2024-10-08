@@ -17,7 +17,7 @@ export default function PortfolioLayout() {
             </div>
             <Disclosure.Button
               className={
-                "fixed xl:hidden bottom-3 right-5 z-10 text-gray-900 h-8 w-8 flex items-center justify-center border rounded-md"
+                "fixed xl:hidden bottom-10 right-5 z-10 text-gray-900 h-8 w-8 flex items-center justify-center border rounded-md"
               }
             >
               {open ? (
