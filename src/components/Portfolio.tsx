@@ -21,19 +21,21 @@ export const Portfolio = () => {
     },
   };
 
-  const cardItemVariants = {
-    initial: {
-      opacity: 0,
-      y: 100,
-    },
-
-    final: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
+  const cardItemVariants = (delay: number) => {
+    return {
+      initial: {
+        opacity: 0,
+        y: 100,
       },
-    },
+
+      final: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.5 + delay / 10,
+        },
+      },
+    };
   };
 
   useEffect(() => {
@@ -45,10 +47,7 @@ export const Portfolio = () => {
   });
 
   return (
-    <section
-      className="p-4 lg:h-[70vh]"
-      id="projects"
-    >
+    <section className="p-4 lg:h-[70vh]" id="projects">
       <div className="h-full flex flex-col justify-center w-full items-center">
         <header className="text-center space-y-4 max-w-xl mx-auto">
           <h1 className="text-port-black text-3xl font-inter font-bold capitalize">Projects</h1>
@@ -65,13 +64,13 @@ export const Portfolio = () => {
           animate={control}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full"
         >
-          {projects.map((project) => {
+          {projects.map((project, i) => {
             return (
               <motion.div
                 ref={ref}
                 animate={control}
                 initial="initial"
-                variants={cardItemVariants}
+                variants={{ ...cardItemVariants(i) }}
                 className="group space-y-0  card overflow-hidden relative p-0 h-[15rem] w-full"
                 key={project.url}
               >

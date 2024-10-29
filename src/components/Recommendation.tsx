@@ -16,19 +16,40 @@ export const Recommendation = () => {
     },
   };
 
-  const cardItemVariants = {
-    initial: {
-      opacity: 0,
-      y: 100,
-    },
-
-    final: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
+  const cardItemVariants = (delay: number) => {
+    return {
+      initial: {
+        opacity: 0,
+        y: 100,
       },
-    },
+
+      final: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.5 + delay / 10,
+        },
+      },
+    };
+  };
+
+  const stars = (delay: number) => {
+    return {
+      initial: {
+        x: -100,
+        y: 100,
+        opacity: 0,
+      },
+
+      final: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+          delay: 0.1 + delay / 2,
+        },
+      },
+    };
   };
 
   useEffect(() => {
@@ -63,16 +84,24 @@ export const Recommendation = () => {
             ref={ref}
             animate={control}
             initial="initial"
-            variants={cardItemVariants}
+            variants={{ ...cardItemVariants(1) }}
             className="card"
           >
-            <div className="ratings" id="developer-recommendation-rating">
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-            </div>
+            <motion.div className="ratings" id="developer-recommendation-rating">
+              {Array(5)
+                .fill("-")
+                .map((_, i) => (
+                  <motion.span
+                    key={i}
+                    ref={ref}
+                    animate={control}
+                    initial="initial"
+                    variants={{ ...stars(i) }}
+                  >
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                  </motion.span>
+                ))}
+            </motion.div>
             <div className="card-body">
               <h3 className="card-title" id="developer-recommendation-title">
                 great quality
@@ -97,15 +126,23 @@ export const Recommendation = () => {
             ref={ref}
             animate={control}
             initial="initial"
-            variants={cardItemVariants}
+            variants={{ ...cardItemVariants(2) }}
             className="card"
           >
             <div className="ratings" id="developer-recommendation-rating">
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
+              {Array(5)
+                .fill("-")
+                .map((_, i) => (
+                  <motion.span
+                    key={i}
+                    ref={ref}
+                    animate={control}
+                    initial="initial"
+                    variants={{ ...stars(i) }}
+                  >
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                  </motion.span>
+                ))}
             </div>
             <div className="card-body">
               <h3 className="card-title" id="developer-recommendation-title">
@@ -132,15 +169,23 @@ export const Recommendation = () => {
             ref={ref}
             animate={control}
             initial="initial"
-            variants={cardItemVariants}
+            variants={{ ...cardItemVariants(3) }}
             className="card"
           >
             <div className="ratings" id="developer-recommendation-rating">
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
-              <FontAwesomeIcon icon={faStar} className="icon" />
+              {Array(5)
+                .fill("-")
+                .map((_, i) => (
+                  <motion.span
+                    key={i}
+                    ref={ref}
+                    animate={control}
+                    initial="initial"
+                    variants={{ ...stars(i) }}
+                  >
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                  </motion.span>
+                ))}
             </div>
             <div className="card-body">
               <h3 className="card-title" id="developer-recommendation-title">

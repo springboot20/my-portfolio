@@ -14,20 +14,21 @@ export default function ServiceSection() {
     },
   };
 
-  const cardItemVariants = {
-    initial: {
-      opacity: 0,
-      y: 100,
-    },
-
-    final: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: "easeInOut",
-        duration: 0.6,
+  const cardItemVariants = (delay: number) => {
+    return {
+      initial: {
+        opacity: 0,
+        y: 100,
       },
-    },
+
+      final: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.5 + delay / 10,
+        },
+      },
+    };
   };
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function ServiceSection() {
             ref={ref}
             animate={control}
             initial="initial"
-            variants={cardItemVariants}
+            variants={{ ...cardItemVariants(1) }}
             className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border"
           >
             <svg
@@ -102,7 +103,7 @@ export default function ServiceSection() {
             ref={ref}
             animate={control}
             initial="initial"
-            variants={cardItemVariants}
+            variants={{ ...cardItemVariants(2) }}
             className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border"
           >
             <svg
@@ -161,7 +162,7 @@ export default function ServiceSection() {
             ref={ref}
             animate={control}
             initial="initial"
-            variants={cardItemVariants}
+            variants={{ ...cardItemVariants(3) }}
             className="bg-white rounded-md p-6 flex flex-col items-center justify-center gap-4 border"
           >
             <svg
