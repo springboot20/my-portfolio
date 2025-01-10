@@ -1,6 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { scrollReveal } from "../utils/scrollreveal.config";
 
 export default function ServiceSection() {
   const control = useAnimation();
@@ -39,12 +40,23 @@ export default function ServiceSection() {
     }
   });
 
+  useEffect(() => {
+    scrollReveal.reveal("#service-title", { origin: "bottom" });
+    scrollReveal.reveal("#service-description", { origin: "bottom", delay: 400 });
+  }, []);
+
   return (
     <section className="p-4 lg:h-[70vh] ">
-      <div className="h-full flex justify-center items-center flex-col">
+      <div className="h-full flex justify-center items-center sm:h-auto flex-col">
         <header className="text-center space-y-4 max-w-xl mx-auto">
-          <h1 className="text-port-black text-3xl font-inter font-bold capitalize">my sevice</h1>
-          <p className="text-lg font-inter font-normal text-port-gray">
+          <h1
+            id="service-title"
+            className="text-port-black text-3xl font-inter font-bold capitalize"
+          >
+            my sevice
+          </h1>
+
+          <p className="text-lg font-inter font-normal text-port-gray" id="service-description">
             A testament to creativity and technical prowess, these showcase my learning and
             experience roadmap.
           </p>

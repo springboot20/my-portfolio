@@ -6,6 +6,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { scrollReveal } from "../utils/scrollreveal.config";
 
 export const Portfolio = () => {
   const projects = projectsData;
@@ -46,12 +47,22 @@ export const Portfolio = () => {
     }
   });
 
+  useEffect(() => {
+    scrollReveal.reveal("#portfolio-title", { delay: 400 });
+    scrollReveal.reveal("#portfolio-description", { delay: 400, origin: "bottom" });
+  }, []);
+
   return (
-    <section className="p-4 lg:h-[70vh]" id="projects">
-      <div className="h-full flex flex-col justify-center w-full items-center">
+    <section className="p-4 " id="projects">
+      <div className="flex flex-col justify-center h-full sm:h-auto items-center">
         <header className="text-center space-y-4 max-w-xl mx-auto">
-          <h1 className="text-port-black text-3xl font-inter font-bold capitalize">Projects</h1>
-          <p className="text-lg font-inter font-normal text-port-gray">
+          <h1
+            id="portfolio-title"
+            className="text-port-black text-3xl font-inter font-bold capitalize"
+          >
+            Projects
+          </h1>
+          <p id="portfolio-description" className="text-lg font-inter font-normal text-port-gray">
             A testament to creativity and technical prowess, these showcase my learning and
             experience roadmap.
           </p>

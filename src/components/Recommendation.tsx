@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { scrollReveal } from "../utils/scrollreveal.config";
 
 export const Recommendation = () => {
   const control = useAnimation();
@@ -60,14 +61,22 @@ export const Recommendation = () => {
     }
   });
 
+  useEffect(() => {
+    scrollReveal.reveal("#recommendation-title", { origin: "bottom" });
+    scrollReveal.reveal("#recommendation-description", { origin: "bottom", delay: 400 });
+  }, []);
+
   return (
     <section className="p-4 lg:h-[70vh]" id="recommendation">
-      <div className="h-full flex justify-center items-center flex-col">
+      <div className="h-full flex justify-center items-center flex-col sm:h-auto">
         <header className="text-center space-y-4 max-w-2xl mx-auto">
-          <h1 className="text-port-black text-3xl font-inter font-bold capitalize">
+          <h1
+            id="recommendation-title"
+            className="text-port-black text-3xl font-inter font-bold capitalize"
+          >
             recommendations
           </h1>
-          <p className="text-base font-normal text-port-gray">
+          <p id="recommendation-description" className="text-base font-normal text-port-gray">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero quae, rem laboriosam
             eligendi sequi quaerat quia assumenda commodi sit modi unde, numquam est temporibus
           </p>

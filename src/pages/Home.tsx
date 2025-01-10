@@ -12,15 +12,11 @@ export const Home = () => {
   return (
     <Fragment>
       {/* Hero section begins */}
-      <ScrollReveal>
-        <HeroSection />
-      </ScrollReveal>
+      <HeroSection />
       {/* Hero section ends */}
 
       {/* service section begins */}
-      <ScrollReveal>
         <ServiceSection />
-      </ScrollReveal>
       {/* service section ends */}
 
       {/* Recommendation section begins */}
@@ -36,9 +32,7 @@ export const Home = () => {
       {/* Portfolio section ends */}
 
       {/* Contact section begins */}
-      <ScrollReveal>
         <Contact />
-      </ScrollReveal>
       {/* Contact section ends */}
 
       <Footer />

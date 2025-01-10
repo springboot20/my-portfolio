@@ -51,7 +51,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
     <div
       className={classNames(
         open ? "translate-x-0 fixed overflow-y-scroll h-screen" : "-translate-x-full",
-        "top-0 left-0 bottom-5 z-20 bg-white transition-transform xl:h-auto w-[22rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
+        "top-0 left-0 bottom-5 z-20 bg-white transition-transform xl:h-auto w-[25rem] p-6 -translate-x-full xl:relative xl:translate-x-0 xl:block",
       )}
     >
       <div className="space-y-3">
@@ -249,14 +249,14 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({ open }) => {
           </ul>
         </div>
 
-        <Link
-          to={"/"}
+        <a
+          href={"/"}
           download={myCV}
           className="w-full text-lg sm:text-xl font-inter font-medium uppercase py-2.5 px-8 bg-port-yellow flex items-center space-x-3 justify-center mt-4"
         >
           <small>download cv</small>
           <FontAwesomeIcon icon={faDownload} className="h-5 text-gray-800" />
-        </Link>
+        </a>
       </div>
     </div>
   );

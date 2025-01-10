@@ -14,38 +14,6 @@ export const HeroSection = () => {
   const [ref, inView] = useInView();
   const { textToDisplay } = useTypeWriter();
 
-  const descriptionVariants = {
-    final: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-    initial: {
-      x: -100,
-      opacity: 0,
-      scale: 0,
-    },
-  };
-
-  const imageVariants = {
-    final: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-    initial: {
-      x: 200,
-      opacity: 0,
-      scale: 0,
-    },
-  };
-
   const overlayVariants = {
     final: {
       scale: 1,
@@ -73,9 +41,9 @@ export const HeroSection = () => {
   }, [control, inView]);
 
   useEffect(() => {
-    scrollReveal.reveal("#developer-name", { delay: 250 });
-    scrollReveal.reveal("#developer-description", { delay: 300 });
-    scrollReveal.reveal("#developer-img", { delay: 400 });
+    scrollReveal.reveal("#developer-name", { origin: "bottom" });
+    scrollReveal.reveal("#developer-description", { delay: 300, origin: "bottom" });
+    scrollReveal.reveal("#developer-img", { origin: "top", delay: 400 });
     scrollReveal.reveal("#hire-button", { delay: 400 });
   }, []);
 
@@ -94,22 +62,15 @@ export const HeroSection = () => {
           className="absolute bg-gradient-to-r inset-5 z-0 from-port-yellow to-port-yellow/20 rounded-lg"
         ></motion.div>
         <motion.div className="relative z-10 flex items-center flex-col md:flex-row lg:h-[467px] bg-white p-4 sm:p-8 rounded-lg">
-          <motion.div
-            ref={ref}
-            variants={descriptionVariants}
-            initial={"initial"}
-            animate={control}
-            className="space-y-6 max-w-2xl lg:max-w-3xl"
-          >
+          <motion.div ref={ref} className="space-y-6 max-w-xl">
             <h1
-              className="text-2xl sm:text-3xl xl:text-5xl !leading-[1.2] font-inter font-bold text-port-black capitalize"
+              className="text-2xl sm:text-3xl xl:text-4xl !leading-[1.2] font-inter font-bold text-port-black capitalize"
               id="developer-name"
             >
               i'm yunus abbas opeyemi <br />
-              <span className="text-port-yellow ">front-end</span>{" "}
-              <span className="border-r-4 border-port-black ">{textToDisplay}</span>
+              <span className="text-port-yellow">front-end</span>{" "}
+              <span className="border-r-4 border-port-black">{textToDisplay}</span>
             </h1>
-
             <p
               className="text-lg sm:text-xl font-inter font-normal text-port-gray !leading-relaxed"
               id="developer-description"
@@ -130,20 +91,14 @@ export const HeroSection = () => {
             </Link>
           </motion.div>
 
-          <motion.div
-            ref={ref}
-            variants={imageVariants}
-            animate={control}
-            initial="initial"
-            className="relative w-full flex items-center justify-center lg:h-[25rem]"
-          >
+          <div className="relative w-full flex items-center justify-center lg:h-[25rem]">
             <img
               src={ProfileImage}
               alt="profile avatar"
-              className="block h-full"
+              className="block h-full object-cover object-top"
               id="developer-img"
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </Disclosure>

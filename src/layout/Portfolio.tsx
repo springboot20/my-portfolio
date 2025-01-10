@@ -12,7 +12,7 @@ export default function PortfolioLayout() {
         <Fragment>
           <div className="relative flex items-stretch flex-shrink-0">
             <DetailPanel open={open} />
-            <div className="absolute left-0 xl:left-[22rem] w-full xl:w-[calc(100%-22rem)] min-h-screen">
+            <div className="absolute left-0 xl:left-[25rem] w-full xl:w-[calc(100%-25rem)] min-h-screen">
               <Outlet />
             </div>
             <Disclosure.Button
