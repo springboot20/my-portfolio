@@ -20,64 +20,68 @@
   font-weight: 500;
 }
 
+/* fira code */
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url(./font/FiraCode-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url(./font/FiraCode-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url(./font/FiraCode-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url(./font/FiraCode-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url(./font/FiraCode-Light.ttf);
+  font-weight: 300;
+}
+
 @layer base {
   body {
-    @apply bg-[#f2f2f2];
+    @apply bg-port-bg;
   }
 }
 
 @layer components {
-  .card {
-    @apply rounded-lg bg-white p-6 w-full border flex flex-col space-y-4 items-start;
+  .loader {
+    width: 60px;
+    aspect-ratio: 1;
+    --c: linear-gradient(#767676 0 0);
+    --m: radial-gradient(farthest-side, #767676 92%, #767676);
+    background: var(--c), var(--m), var(--c), var(--m), var(--c), var(--m);
+    background-size: 8px 15px, 8px 8px;
+    background-repeat: no-repeat;
+    animation: l14 1s infinite alternate;
   }
-
-  .card .card-body>.card-title {
-    @apply text-lg font-medium font-inter text-port-black capitalize;
-  }
-
-  .card-body .card-description {
-    @apply text-base font-normal font-inter text-port-gray;
-  }
-
-  .recommender-profile {
-    @apply flex space-x-3 items-center justify-center;
-  }
-
-  .recommender-avatar {
-    @apply h-12 w-12 rounded-full border;
-  }
-
-  .ratings {
-    @apply flex items-center space-x-3 justify-start;
-  }
-
-  .ratings .icon {
-    @apply h-5 text-port-yellow;
-  }
-
-  .university {
-    @apply flex flex-col gap-8 sm:gap-14 items-start justify-center md:flex-row border-b border-port-gray/40 py-8;
-  }
-
-  .university:nth-child(3) {
-    @apply border-none;
-  }
-
-  .university-name {
-    @apply text-lg sm:text-2xl font-semibold text-port-black capitalize;
-  }
-
-  .university-description {
-    @apply text-base sm:text-xl font-semibold text-port-gray flex items-center text-justify capitalize space-x-10;
-  }
-
-  .language-list{
-
-  }
-
-
-
-  @keyframes loader {
-    
+  @keyframes l14 {
+    0%,
+    10% {
+      background-position: 0 0, 0 100%, 50% 0, 50% 100%, 100% 0, 100% 100%;
+    }
+    33% {
+      background-position: 0 100%, 0 0, 50% 0, 50% 100%, 100% 0, 100% 100%;
+    }
+    66% {
+      background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 0, 100% 100%;
+    }
+    90%,
+    100% {
+      background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 100%, 100% 0;
+    }
   }
 }
