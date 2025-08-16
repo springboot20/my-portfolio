@@ -22,7 +22,7 @@ function App() {
       // Increment by 1% every 50ms (takes ~5 seconds to complete)
       timer = setTimeout(() => {
         setProgress((prev) => prev + 1);
-      }, 10);
+      }, 50);
     } else {
       // When we reach 100%, trigger the callback after a small delay
       const completeTimer = setTimeout(() => {
