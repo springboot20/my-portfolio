@@ -59,12 +59,12 @@
 
 @layer components {
   .loader {
-    width: 60px;
+    width: 50px;
     aspect-ratio: 1;
     --c: linear-gradient(#767676 0 0);
     --m: radial-gradient(farthest-side, #767676 92%, #767676);
     background: var(--c), var(--m), var(--c), var(--m), var(--c), var(--m);
-    background-size: 8px 15px, 8px 8px;
+    background-size: 8px 25px, 8px 8px;
     background-repeat: no-repeat;
     animation: l14 1s infinite alternate;
   }

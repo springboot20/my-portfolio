@@ -10,6 +10,9 @@ import DotTwoPattern from "../../assets/images/dot-pattern-two.svg";
 import Box from "../../assets/images/box.svg";
 import { Fragment } from "react";
 import AboutImage from "../../assets/images/about-Image.png";
+import { SlideIn } from "../../components/slide-in";
+import { motion } from "framer-motion";
+import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
 
 export default function HomePageComponent() {
   return (
@@ -43,61 +46,159 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col gap-16">
       <div className="grid grid-cols-1 gap-9 lg:grid-cols-2">
-        <div className="space-y-7">
-          <h1 className="text-4xl text-white font-bold font-fira-code leading-normal">
-            Abbas is a <span className="text-port-primary">Front-end developer</span> with a zeal
-            for <span className="text-port-primary">crafting intuitive</span> and{" "}
-            <span className="text-port-primary">responsive digital experience.</span>
-          </h1>
-          <p className="text-xl font-fira-code font-normal text-port-gray">
-            He specialized on using his experience to implement aesthetically pleasing UI designs
-            and building scalable applications that perform efficiently.
-          </p>
+        <SlideIn>
+          <div className="space-y-7">
+            <motion.div initial="hidden" animate="visible" className="overflow-hidden">
+              <h1 className="text-4xl text-white font-bold font-fira-code leading-normal">
+                {SplittedAnimatedText({
+                  content: [
+                    "Abbas is a ",
+                    <span>Front-end developer</span>,
+                    " with a zeal for ",
+                    <span>crafting intuitive</span>,
+                    " and ",
+                    <span>responsive digital experience.</span>,
+                  ],
+                  type: "word",
+                })}
+              </h1>
+            </motion.div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <Link
-              to=""
-              className="inline-block active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25 hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
+            <motion.p
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    delay: 0.1,
+                    staggerChildren: 0.15,
+                    delayChildren: 0.1,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              className="text-xl font-fira-code font-normal text-port-gray"
             >
-              contact me!!
-            </Link>
-            <a href="/resume.pdf" download="Yunus_Abbas_Resume.pdf">
-              <button
-                type="button"
-                className="hover:bg-white/10 px-8 py-2.5 flex items-center space-x-3 active:bg-white/10 hover:ring-2 hover:ring-port-primary bg-transparent transition-all border border-port-primary hover:border-none"
-              >
-                <span className="bg-gradient-to-l from-indigo-700 to-red-500 bg-clip-text text-transparent font-fira-code">
-                  Download Resume
-                </span>
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  data-prefix="fas"
-                  data-icon="download"
-                  className="h-5 stroke-[20px] fill-none stroke-red-600"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"></path>
-                </svg>
-              </button>
-            </a>
-          </div>
-        </div>
-        <div className="relative">
-          <img src={OverlayBoxes} className="h-44 absolute top-8" />
-          <img src={DotPattern} className="h-16 absolute z-10 left-2/3 bottom-7 lg:bottom-1/2" />
+              {SplittedAnimatedText({
+                content: [
+                  "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
+                ],
+                type: "word",
+              })}
+            </motion.p>
 
-          <div className="relative">
-            <img src={HeroImage} />
+            <SlideIn direction="bottom">
+              <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <Link
+                  to=""
+                  className="inline-block active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25 hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
+                >
+                  contact me!!
+                </Link>
+                <a href="/resume.pdf" download="Yunus_Abbas_Resume.pdf">
+                  <button
+                    type="button"
+                    className="hover:bg-white/10 px-8 py-2.5 flex items-center space-x-3 active:bg-white/10 hover:ring-2 hover:ring-port-primary bg-transparent transition-all border border-port-primary hover:border-none"
+                  >
+                    <span className="bg-gradient-to-l from-indigo-700 to-red-500 bg-clip-text text-transparent font-fira-code">
+                      Download Resume
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="download"
+                      className="h-5 stroke-[20px] fill-none stroke-red-600"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"></path>
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </SlideIn>
           </div>
-        </div>
+        </SlideIn>
+
+        <SlideIn direction="right">
+          <div className="relative xl:place-self-end">
+            <motion.img
+              loading="lazy"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  scale: 0.75,
+                },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: {
+                    delay: 0.9,
+                  },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              src={OverlayBoxes}
+              className="h-44 absolute top-8"
+            />
+
+            <motion.img
+              loading="lazy"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  scale: 0.75,
+                },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: {
+                    delay: 1.5,
+                  },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              src={DotPattern}
+              className="h-16 absolute z-10 left-2/3 bottom-7 lg:bottom-1/2"
+            />
+
+            <div className="relative">
+              <motion.img
+                loading="lazy"
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.75,
+                  },
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: {
+                      delay: 1.25,
+                    },
+                  },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                src={HeroImage}
+              />
+            </div>
+          </div>
+        </SlideIn>
       </div>
 
       <div className="max-w-4xl mx-auto">
         <div className="border-2 border-port-gray relative px-7 py-4 w-full">
-          <span className="bg-port-bg absolute flex items-center justify-center p-2 -top-7">
+          <span className="bg-port-bg absolute flex items-center justify-center px-2 py-1.5 -top-7">
             <svg
               width="42"
               height="29"
@@ -113,7 +214,10 @@ const HeroSection = () => {
             </svg>
           </span>
           <p className="font-fira-code font-normal text-white sm:text-xl">
-            With great power comes great electricity bill
+            {SplittedAnimatedText({
+              content: ["With great power comes great electricity bill"],
+              type: "word",
+            })}
           </p>
         </div>
       </div>
@@ -130,7 +234,7 @@ const ProjectSection = () => {
             <h2 className="text-white font-medium font-fira-code text-2xl">
               <span className="text-port-primary">#</span>projects
             </h2>
-            <div className="h-0.5 w-1/2 bg-port-primary/active:bg-port-primary/25 block" />
+            <div className="h-0.5 w-1/2 bg-port-primary block" />
           </div>
 
           <Link to="" className="group">
@@ -220,7 +324,7 @@ const SkillSection = () => {
           <h2 className="text-white font-medium font-fira-code text-2xl">
             <span className="text-port-primary">#</span>skills
           </h2>
-          <div className="h-0.5 w-1/2 bg-port-primary/active:bg-port-primary/25 block" />
+          <div className="h-0.5 w-1/2 bg-port-primary block" />
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-start gap-9">
@@ -252,7 +356,7 @@ const SkillSection = () => {
           <div className="grid grid-cols-2 xl:grid-cols-3 flex-1 gap-2">
             {Array.from({ length: 5 }, (_, index) => {
               return (
-                <Fragment>
+                <Fragment key={index}>
                   {index === 3 && <div className="hidden xl:block"></div>}
                   {index === 4 && <div className="xl:hidden"></div>}
                   <SkillCard key={index} />
@@ -296,22 +400,41 @@ const AboutSection = () => {
           <h2 className="text-white font-medium font-fira-code text-2xl">
             <span className="text-port-primary">#</span>about-me
           </h2>
-          <div className="h-0.5 w-1/2 bg-port-primary/active:bg-port-primary/25 block" />
+          <div className="h-0.5 w-1/2 bg-port-primary block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="space-y-6 flex flex-col justify-center">
             <h3 className="text-xl font-semibold font-fira-code text-port-gray">
-              Hello, i'm Abbas!
+              {SplittedAnimatedText({
+                content: ["Hello, i'm Abbas!"],
+                type: "letter",
+              })}
             </h3>
-            <p className="text-lg text-white font-bold font-fira-code leading-normal">
-              I'm a <span className="text-port-primary">Front-end developer</span> with a zeal for{" "}
-              <span className="text-port-primary">crafting intuitive</span> and{" "}
-              <span className="text-port-primary">responsive digital experience.</span>
-            </p>
+
+            <motion.div initial="hidden" animate="visible" className="overflow-hidden">
+              <h1 className="text-lg text-white font-bold font-fira-code leading-normal">
+                {SplittedAnimatedText({
+                  content: [
+                    "I'm a ",
+                    <span>Front-end developer</span>,
+                    " with a zeal for ",
+                    <span>crafting intuitive</span>,
+                    " and ",
+                    <span>responsive digital experience.</span>,
+                  ],
+                  type: "word",
+                })}
+              </h1>
+            </motion.div>
+
             <p className="text-lg font-fira-code font-normal text-port-gray">
-              Specialized on using his experience to implement aesthetically pleasing UI designs and
-              building scalable applications that perform efficiently.
+              {SplittedAnimatedText({
+                content: [
+                  "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
+                ],
+                type: "word",
+              })}
             </p>
             <Link
               to=""
@@ -345,7 +468,7 @@ const ContactSection = () => {
           <h2 className="text-white font-medium font-fira-code text-2xl">
             <span className="text-port-primary">#</span>contact-me
           </h2>
-          <div className="h-0.5 w-1/2 bg-port-primary/active:bg-port-primary/25 block" />
+          <div className="h-0.5 w-1/2 bg-port-primary block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">

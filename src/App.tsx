@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import PortfolioLayout from "./layout/Portfolio";
-import { lazy, Suspense, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const Home = lazy(() => import("./pages/home/home"));
-const Projects = lazy(() => import("./pages/projects/projects"));
-const AboutMe = lazy(() => import("./pages/about/about-me"));
-const ContactMe = lazy(() => import("./pages/contact/contact-me"));
+import Home from "./pages/home/home";
+import Projects from "./pages/projects/projects";
+import AboutMe from "./pages/about/about-me";
+import ContactMe from "./pages/contact/contact-me";
 
 function App() {
   // const { user, token } = useAuth();
@@ -22,7 +22,7 @@ function App() {
       // Increment by 1% every 50ms (takes ~5 seconds to complete)
       timer = setTimeout(() => {
         setProgress((prev) => prev + 1);
-      }, 50);
+      }, 10);
     } else {
       // When we reach 100%, trigger the callback after a small delay
       const completeTimer = setTimeout(() => {
@@ -50,54 +50,10 @@ function App() {
   ) : (
     <Routes>
       <Route path="/" element={<PortfolioLayout />}>
-        <Route
-          index
-          element={
-            <Suspense
-              fallback={
-                <p className="text-lg font-medium font-fira-code text-white">loading....</p>
-              }
-            >
-              <Home />
-            </Suspense>
-          }
-        />
-        <Route
-          path="projects"
-          element={
-            <Suspense
-              fallback={
-                <p className="text-lg font-medium font-fira-code text-white">loading....</p>
-              }
-            >
-              <Projects />
-            </Suspense>
-          }
-        />
-        <Route
-          path="about-me"
-          element={
-            <Suspense
-              fallback={
-                <p className="text-lg font-medium font-fira-code text-white">loading....</p>
-              }
-            >
-              <AboutMe />
-            </Suspense>
-          }
-        />
-        <Route
-          path="contact-me"
-          element={
-            <Suspense
-              fallback={
-                <p className="text-lg font-medium font-fira-code text-white">loading....</p>
-              }
-            >
-              <ContactMe />
-            </Suspense>
-          }
-        />
+        <Route index element={<Home />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="about-me" element={<AboutMe />} />
+        <Route path="contact-me" element={<ContactMe />} />
       </Route>
     </Routes>
   );
