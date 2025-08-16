@@ -61,7 +61,7 @@ const CustomCursor = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 20, stiffness: 100 };
+  const springConfig = { damping: 20, stiffness: 200 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
@@ -94,22 +94,24 @@ const CustomCursor = () => {
     };
   }, []);
 
+  console.log(isHovered);
+
   return (
     <motion.div
       className={classNames(
-        `fixed z-[9999] pointer-events-none cursor-pointer mix-blend-difference rounded-full w-20 h-20`,
+        `fixed z-[9999] pointer-events-none mix-blend-difference rounded-full w-20 h-20`,
         isHovered ? "bg-black scale-150" : "bg-white"
       )}
       style={{
         translateX: cursorX,
         translateY: cursorY,
       }}
-      animate={{
-        scale: isHovered ? 1.5 : 1,
-      }}
-      transition={{
-        scale: { duration: 0.2, ease: "easeOut" },
-      }}
+      // animate={{
+      //   scale: isHovered ? 1.5 : 1,
+      // }}
+      // transition={{
+      //   scale: { duration: 0.2, ease: "easeOut" },
+      // }}
     />
   );
 };

@@ -53,7 +53,7 @@
 
 @layer base {
   body {
-    @apply bg-port-bg;
+    @apply bg-port-bg cursor-none;
   }
 }
 

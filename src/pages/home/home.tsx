@@ -90,10 +90,10 @@ const HeroSection = () => {
             </motion.p>
 
             <SlideIn direction="bottom">
-              <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
                   to=""
-                  className="inline-block active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25 hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
+                  className="inline-block w-fit active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25 hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
                 >
                   contact me!!
                 </Link>

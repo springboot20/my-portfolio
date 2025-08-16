@@ -30,6 +30,7 @@ export const SplittedAnimatedText = ({ content, type }: SplittedAnimatedTextProp
       parts.forEach((part, idx) =>
         fragments.push(
           <motion.span
+            key={`${part}-${index + idx}`}
             variants={textParentVariant}
             initial="hidden"
             whileInView="visible"

@@ -7,8 +7,8 @@ import { NavLink } from "react-router-dom";
 import { classNames } from "../utils";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CustomCursor } from "../components/mirror-cursor/mirror-cursor";
-// import { SlideIn } from "../components/slide-in";
+import CustomCursor from "../components/mirror-cursor/gsap-mirror";
+import { SlideIn } from "../components/slide-in";
 
 export default function PortfolioLayout() {
   const [enableBackground, setEnableBackground] = useState<boolean>(false);
@@ -102,51 +102,51 @@ export default function PortfolioLayout() {
       <Disclosure>
         {({ open }) => (
           <Fragment>
-            {/* <SlideIn> */}
-            <div className="fixed left-10 top-0 flex flex-col items-center space-y-4">
-              <div className="h-[25rem] bg-port-gray w-0.5" />
-              <motion.div
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    delay: 0.5,
-                    staggerChildren: 0.15,
-                    delayChildren: 0.1,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  },
-                }}
-                className="flex flex-col items-center space-y-4"
-              >
-                {socialLinks.map((link, index) => {
-                  return (
-                    <Link
-                      to={link.url}
-                      key={`${link.url}-${index}`}
-                      className="inline-block shrink-0"
-                    >
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.85 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        whileHover={{ scale: 1.15 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{
-                          delay: 0.35 * index,
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 20,
-                        }}
+            <SlideIn>
+              <div className="fixed left-10 top-0 hidden xl:flex flex-col items-center space-y-4">
+                <div className="h-[25rem] bg-port-gray w-0.5" />
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    transition: {
+                      delay: 0.5,
+                      staggerChildren: 0.15,
+                      delayChildren: 0.1,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    },
+                  }}
+                  className="flex flex-col items-center space-y-4"
+                >
+                  {socialLinks.map((link, index) => {
+                    return (
+                      <Link
+                        to={link.url}
+                        key={`${link.url}-${index}`}
+                        className="inline-block shrink-0"
                       >
-                        {link.component}
-                      </motion.div>
-                    </Link>
-                  );
-                })}
-              </motion.div>
-            </div>
-            {/* </SlideIn> */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.85 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          whileHover={{ scale: 1.15 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{
+                            delay: 0.35 * index,
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                          }}
+                        >
+                          {link.component}
+                        </motion.div>
+                      </Link>
+                    );
+                  })}
+                </motion.div>
+              </div>
+            </SlideIn>
             <motion.header
               initial={{ y: -50, opacity: 0 }}
               animate={{
@@ -161,22 +161,22 @@ export default function PortfolioLayout() {
               className={classNames(
                 "h-20 fixed inset-x-0 top-0",
                 enableBackground &&
-                  "bg-black/40 backdrop-blur-md z-20 border-[1.8px] border-port-gray inset-x-14 xl:inset-x-44 h-16 rounded-full px-8"
+                  "bg-black/40 backdrop-blur-md z-20 border-[1.8px] border-port-gray sm:inset-x-14 xl:inset-x-44 h-16 rounded-full px-8"
               )}
             >
               <nav className={classNames("max-w-7xl mx-auto h-full 2xl:px-0 px-4")}>
                 <div className="w-full h-full flex items-center justify-between">
-                  <div className="flex-1 flex items-center justify-center lg:flex-none lg:justify-start cursor-hover">
-                    <Link to="/" className="w-full">
-                      <div className="flex items-center space-x-3">
-                        <FontAwesomeIcon icon={faCode} className="h-12 text-port-primary" />
-                        <h3 className="text-xl font-fira-code font-semibold text-port-primary">
-                          Abbas Opeyemi
-                        </h3>
-                      </div>
-                    </Link>
-                  </div>
-
+                  <Link
+                    to="/"
+                    className="cursor-hover flex-1 flex items-center justify-center lg:flex-none lg:justify-start cursor-hover"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <FontAwesomeIcon icon={faCode} className="h-12 text-port-primary" />
+                      <h3 className="text-xl font-fira-code font-semibold text-port-primary">
+                        Abbas Opeyemi
+                      </h3>
+                    </div>
+                  </Link>
                   <div className="lg:flex hidden items-center gap-6">
                     {navigations.map(({ path, title }, index) => {
                       return (
