@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import { classNames } from "../utils";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import CustomCursor from "../components/mirror-cursor/gsap-mirror";
+import { CustomCursor } from "../components/mirror-cursor/mirror-cursor";
 import { SlideIn } from "../components/slide-in";
 
 export default function PortfolioLayout() {
@@ -168,7 +168,7 @@ export default function PortfolioLayout() {
                 <div className="w-full h-full flex items-center justify-between">
                   <Link
                     to="/"
-                    className="cursor-hover flex-1 flex items-center justify-center lg:flex-none lg:justify-start cursor-hover"
+                    className="cursor-hover flex-1 flex items-center justify-center lg:flex-none lg:justify-start"
                   >
                     <div className="flex items-center space-x-3">
                       <FontAwesomeIcon icon={faCode} className="h-12 text-port-primary" />

@@ -52,8 +52,11 @@
 }
 
 @layer base {
+  * {
+    @apply cursor-none;
+  }
   body {
-    @apply bg-port-bg cursor-none;
+    @apply bg-port-bg;
   }
 }
 

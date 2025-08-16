@@ -49,7 +49,7 @@ const HeroSection = () => {
         <SlideIn>
           <div className="space-y-7">
             <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-              <h1 className="text-4xl text-white font-bold font-fira-code leading-normal">
+              <h1 className="text-4xl text-white font-bold font-fira-code leading-normal cursor-hover">
                 {SplittedAnimatedText({
                   content: [
                     "Abbas is a ",
@@ -79,7 +79,7 @@ const HeroSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              className="text-xl font-fira-code font-normal text-port-gray"
+              className="text-xl font-fira-code font-normal text-port-gray cursor-hover"
             >
               {SplittedAnimatedText({
                 content: [
@@ -213,7 +213,7 @@ const HeroSection = () => {
               />
             </svg>
           </span>
-          <p className="font-fira-code font-normal text-white sm:text-xl">
+          <p className="font-fira-code font-normal text-white sm:text-xl cursor-hover">
             {SplittedAnimatedText({
               content: ["With great power comes great electricity bill"],
               type: "word",
@@ -413,7 +413,7 @@ const AboutSection = () => {
             </h3>
 
             <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-              <h1 className="text-lg text-white font-bold font-fira-code leading-normal">
+              <h1 className="text-lg text-white font-bold font-fira-code leading-normal cursor-hover">
                 {SplittedAnimatedText({
                   content: [
                     "I'm a ",
@@ -428,7 +428,7 @@ const AboutSection = () => {
               </h1>
             </motion.div>
 
-            <p className="text-lg font-fira-code font-normal text-port-gray">
+            <p className="text-lg font-fira-code font-normal text-port-gray cursor-hover">
               {SplittedAnimatedText({
                 content: [
                   "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",

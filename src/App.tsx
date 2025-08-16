@@ -22,7 +22,7 @@ function App() {
       // Increment by 1% every 50ms (takes ~5 seconds to complete)
       timer = setTimeout(() => {
         setProgress((prev) => prev + 1);
-      }, 50);
+      }, 100);
     } else {
       // When we reach 100%, trigger the callback after a small delay
       const completeTimer = setTimeout(() => {
@@ -43,7 +43,7 @@ function App() {
         <div className="loader"></div>
         {/* Progress percentage */}
         <p className="text-port-gray font-fira-code font-medium text-xl mt-3">
-          {Math.floor(progress)}%
+          {Math.floor(progress % 101).toString().padStart(3, "0")}%
         </p>
       </div>
     </div>
