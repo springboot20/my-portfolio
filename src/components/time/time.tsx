@@ -8,9 +8,9 @@ export const AnimatedDigit = ({ digit }: { digit: number }) => {
       <AnimatePresence mode="wait">
         <motion.span
           key={digit}
-          initial={{ rotateX: -90, opacity: 0 }}
-          animate={{ rotateX: 0, opacity: 1 }}
-          exit={{ rotateX: 90, opacity: 0 }}
+          initial={{ rotateY: -90, opacity: 0 }}
+          animate={{ rotateY: 0, opacity: 1 }}
+          exit={{ rotateY: 90, opacity: 0 }}
           style={{ backfaceVisibility: "hidden" }}
           transition={{
             duration: 0.4,
