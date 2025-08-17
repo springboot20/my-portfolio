@@ -253,7 +253,7 @@ const SkillSection = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-start gap-9">
-          <div className="shrink-0 relative h-[25rem] flex-grow max-w-lg">
+          <div className="shrink-0 relative flex-grow max-w-lg">
             {/* dot one pattern start */}
             <img src={SkillCoverImage} className="h-full w-full object-cover" />
             {/* dot one pattern end */}

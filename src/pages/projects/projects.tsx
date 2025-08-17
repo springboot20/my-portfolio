@@ -14,11 +14,11 @@ export default function ProjectPageComponent() {
 
         <section className="py-10">
           <div className="w-full space-y-10">
-            <div className="flex items-center space-x-2 shrink-0 flex-1">
+            <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
               <h2 className="text-white font-medium font-fira-code text-2xl">
                 <span className="text-port-primary">#</span>completed projects
               </h2>
-              <div className="h-0.5 w-1/2 bg-port-primary block" />
+              <div className="h-0.5 w-full sm:w-1/2 bg-port-primary block" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -40,11 +40,11 @@ export default function ProjectPageComponent() {
 
         <section className="py-10">
           <div className="w-full space-y-10">
-            <div className="flex items-center space-x-2 shrink-0 flex-1">
+            <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
               <h2 className="text-white font-medium font-fira-code text-2xl">
                 <span className="text-port-primary">#</span>small projects
               </h2>
-              <div className="h-0.5 w-1/2 bg-port-primary block" />
+              <div className="h-0.5 w-full sm:w-1/2 bg-port-primary block" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

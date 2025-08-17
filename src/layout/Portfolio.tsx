@@ -161,17 +161,17 @@ export default function PortfolioLayout() {
               className={classNames(
                 "h-20 fixed inset-x-0 top-0",
                 enableBackground &&
-                  "bg-black/40 backdrop-blur-md z-20 border-[1.8px] border-port-gray sm:inset-x-14 xl:inset-x-44 h-16 rounded-full px-8"
+                  "bg-black/40 backdrop-blur-md z-20 border-[1.8px] border-port-gray sm:inset-x-14 xl:inset-x-44 !h-16 rounded-full sm:px-8"
               )}
             >
               <nav className={classNames("max-w-7xl mx-auto h-full 2xl:px-0 px-4")}>
                 <div className="w-full h-full flex items-center justify-between">
                   <Link
                     to="/"
-                    className="cursor-hover flex-1 flex items-center justify-center lg:flex-none lg:justify-start"
+                    className="cursor-hover "
                   >
                     <div className="flex items-center space-x-3">
-                      <FontAwesomeIcon icon={faCode} className="h-12 text-port-primary" />
+                      <FontAwesomeIcon icon={faCode} className="h-10 text-port-primary" />
                       <h3 className="text-xl font-fira-code font-semibold text-port-primary">
                         Abbas Opeyemi
                       </h3>
