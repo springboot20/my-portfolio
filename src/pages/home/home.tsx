@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import DotPattern from "../../assets/images/dots-pattern.png";
-import OverlayBoxes from "../../assets/images/overlay-boxes.png";
 import HeroImage from "../../assets/images/hero-image.png";
 import ProjectDemoImage from "../../assets/images/project-demo-image.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import DotOnePattern from "../../assets/images/dot-pattern-one.svg";
-import DotTwoPattern from "../../assets/images/dot-pattern-two.svg";
-import Box from "../../assets/images/box.svg";
 import { Fragment } from "react";
 import AboutImage from "../../assets/images/about-Image.png";
+import SkillCoverImage from "../../assets/images/skill-cover-image.png";
 import { SlideIn } from "../../components/slide-in";
 import { motion } from "framer-motion";
 import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
@@ -137,28 +134,6 @@ const HeroSection = () => {
                   opacity: 1,
                   scale: 1,
                   transition: {
-                    delay: 0.9,
-                  },
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              src={OverlayBoxes}
-              className="h-44 absolute top-8"
-            />
-
-            <motion.img
-              loading="lazy"
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  scale: 0.75,
-                },
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  transition: {
                     delay: 1.5,
                   },
                 },
@@ -167,7 +142,7 @@ const HeroSection = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               src={DotPattern}
-              className="h-16 absolute z-10 left-2/3 bottom-7 lg:bottom-1/2"
+              className="h-20 absolute z-10 right-5 top-10"
             />
 
             <div className="relative">
@@ -330,27 +305,8 @@ const SkillSection = () => {
         <div className="flex flex-col lg:flex-row lg:items-start gap-9">
           <div className="shrink-0 relative h-[25rem] flex-grow max-w-lg">
             {/* dot one pattern start */}
-            <img src={DotOnePattern} className="h-20 md:h-28 absolute top-8" />
+            <img src={SkillCoverImage} className="h-full w-full object-cover" />
             {/* dot one pattern end */}
-
-            {/* box one start */}
-            <img src={Box} className="h-32 absolute right-0 md:right-8 top-0" />
-            {/* box one end */}
-
-            {/* overlay boxes start */}
-            <img src={OverlayBoxes} className="h-40 md:h-44 absolute bottom-10" />
-            {/* overlay boxes ends */}
-
-            {/* dot two pattern start */}
-            <img
-              src={DotTwoPattern}
-              className="h-20 absolute bottom-32 md:bottom-28 right-32 md:right-56 lg:right-44"
-            />
-            {/* dot two pattern end */}
-
-            {/* box two start */}
-            <img src={Box} className="absolute bottom-0 md:bottom-16 right-0 md:right-10" />
-            {/* box two end */}
           </div>
 
           <div className="grid grid-cols-2 xl:grid-cols-3 flex-1 gap-2">
@@ -447,9 +403,6 @@ const AboutSection = () => {
             </Link>
           </div>
           <div className="relative oveflow-hidden place-self-end">
-            <img src={DotPattern} className="h-20 absolute z-10 left-3 top-10" />
-            <img src={DotPattern} className="h-20 absolute z-10 left-2/3 bottom-7 lg:bottom-24" />
-
             <div className="w-full flex items-center justify-center h-[30rem]">
               <img src={AboutImage} alt="about image" className="h-full w-[20rem]" />
             </div>
