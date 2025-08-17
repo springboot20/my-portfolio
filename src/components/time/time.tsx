@@ -8,15 +8,15 @@ export const AnimatedDigit = ({ digit }: { digit: number }) => {
       <AnimatePresence mode="wait">
         <motion.span
           key={digit}
-          initial={{ rotateY: -90, opacity: 0 }}
-          animate={{ rotateY: 0, opacity: 1 }}
-          exit={{ rotateY: 90, opacity: 0 }}
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 10, opacity: 0 }}
           style={{ backfaceVisibility: "hidden" }}
-          transition={{
-            duration: 0.4,
-            ease: "easeInOut",
-          }}
-          className="absolute left-0 top-0 w-full origin-bottom backface-hidden"
+          // transition={{
+          //   duration: 0.4,
+          //   ease: "easeInOut",
+          // }}
+          className="absolute left-0 top-0 w-full"
         >
           {digit}
         </motion.span>
@@ -52,7 +52,7 @@ export const TimeComponent = () => {
   const [s1, s2] = padTimerString(seconds);
 
   return (
-    <div className="flex items-center text-xl font-fira-code font-thin text-white cursor-hover">
+    <div className="flex items-center text-xl font-fira-code font-medium text-port-light-text dark:text-white cursor-hover">
       {/* Hours */}
       <div className="space-x-0.5">
         <AnimatedDigit digit={h1} />

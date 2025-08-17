@@ -6,19 +6,19 @@ export default function ProjectPageComponent() {
     <article className="w-full py-28">
       <div className="w-full">
         <header className="space-y-3">
-          <h1 className="font-fira-code font-semibold text-3xl text-white">
-            <span className="text-port-primary">/</span>projects
+          <h1 className="font-fira-code font-semibold text-3xl text-port-light-text dark:text-white">
+            <span className="text-port-light-primary dark:text-port-primary">/</span>projects
           </h1>
-          <p className="text-white font-fira-code font-normal text-lg">List of my projects</p>
+          <p className="text-port-light-text dark:text-white font-fira-code font-normal text-lg">List of my projects</p>
         </header>
 
         <section className="py-10">
           <div className="w-full space-y-10">
             <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
-              <h2 className="text-white font-medium font-fira-code text-2xl">
-                <span className="text-port-primary">#</span>completed projects
+              <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+                <span className="text-port-light-primary dark:text-port-primary">#</span>completed projects
               </h2>
-              <div className="h-0.5 w-full sm:w-1/2 bg-port-primary block" />
+              <div className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -41,10 +41,10 @@ export default function ProjectPageComponent() {
         <section className="py-10">
           <div className="w-full space-y-10">
             <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
-              <h2 className="text-white font-medium font-fira-code text-2xl">
-                <span className="text-port-primary">#</span>small projects
+              <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+                <span className="text-port-light-primary dark:text-port-primary">#</span>small projects
               </h2>
-              <div className="h-0.5 w-full sm:w-1/2 bg-port-primary block" />
+              <div className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

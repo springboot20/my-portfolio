@@ -8,16 +8,16 @@ export default function AboutPageComponent() {
     <article className="w-full py-28">
       <div className="w-full">
         <header className="space-y-3">
-          <h1 className="font-fira-code font-semibold text-3xl text-white">
-            <span className="text-port-primary">/</span>about-me
+          <h1 className="font-fira-code font-semibold text-3xl text-port-light-text dark:text-white">
+            <span className="text-port-light-primary dark:text-port-primary">/</span>about me
           </h1>
-          <p className="text-white font-fira-code font-normal text-lg">Who am i?</p>
+          <p className="text-port-light-text dark:text-white font-fira-code font-normal text-lg">who am i?</p>
         </header>
 
         <section className="py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="space-y-6 flex flex-col justify-center">
-              <h3 className="text-2xl font-semibold font-fira-code text-port-gray">
+              <h3 className="text-2xl font-semibold font-fira-code text-port-light-text dark:text-port-gray">
                 {SplittedAnimatedText({
                   content: ["Hello, i'm Abbas!"],
                   type: "letter",
@@ -25,7 +25,7 @@ export default function AboutPageComponent() {
               </h3>
 
               <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-                <h1 className="text-xl text-white font-bold font-fira-code leading-normal cursor-hover">
+                <h1 className="text-xl text-port-light-muted dark:text-white font-bold font-fira-code leading-normal cursor-hover">
                   {SplittedAnimatedText({
                     content: [
                       "I'm a ",
@@ -59,11 +59,11 @@ export default function AboutPageComponent() {
 
         <section className="py-10">
           <div className="w-full space-y-10">
-            <div className="flex items-center space-x-2 shrink-0 flex-1">
-              <h2 className="text-white font-medium font-fira-code text-2xl">
-                <span className="text-port-primary">#</span>skills
+             <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
+              <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+                <span className="text-port-light-primary dark:text-port-primary">#</span>skills
               </h2>
-              <div className="h-0.5 w-1/2 bg-port-primary block" />
+              <div className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block" />
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1 gap-2">

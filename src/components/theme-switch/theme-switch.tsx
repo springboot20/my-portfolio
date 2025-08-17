@@ -5,17 +5,13 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 export const ThemeSwitch: React.FC = () => {
   const { activeMode, setTheme } = useTheme();
-
-  console.log(activeMode);
-
+  
   const toggleTheme = () => {
     if (activeMode) {
       setTheme("light");
     } else {
       setTheme("dark");
     }
-
-    console.log("clicked");
   };
 
   return (

@@ -52,9 +52,9 @@
 }
 
 @layer base {
-  /* * {
-    @apply cursor-none;
-  } */
+  * {
+    @apply transition duration-75;
+  }
   body {
     @apply bg-port-light-bg dark:bg-port-bg;
   }

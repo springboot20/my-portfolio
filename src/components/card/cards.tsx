@@ -13,7 +13,7 @@ interface ProjectCardComponentProps {
 export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
   const { title, frameworks, image, link, description } = props;
   return (
-    <article className="overflow-hidden border border-white">
+    <article className="overflow-hidden border border-port-light-border dark:border-white">
       <div className="w-full">
         {image && (
           <header className="h-64">
@@ -28,7 +28,10 @@ export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
         <div className="p-2 flex items-center flex-wrap gap-4">
           {frameworks.map((framework) => {
             return (
-              <p key={framework} className="text-port-gray font-normal font-fira-code">
+              <p
+                key={framework}
+                className="text-port-light-muted dark:text-port-gray font-normal font-fira-code"
+              >
                 {framework}
               </p>
             );
@@ -36,12 +39,18 @@ export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
         </div>
 
         <div className="p-4 border-t px-4 space-y-3">
-          <h3 className="text-white font-medium font-fira-code text-lg sm:text-xl">{title}</h3>
+          <h3 className="text-port-light-text dark:text-white font-medium font-fira-code text-lg sm:text-xl">{title}</h3>
           <p className="text-port-gray font-normal font-fira-code">{description}</p>
           <div className="flex items-center gap-2 flex-wrap">
             <Link
               to={link}
-              className="inline-flex items-center space-x-3 active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25 hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
+              className="inline-block w-fitbg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
+                    dark:active:bg-port-primary/25 dark:hover:bg-port-primary/25 
+                    border border-port-light-border dark:border-port-primary
+                    text-port-light-text dark:text-white 
+                    hover:underline hover:border-port-light-primary dark:hover:border-port-primary
+                    font-medium font-fira-code px-5 py-2.5 
+                    transition-all focus:border-none focus:ring-2 focus:ring-port-light-primary dark:focus:ring-port-primary"
             >
               <span>live preview </span>
               <span>
@@ -57,16 +66,16 @@ export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
 
 export const SkillCard = () => {
   return (
-    <div className="overflow-hidden border border-white">
+    <div className="overflow-hidden border border-port-light-border dark:border-white">
       <div className="w-full">
         <div className="p-2.5">
-          <h3 className="text-white font-medium font-fira-code">Title</h3>
+          <h3 className="text-port-light-text dark:text-white font-medium font-fira-code">Title</h3>
         </div>
 
-        <div className="p-2 flex items-center flex-wrap gap-2 border-t border-white">
+        <div className="p-2 flex items-center flex-wrap gap-2 border-t borderport-light-border dark:border-white">
           {["TypeScript", "Python", "JavaScript"].map((skill) => {
             return (
-              <p key={skill} className="text-port-gray font-fira-code">
+              <p key={skill} className="text-port-light-muted dark:text-port-gray font-fira-code">
                 {skill}
               </p>
             );
