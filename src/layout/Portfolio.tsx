@@ -103,7 +103,7 @@ export default function PortfolioLayout() {
         {({ open, close }) => (
           <Fragment>
             <SlideIn>
-              <div className="fixed left-10 top-0 hidden xl:flex flex-col items-center space-y-4">
+              <div className="fixed left-6 top-0 hidden xl:flex flex-col items-center space-y-4">
                 <div className="h-[25rem] bg-port-gray w-0.5" />
                 <motion.div
                   initial={{
