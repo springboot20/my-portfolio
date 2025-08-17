@@ -7,9 +7,11 @@ import { NavLink } from "react-router-dom";
 import { classNames } from "../utils";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CustomCursor } from "../components/mirror-cursor/mirror-cursor";
+// import { CustomCursor } from "../components/mirror-cursor/mirror-cursor";
 import { SlideIn } from "../components/slide-in";
 import { TimeComponent } from "../components/time/time";
+// import GsapCustomCursor from "../components/mirror-cursor/gsap-mirror";
+import { ThemeSwitch } from "../components/theme-switch/theme-switch";
 
 export default function PortfolioLayout() {
   const [enableBackground, setEnableBackground] = useState<boolean>(false);
@@ -60,7 +62,7 @@ export default function PortfolioLayout() {
         opacity: 1,
         y: 0,
         transition: {
-          delay: (0.15 * index) / 10,
+          delay: 0.25 * index,
         },
       },
     };
@@ -99,7 +101,8 @@ export default function PortfolioLayout() {
 
   return (
     <Fragment>
-      <CustomCursor />
+      {/* <CustomCursor /> */}
+      {/* <GsapCustomCursor /> */}
       <Disclosure>
         {({ open, close }) => (
           <Fragment>
@@ -148,6 +151,17 @@ export default function PortfolioLayout() {
                 </motion.div>
               </div>
             </SlideIn>
+            <Disclosure.Button
+              className={
+                "z-10 lg:hidden fixed right-8 bottom-4 text-port-gray h-10 w-10 flex items-center justify-center border border-port-gray rounded-md"
+              }
+            >
+              {open ? (
+                <FontAwesomeIcon icon={faClose} className="h-5" />
+              ) : (
+                <FontAwesomeIcon icon={faBars} className="h-5" />
+              )}
+            </Disclosure.Button>
             <motion.header
               initial={{ y: -50, opacity: 0 }}
               animate={{
@@ -162,15 +176,15 @@ export default function PortfolioLayout() {
               className={classNames(
                 "h-20 fixed inset-x-0 top-0",
                 enableBackground &&
-                  "bg-black/40 backdrop-blur-md z-20 border-[1.8px] border-port-gray sm:inset-x-14 xl:inset-x-44 !h-16 rounded-full sm:px-8"
+                  "dark:bg-black/40 backdrop-blur-md z-20 border-[1.8px] dark:border-port-gray sm:inset-x-14 xl:inset-x-44 !h-16 rounded-full sm:px-8"
               )}
             >
               <nav className={classNames("max-w-7xl mx-auto h-full 2xl:px-0 px-4")}>
                 <div className="w-full h-full flex items-center justify-between">
                   <Link to="/" className="cursor-hover ">
                     <div className="flex items-center space-x-3">
-                      <FontAwesomeIcon icon={faCode} className="h-10 text-port-primary" />
-                      <h3 className="text-xl font-fira-code font-semibold text-port-primary">
+                      <FontAwesomeIcon icon={faCode} className="h-10 dark:text-port-primary" />
+                      <h3 className="text-xl font-fira-code font-semibold dark:text-port-primary">
                         Abbas Opeyemi
                       </h3>
                     </div>
@@ -206,19 +220,10 @@ export default function PortfolioLayout() {
                     })}
                   </div>
 
-                  <TimeComponent />
-
-                  <Disclosure.Button
-                    className={
-                      "lg:hidden text-port-gray h-10 w-10 flex items-center justify-center border border-port-gray rounded-md"
-                    }
-                  >
-                    {open ? (
-                      <FontAwesomeIcon icon={faClose} className="h-5" />
-                    ) : (
-                      <FontAwesomeIcon icon={faBars} className="h-5" />
-                    )}
-                  </Disclosure.Button>
+                  <div className="flex items-center gap-3">
+                    <TimeComponent />
+                    <ThemeSwitch />
+                  </div>
                 </div>
               </nav>
             </motion.header>
@@ -227,8 +232,8 @@ export default function PortfolioLayout() {
               <>
                 <div className="p-4 flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <FontAwesomeIcon icon={faCode} className="h-12 text-port-primary" />
-                    <h3 className="text-2xl font-fira-code font-semibold text-port-primary">
+                    <FontAwesomeIcon icon={faCode} className="h-12 dark:text-port-primary" />
+                    <h3 className="text-2xl font-fira-code font-semibold dark:text-port-primary">
                       Abbas Opeyemi
                     </h3>
                   </div>

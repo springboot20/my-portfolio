@@ -52,7 +52,7 @@ export const SplittedAnimatedText = ({ content, type }: SplittedAnimatedTextProp
       index += parts.length;
     } else {
       fragments.push(
-        <span key={`jsx-${index}`} className="text-port-primary">
+        <span key={`jsx-${index}`} className="text-port-light-primary dark:text-port-primary">
           {item}
         </span>
       );

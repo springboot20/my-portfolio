@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const CustomCursor = () => {
+const GsapCustomCursor = () => {
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
 
@@ -31,21 +31,21 @@ const CustomCursor = () => {
       });
 
       gsap.set(follower, {
-        x: posX - 12,
-        y: posY - 12,
+        x: posX - 40,
+        y: posY - 40,
       });
     });
 
     const addHoverEvents = () => {
       const elements = document.querySelectorAll(
-        "a, button, .cursor-hover"
+        "a, button, .cursor-hover, header > img, img, div > a, svg"
       );
 
       elements.forEach((el) => {
         el.addEventListener("mouseenter", () => {
           gsap.to(follower, {
             scale: 2,
-            backgroundColor: "#C778DD", // Tailwind blue-500
+            backgroundColor: "#fffff", // Tailwind blue-500
             duration: 0.3,
             ease: "power2.out",
           });
@@ -83,4 +83,4 @@ const CustomCursor = () => {
   );
 };
 
-export default CustomCursor;
+export default GsapCustomCursor;

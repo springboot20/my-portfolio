@@ -36,7 +36,7 @@ const CustomCursor = () => {
     const handleMouseEnter = () => setIsHovered(true);
     const handleMouseLeave = () => setIsHovered(false);
 
-    const hoverables = document.querySelectorAll("a, button, .cursor-hover, img, svg, a > div");
+    const hoverables = document.querySelectorAll("a, button, .cursor-hover, img, svg, a > div, header > img");
 
     hoverables.forEach((el) => {
       el.addEventListener("mouseenter", handleMouseEnter);

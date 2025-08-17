@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { classNames } from "../../utils";
+// import { classNames } from "../../utils";
 
 export const AnimatedDigit = ({ digit }: { digit: number }) => {
   return (
@@ -26,14 +26,14 @@ export const AnimatedDigit = ({ digit }: { digit: number }) => {
 };
 
 export const TimeComponent = () => {
-  const [showColon, setShowColon] = useState<boolean>(true);
+  // const [showColon, setShowColon] = useState<boolean>(true);
   const [time, setTime] = useState<Date>(new Date());
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
       setTime(now);
-      setShowColon((prev) => !prev);
+      // setShowColon((prev) => !prev);
     }, 1000);
 
     return () => clearInterval(timer);
@@ -52,17 +52,17 @@ export const TimeComponent = () => {
   const [s1, s2] = padTimerString(seconds);
 
   return (
-    <div className="flex items-center text-2xl font-fira-code font-medium text-port-gray cursor-hover">
+    <div className="flex items-center text-xl font-fira-code font-thin text-white cursor-hover">
       {/* Hours */}
       <div className="space-x-0.5">
         <AnimatedDigit digit={h1} />
         <AnimatedDigit digit={h2} />
       </div>
       <span
-        className={classNames(
-          "transition-opacity duration-200",
-          showColon ? "opacity-100" : "opacity-0"
-        )}
+      // className={classNames(
+      //   "transition-opacity duration-200",
+      //   showColon ? "opacity-100" : "opacity-0"
+      // )}
       >
         :
       </span>
@@ -73,10 +73,10 @@ export const TimeComponent = () => {
         <AnimatedDigit digit={m2} />
       </div>
       <span
-        className={classNames(
-          "transition-opacity duration-300",
-          showColon ? "opacity-100" : "opacity-0"
-        )}
+      // className={classNames(
+      //   "transition-opacity duration-300",
+      //   showColon ? "opacity-100" : "opacity-0"
+      // )}
       >
         :
       </span>
@@ -93,7 +93,7 @@ export const TimeComponent = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.3 }}
-        className="ml-2 text-sm"
+        className="ml-2 text-xs"
       >
         {isAM ? "AM" : "PM"}
       </motion.span>

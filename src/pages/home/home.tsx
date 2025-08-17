@@ -47,7 +47,7 @@ const HeroSection = () => {
         <SlideIn>
           <div className="space-y-7">
             <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-              <h1 className="text-4xl text-white font-bold font-fira-code leading-normal cursor-hover">
+              <h1 className="text-4xl text-gray-900 dark:text-white font-bold font-fira-code leading-normal cursor-hover">
                 {SplittedAnimatedText({
                   content: [
                     "Abbas is a ",
@@ -77,7 +77,7 @@ const HeroSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              className="text-xl font-fira-code font-normal text-port-gray cursor-hover"
+              className="text-xl font-fira-code font-normal text-port-light-muted dark:text-port-gray cursor-hover"
             >
               {SplittedAnimatedText({
                 content: [
@@ -91,14 +91,27 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
                   to=""
-                  className="inline-block w-fit active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25 hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
+                  className="inline-block w-fitbg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
+                    dark:active:bg-port-primary/25 dark:hover:bg-port-primary/25 
+                    border border-port-light-border dark:border-port-primary
+                    text-port-light-text dark:text-white 
+                    hover:underline hover:border-port-light-primary dark:hover:border-port-primary
+                    font-medium font-fira-code px-5 py-2.5 
+                    transition-all focus:border-none focus:ring-2 focus:ring-port-light-primary dark:focus:ring-port-primary"
                 >
                   contact me!!
                 </Link>
                 <a href="/resume.pdf" download="Yunus_Abbas_Resume.pdf">
                   <button
                     type="button"
-                    className="hover:bg-white/10 px-8 py-2.5 flex items-center space-x-3 active:bg-white/10 hover:ring-2 hover:ring-port-primary bg-transparent transition-all border border-port-primary hover:border-none"
+                    className="
+                      bg-transparent 
+                      hover:bg-port-light-accent dark:hover:bg-white/10 
+                      active:bg-port-light-accent/80 dark:active:bg-white/10 
+                      border border-port-light-border dark:border-port-primary
+                      hover:border-port-light-primary dark:hover:border-port-primary hover:ring-2 hover:ring-port-light-primary dark:hover:ring-port-primary
+                      px-8 py-2.5 flex items-center space-x-3 
+                      transition-all"
                   >
                     <span className="bg-gradient-to-l from-indigo-700 to-red-500 bg-clip-text text-transparent font-fira-code">
                       Download Resume
@@ -173,8 +186,8 @@ const HeroSection = () => {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        <div className="border-2 border-port-gray relative px-7 py-4 w-full">
-          <span className="bg-port-bg absolute flex items-center justify-center px-2 py-1.5 -top-7">
+        <div className="border-2 border-port-light-border dark:border-port-gray relative px-7 py-4 w-full bg-port-light-surface dark:bg-transparent">
+          <span className="bg-port-light-surface dark:bg-port-bg absolute flex items-center justify-center px-2 py-1.5 -top-7">
             <svg
               width="42"
               height="29"
@@ -189,7 +202,7 @@ const HeroSection = () => {
               />
             </svg>
           </span>
-          <p className="font-fira-code font-normal text-white sm:text-xl cursor-hover">
+          <p className="font-fira-code font-normal text-port-light-text dark:text-white sm:text-xl cursor-hover">
             {SplittedAnimatedText({
               content: ["With great power comes great electricity bill"],
               type: "word",
@@ -207,14 +220,14 @@ const ProjectSection = () => {
       <div className="w-full space-y-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 shrink-0 flex-1">
-            <h2 className="text-white font-medium font-fira-code text-2xl">
-              <span className="text-port-primary">#</span>projects
+            <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+              <span className="text-port-light-primary dark:text-port-primary">#</span>projects
             </h2>
-            <div className="h-0.5 w-1/2 bg-port-primary block" />
+            <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
           </div>
 
           <Link to="" className="group">
-            <p className="group-hover:underline group-hover:text-port-primary transition-colors flex items-center space-x-3 text-white font-fira-code font-medium">
+            <p className="group-hover:underline text-port-light-text group-hover:text-port-light-primary dark:text-white dark:group-hover:text-port-primary transition-colors flex items-center space-x-3 font-fira-code font-medium">
               <span>View all</span>
               <span>
                 <FontAwesomeIcon icon={faArrowRight} className="h-4" />
@@ -246,10 +259,10 @@ const SkillSection = () => {
     <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
-          <h2 className="text-white font-medium font-fira-code text-2xl">
-            <span className="text-port-primary">#</span>skills
+          <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+            <span className="dark:text-port-primary">#</span>skills
           </h2>
-          <div className="h-0.5 w-1/2 bg-port-primary block" />
+          <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-start gap-9">
@@ -281,15 +294,15 @@ const AboutSection = () => {
     <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
-          <h2 className="text-white font-medium font-fira-code text-2xl">
-            <span className="text-port-primary">#</span>about-me
+          <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+            <span className="text-port-light-primary dark:text-port-primary">#</span>about-me
           </h2>
-          <div className="h-0.5 w-1/2 bg-port-primary block" />
+          <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="space-y-6 flex flex-col justify-center">
-            <h3 className="text-xl font-semibold font-fira-code text-port-gray">
+            <h3 className="text-xl font-semibold font-fira-code dark:text-port-gray">
               {SplittedAnimatedText({
                 content: ["Hello, i'm Abbas!"],
                 type: "letter",
@@ -297,7 +310,7 @@ const AboutSection = () => {
             </h3>
 
             <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-              <h1 className="text-lg text-white font-bold font-fira-code leading-normal cursor-hover">
+              <h1 className="text-lg text-port-light-text dark:text-white font-bold font-fira-code leading-normal cursor-hover">
                 {SplittedAnimatedText({
                   content: [
                     "I'm a ",
@@ -312,7 +325,7 @@ const AboutSection = () => {
               </h1>
             </motion.div>
 
-            <p className="text-lg font-fira-code font-normal text-port-gray cursor-hover">
+            <p className="text-lg font-fira-code font-normal text-port-light-muted dark:text-port-gray cursor-hover">
               {SplittedAnimatedText({
                 content: [
                   "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
@@ -322,7 +335,14 @@ const AboutSection = () => {
             </p>
             <Link
               to=""
-              className="group inline-flex w-fit items-center space-x-3 active:bg-port-primary/25 active:border-none hover:underline hover:bg-port-primary/25  hover:border-none hovere:underline text-white font-medium font-fira-code px-5 py-2.5 border border-port-primary transition-all focus:border-none focus:ring-port-primary focus:ring-2"
+              className="group inline-flex w-fit items-center space-x-3 
+                bg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
+                dark:active:bg-port-primary/25 dark:hover:bg-port-primary/25 
+                border border-port-light-border dark:border-port-primary
+                text-port-light-text dark:text-white 
+                hover:underline hover:border-port-light-primary dark:hover:border-port-primary
+                font-medium font-fira-code px-5 py-2.5 
+                transition-all focus:border-none focus:ring-2 focus:ring-port-light-primary dark:focus:ring-port-primary"
             >
               <span>Read more</span>
               <span>
@@ -346,10 +366,10 @@ const ContactSection = () => {
     <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
-          <h2 className="text-white font-medium font-fira-code text-2xl">
-            <span className="text-port-primary">#</span>contact-me
+          <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+            <span className="text-port-light-text dark:text-port-primary">#</span>contact-me
           </h2>
-          <div className="h-0.5 w-1/2 bg-port-primary block" />
+          <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
