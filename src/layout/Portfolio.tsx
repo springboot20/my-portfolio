@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CustomCursor } from "../components/mirror-cursor/mirror-cursor";
 import { SlideIn } from "../components/slide-in";
+import { TimeComponent } from "../components/time/time";
 
 export default function PortfolioLayout() {
   const [enableBackground, setEnableBackground] = useState<boolean>(false);
@@ -166,10 +167,7 @@ export default function PortfolioLayout() {
             >
               <nav className={classNames("max-w-7xl mx-auto h-full 2xl:px-0 px-4")}>
                 <div className="w-full h-full flex items-center justify-between">
-                  <Link
-                    to="/"
-                    className="cursor-hover "
-                  >
+                  <Link to="/" className="cursor-hover ">
                     <div className="flex items-center space-x-3">
                       <FontAwesomeIcon icon={faCode} className="h-10 text-port-primary" />
                       <h3 className="text-xl font-fira-code font-semibold text-port-primary">
@@ -207,6 +205,8 @@ export default function PortfolioLayout() {
                       );
                     })}
                   </div>
+
+                  <TimeComponent />
 
                   <Disclosure.Button
                     className={

@@ -42,7 +42,7 @@ export default function HomePageComponent() {
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col gap-16">
+    <section className="flex flex-col gap-16 py-12">
       <div className="grid grid-cols-1 gap-9 lg:grid-cols-2">
         <SlideIn>
           <div className="space-y-7">
@@ -203,7 +203,7 @@ const HeroSection = () => {
 
 const ProjectSection = () => {
   return (
-    <section className="py-10">
+    <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 shrink-0 flex-1">
@@ -243,7 +243,7 @@ const ProjectSection = () => {
 
 const SkillSection = () => {
   return (
-    <section className="py-10">
+    <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
           <h2 className="text-white font-medium font-fira-code text-2xl">
@@ -278,7 +278,7 @@ const SkillSection = () => {
 
 const AboutSection = () => {
   return (
-    <section className="py-10">
+    <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
           <h2 className="text-white font-medium font-fira-code text-2xl">
@@ -343,7 +343,7 @@ const AboutSection = () => {
 
 const ContactSection = () => {
   return (
-    <section className="py-10">
+    <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
           <h2 className="text-white font-medium font-fira-code text-2xl">

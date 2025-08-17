@@ -16,11 +16,20 @@ export default {
         emerald: colors.emerald,
         ...defaultTheme.colors,
       },
+      backfaceVisibility: ["responsive"],
       fontFamily: {
         inter: '"Inter", sans-serif',
         "fira-code": '"Fira Code", monospace',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".backface-hidden": {
+          backfaceVisibility: "hidden",
+        },
+      });
+    },
+  ],
 };
