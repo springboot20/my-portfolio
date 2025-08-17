@@ -5,7 +5,7 @@ import ProjectDemoImage from "../../assets/images/project-demo-image.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Fragment } from "react";
-import AboutImage from "../../assets/images/about-Image.png";
+import AboutImage from "../../assets/images/about-image.png";
 import SkillCoverImage from "../../assets/images/skill-cover-image.png";
 import { SlideIn } from "../../components/slide-in";
 import { motion } from "framer-motion";

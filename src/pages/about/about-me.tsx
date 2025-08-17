@@ -1,6 +1,6 @@
 import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
 import { motion } from "framer-motion";
-import AboutImage from "../../assets/images/about-Image.png";
+import AboutImage from "../../assets/images/about-image.png";
 import { SkillCard } from "../../components/card/cards";
 
 export default function AboutPageComponent() {
