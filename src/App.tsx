@@ -30,7 +30,7 @@ export const AnimatedDigit = ({ digit }: { digit: number }) => {
 
 function App() {
   // const { user, token } = useAuth();
-  const [progress, setProgress] = useState(100);
+  const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const onLoadingComplete = useCallback(() => setIsLoading(false), []);
