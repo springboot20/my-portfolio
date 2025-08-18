@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import DotPattern from "../../assets/images/dots-pattern.png";
 import HeroImage from "../../assets/images/hero-image.png";
-import ProjectDemoImage from "../../assets/images/project-demo-image.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import AboutImage from "../../assets/images/about-image.png";
 import SkillCoverImage from "../../assets/images/skill-cover-image.png";
 import { SlideIn } from "../../components/slide-in";
 import { motion } from "framer-motion";
 import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
 import { ProjectCardComponent, SkillCard } from "../../components/card/cards";
+import { languages, dataBases, frameworks, others } from "../../data/skills";
+import { projects } from "../../data/projects";
 
 export default function HomePageComponent() {
   return (
@@ -235,22 +236,42 @@ const ProjectSection = () => {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.from({ length: 3 }, (_, index) => {
-            return (
-              <ProjectCardComponent
-                key={index}
-                description="Minecraft servers hosting"
-                link="/"
-                image={ProjectDemoImage}
-                title="ChertNodes"
-                frameworks={["HTML", "CSS", "JavaScript", "Python", "Tailwind CSS"]}
-              />
-            );
-          })}
+          {React.Children.toArray(
+            projects.slice(0, 3).map((project, index) => {
+              return <ProjectCardComponent key={`${project.title}-${index}`} {...project} />;
+            })
+          )}
         </div>
       </div>
     </section>
   );
+};
+
+const skills = {
+  languages: {
+    title: "languages",
+    skills: languages,
+  },
+
+  databases: {
+    title: "databases",
+    skills: dataBases,
+  },
+
+  tools: {
+    title: "tools",
+    skills: [],
+  },
+
+  others: {
+    title: "others",
+    skills: others,
+  },
+
+  frameworks: {
+    title: "frameworks",
+    skills: frameworks,
+  },
 };
 
 const SkillSection = () => {
@@ -272,15 +293,17 @@ const SkillSection = () => {
           </div>
 
           <div className="grid grid-cols-2 xl:grid-cols-3 flex-1 gap-2">
-            {Array.from({ length: 5 }, (_, index) => {
-              return (
-                <Fragment key={index}>
-                  {index === 3 && <div className="hidden xl:block"></div>}
-                  {index === 4 && <div className="xl:hidden"></div>}
-                  <SkillCard key={index} />
-                </Fragment>
-              );
-            })}
+            {React.Children.toArray(
+              Object.values(skills).map((skill, index) => {
+                return (
+                  <Fragment key={index}>
+                    {index === 3 && <div className="hidden xl:block"></div>}
+                    {index === 4 && <div className="xl:hidden"></div>}
+                    <SkillCard key={index} {...skill} />
+                  </Fragment>
+                );
+              })
+            )}
           </div>
         </div>
       </div>

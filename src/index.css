@@ -2,24 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Inter", sans-serif;
-  src: url(./font/static/Inter-Bold.ttf);
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Inter", sans-serif;
-  src: url(./font/static/Inter-Regular.ttf);
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Inter", sans-serif;
-  src: url(./font/static/Inter-Medium.ttf);
-  font-weight: 500;
-}
-
 /* fira code */
 @font-face {
   font-family: "Fira Code", monospace;
@@ -56,7 +38,7 @@
     @apply transition duration-75;
   }
   body {
-    @apply bg-port-light-bg dark:bg-port-bg;
+    @apply bg-port-light-bg dark:bg-port-bg font-fira-code;
   }
 }
 

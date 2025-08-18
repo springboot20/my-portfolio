@@ -1,17 +1,20 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { truncate } from "../../utils";
 
 interface ProjectCardComponentProps {
   title: string;
-  link: string;
+  url: string;
+  alt?: string;
   image?: string;
+  githubUrl?: string;
   frameworks: string[];
   description: string;
 }
 
 export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
-  const { title, frameworks, image, link, description } = props;
+  const { title, frameworks, image, url, description } = props;
   return (
     <article className="overflow-hidden border border-port-light-border dark:border-white">
       <div className="w-full">
@@ -39,11 +42,13 @@ export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
         </div>
 
         <div className="p-4 border-t px-4 space-y-3">
-          <h3 className="text-port-light-text dark:text-white font-medium font-fira-code text-lg sm:text-xl">{title}</h3>
-          <p className="text-port-gray font-normal font-fira-code">{description}</p>
+          <h3 className="text-port-light-text dark:text-white font-medium font-fira-code text-lg sm:text-xl">
+            {title}
+          </h3>
+          <p className="text-port-gray font-normal font-fira-code">{truncate(description, 70)}</p>
           <div className="flex items-center gap-2 flex-wrap">
             <Link
-              to={link}
+              to={url}
               className="inline-block w-fitbg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
                     dark:active:bg-port-primary/25 dark:hover:bg-port-primary/25 
                     border border-port-light-border dark:border-port-primary
@@ -64,22 +69,38 @@ export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
   );
 };
 
-export const SkillCard = () => {
+interface SkillCardProps {
+  title: string;
+  skills?: Array<{
+    name: string;
+    logo?: JSX.Element;
+  }>;
+}
+
+export const SkillCard = (props: SkillCardProps) => {
+  const { title, skills } = props;
+
   return (
-    <div className="overflow-hidden border border-port-light-border dark:border-white">
-      <div className="w-full">
+    <div className="overflow-hidden border border-port-light-border dark:border-white h-max">
+      <div className="w-full h-full">
         <div className="p-2.5">
-          <h3 className="text-port-light-text dark:text-white font-medium font-fira-code">Title</h3>
+          <h3 className="text-port-light-text dark:text-white font-medium font-fira-code capitalize">
+            {title}
+          </h3>
         </div>
 
         <div className="p-2 flex items-center flex-wrap gap-2 border-t borderport-light-border dark:border-white">
-          {["TypeScript", "Python", "JavaScript"].map((skill) => {
-            return (
-              <p key={skill} className="text-port-light-muted dark:text-port-gray font-fira-code">
-                {skill}
-              </p>
-            );
-          })}
+          {skills &&
+            skills.map((skill, index) => {
+              return (
+                <div className="flex items-center flex-col" key={`${skill.name}-${index}`}>
+                  {skill.logo}
+                  <p className="text-port-light-muted dark:text-port-gray font-fira-code">
+                    {skill.name}
+                  </p>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>

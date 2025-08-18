@@ -39,7 +39,7 @@ export default function PortfolioLayout() {
 
     return splittedWords.map((word, index) => {
       const realWord = word === " " ? "\n" : word;
-      return <span key={`${word}-${index}`}>{realWord}</span>;
+      return <motion.span key={`${word}-${index}`}>{realWord}</motion.span>;
     });
   };
 

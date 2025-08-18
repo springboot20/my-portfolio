@@ -1,5 +1,6 @@
 import { ProjectCardComponent } from "../../components/card/cards";
-import ProjectDemoImage from "../../assets/images/project-demo-image.jpg";
+import { projects } from "../../data/projects";
+import React from "react";
 
 export default function ProjectPageComponent() {
   return (
@@ -9,31 +10,27 @@ export default function ProjectPageComponent() {
           <h1 className="font-fira-code font-semibold text-3xl text-port-light-text dark:text-white">
             <span className="text-port-light-primary dark:text-port-primary">/</span>projects
           </h1>
-          <p className="text-port-light-text dark:text-white font-fira-code font-normal text-lg">List of my projects</p>
+          <p className="text-port-light-text dark:text-white font-fira-code font-normal text-lg">
+            List of my projects
+          </p>
         </header>
 
         <section className="py-10">
           <div className="w-full space-y-10">
             <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
               <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
-                <span className="text-port-light-primary dark:text-port-primary">#</span>completed projects
+                <span className="text-port-light-primary dark:text-port-primary">#</span>completed
+                projects
               </h2>
               <div className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {Array.from({ length: 6 }, (_, index) => {
-                return (
-                  <ProjectCardComponent
-                    key={index}
-                    description="Minecraft servers hosting"
-                    link="/"
-                    image={ProjectDemoImage}
-                    title="ChertNodes"
-                    frameworks={["HTML", "CSS", "JavaScript", "Python", "Tailwind CSS"]}
-                  />
-                );
-              })}
+              {React.Children.toArray(
+                projects.map((project, index) => {
+                  return <ProjectCardComponent key={`${project.title}-${index}`} {...project} />;
+                })
+              )}
             </div>
           </div>
         </section>
@@ -42,7 +39,8 @@ export default function ProjectPageComponent() {
           <div className="w-full space-y-10">
             <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
               <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
-                <span className="text-port-light-primary dark:text-port-primary">#</span>small projects
+                <span className="text-port-light-primary dark:text-port-primary">#</span>small
+                projects
               </h2>
               <div className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block" />
             </div>
@@ -53,7 +51,7 @@ export default function ProjectPageComponent() {
                   <ProjectCardComponent
                     key={index}
                     description="Minecraft servers hosting"
-                    link="/"
+                    url="/"
                     title="ChertNodes"
                     frameworks={["HTML", "CSS", "JavaScript", "Python", "Tailwind CSS"]}
                   />

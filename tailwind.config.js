@@ -29,7 +29,6 @@ export default {
       },
       backfaceVisibility: ["responsive"],
       fontFamily: {
-        inter: '"Inter", sans-serif',
         "fira-code": '"Fira Code", monospace',
       },
     },

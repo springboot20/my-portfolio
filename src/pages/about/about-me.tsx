@@ -1,7 +1,36 @@
+import React, { Fragment } from "react";
 import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
 import { motion } from "framer-motion";
 import AboutImage from "../../assets/images/about-image.png";
 import { SkillCard } from "../../components/card/cards";
+import { languages, dataBases, frameworks, others } from "../../data/skills";
+
+const skills = {
+  languages: {
+    title: "languages",
+    skills: languages,
+  },
+
+  databases: {
+    title: "databases",
+    skills: dataBases,
+  },
+
+  tools: {
+    title: "tools",
+    skills: [],
+  },
+
+  others: {
+    title: "others",
+    skills: others,
+  },
+
+  frameworks: {
+    title: "frameworks",
+    skills: frameworks,
+  },
+};
 
 export default function AboutPageComponent() {
   return (
@@ -11,7 +40,9 @@ export default function AboutPageComponent() {
           <h1 className="font-fira-code font-semibold text-3xl text-port-light-text dark:text-white">
             <span className="text-port-light-primary dark:text-port-primary">/</span>about me
           </h1>
-          <p className="text-port-light-text dark:text-white font-fira-code font-normal text-lg">who am i?</p>
+          <p className="text-port-light-text dark:text-white font-fira-code font-normal text-lg">
+            who am i?
+          </p>
         </header>
 
         <section className="py-10">
@@ -59,17 +90,25 @@ export default function AboutPageComponent() {
 
         <section className="py-10">
           <div className="w-full space-y-10">
-             <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
+            <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
               <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
                 <span className="text-port-light-primary dark:text-port-primary">#</span>skills
               </h2>
               <div className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block" />
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1 gap-2">
-              {Array.from({ length: 5 }, (_, index) => {
-                return <SkillCard key={index} />;
-              })}
+            <div className="grid grid-cols-2 xl:grid-cols-3 flex-1 gap-3">
+              {React.Children.toArray(
+                Object.values(skills).map((skill, index) => {
+                  return (
+                    <Fragment key={index}>
+                      {index === 3 && <div className="hidden xl:block"></div>}
+                      {index === 4 && <div className="xl:hidden"></div>}
+                      <SkillCard key={index} {...skill} />
+                    </Fragment>
+                  );
+                })
+              )}
             </div>
           </div>
         </section>
