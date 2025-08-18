@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Irish+Grover&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -38,7 +40,7 @@
     @apply transition duration-75;
   }
   body {
-    @apply bg-port-light-bg dark:bg-port-bg font-fira-code;
+    @apply bg-port-light-bg dark:!bg-port-bg font-fira-code;
   }
 }
 
