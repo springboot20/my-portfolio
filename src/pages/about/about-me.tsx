@@ -3,7 +3,7 @@ import { SplittedAnimatedText } from "../../components/splitted-text/splitted-te
 import { motion } from "framer-motion";
 import AboutImage from "../../assets/images/about-image.png";
 import { SkillCard } from "../../components/card/cards";
-import { languages, dataBases, frameworks, others } from "../../data/skills";
+import { languages, dataBases, frameworks, others, tools } from "../../data/skills";
 
 const skills = {
   languages: {
@@ -18,7 +18,7 @@ const skills = {
 
   tools: {
     title: "tools",
-    skills: [],
+    skills: tools,
   },
 
   others: {

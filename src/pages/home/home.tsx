@@ -10,7 +10,7 @@ import { SlideIn } from "../../components/slide-in";
 import { motion } from "framer-motion";
 import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
 import { ProjectCardComponent, SkillCard } from "../../components/card/cards";
-import { languages, dataBases, frameworks, others } from "../../data/skills";
+import { languages, dataBases, frameworks, others, tools } from "../../data/skills";
 import { projects } from "../../data/projects";
 
 export default function HomePageComponent() {
@@ -260,7 +260,7 @@ const skills = {
 
   tools: {
     title: "tools",
-    skills: [],
+    skills: tools,
   },
 
   others: {
