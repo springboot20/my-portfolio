@@ -179,13 +179,11 @@ export default function AboutPageComponent() {
               />
             </div>
 
-            <div className="grid grid-cols-2 xl:grid-cols-3 flex-1 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1 gap-2">
               {React.Children.toArray(
                 Object.values(skills).map((skill, index) => {
                   return (
                     <Fragment key={index}>
-                      {index === 3 && <div className="hidden xl:block"></div>}
-                      {index === 4 && <div className="xl:hidden"></div>}
                       <SkillCard key={index} {...skill} />
                     </Fragment>
                   );
