@@ -13,6 +13,28 @@ import { ProjectCardComponent, SkillCard } from "../../components/card/cards";
 import { languages, dataBases, frameworks, others, tools } from "../../data/skills";
 import { projects } from "../../data/projects";
 
+const titleVariants = {
+  initial: {
+    opacity: 0,
+    y: 15,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+const lineVariants = {
+  initial: {
+    opacity: 0,
+    width: 0,
+  },
+  animate: {
+    opacity: 1,
+    width: "50%",
+  },
+};
+
 export default function HomePageComponent() {
   return (
     <article className="w-full py-28">
@@ -220,13 +242,41 @@ const ProjectSection = () => {
       <div className="w-full space-y-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 shrink-0 flex-1">
-            <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+            <motion.h2
+              variants={{
+                ...titleVariants,
+                animate: {
+                  ...titleVariants.animate,
+                  transition: {
+                    delay: 0.4,
+                  },
+                },
+              }}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ amount: "all", once: false }}
+              className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl"
+            >
               <span className="text-port-light-primary dark:text-port-primary">#</span>projects
-            </h2>
-            <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
+            </motion.h2>
+            <motion.div
+              variants={{
+                ...lineVariants,
+                animate: {
+                  ...lineVariants.animate,
+                  transition: {
+                    delay: 0.4,
+                  },
+                },
+              }}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ amount: "all", once: false }}
+              className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block"
+            />
           </div>
 
-          <Link to="" className="group">
+          <Link to="/projects" className="group">
             <p className="group-hover:underline text-port-light-text group-hover:text-port-light-primary dark:text-white dark:group-hover:text-port-primary transition-colors flex items-center space-x-3 font-fira-code font-medium">
               <span>View all</span>
               <span>
@@ -279,14 +329,42 @@ const SkillSection = () => {
     <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
-          <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+          <motion.h2
+            variants={{
+              ...titleVariants,
+              animate: {
+                ...titleVariants.animate,
+                transition: {
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: "all", once: false }}
+            className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl"
+          >
             <span className="dark:text-port-primary">#</span>skills
-          </h2>
-          <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
+          </motion.h2>
+          <motion.div
+            variants={{
+              ...lineVariants,
+              animate: {
+                ...lineVariants.animate,
+                transition: {
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: "all", once: false }}
+            className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block"
+          />
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-start gap-9">
-          <div className="shrink-0 relative flex-grow max-w-lg">
+          <div className="shrink-0 relative flex-grow w-full lg:max-w-lg">
             {/* dot one pattern start */}
             <img src={SkillCoverImage} className="h-full w-full object-cover" />
             {/* dot one pattern end */}
@@ -316,10 +394,38 @@ const AboutSection = () => {
     <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
-          <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+          <motion.h2
+            variants={{
+              ...titleVariants,
+              animate: {
+                ...titleVariants.animate,
+                transition: {
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: "all", once: false }}
+            className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl"
+          >
             <span className="text-port-light-primary dark:text-port-primary">#</span>about-me
-          </h2>
-          <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
+          </motion.h2>
+          <motion.div
+            variants={{
+              ...lineVariants,
+              animate: {
+                ...lineVariants.animate,
+                transition: {
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: "all", once: false }}
+            className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block"
+          />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -388,10 +494,37 @@ const ContactSection = () => {
     <section className="py-12">
       <div className="w-full space-y-10">
         <div className="flex items-center space-x-2 shrink-0 flex-1">
-          <h2 className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl">
+          <motion.h2
+            variants={{
+              ...titleVariants,
+              animate: {
+                ...titleVariants.animate,
+                transition: {
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="initial"
+            animate="animate"
+            className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl"
+          >
             <span className="text-port-light-text dark:text-port-primary">#</span>contact-me
-          </h2>
-          <div className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block" />
+          </motion.h2>
+          <motion.div
+            variants={{
+              ...lineVariants,
+              animate: {
+                ...lineVariants.animate,
+                transition: {
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: "all", once: false }}
+            className="h-0.5 w-1/2 bg-port-light-primary dark:bg-port-primary block"
+          />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">

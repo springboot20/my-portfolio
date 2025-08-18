@@ -52,9 +52,9 @@ export const TimeComponent = () => {
   const [s1, s2] = padTimerString(seconds);
 
   return (
-    <div className="flex items-center text-xl font-fira-code font-medium text-port-light-text dark:text-white cursor-hover">
+    <div className="flex items-center text-lg sm:text-xl font-fira-code font-medium text-port-light-text dark:text-white cursor-hover">
       {/* Hours */}
-      <div className="space-x-0.5">
+      <div className="space-x-0.5 mr-0.5">
         <AnimatedDigit digit={h1} />
         <AnimatedDigit digit={h2} />
       </div>
@@ -63,12 +63,10 @@ export const TimeComponent = () => {
       //   "transition-opacity duration-200",
       //   showColon ? "opacity-100" : "opacity-0"
       // )}
-      >
-        :
-      </span>
+      >:</span>
 
       {/* Minutes */}
-      <div className="space-x-0.5">
+      <div className="space-x-0.5 mr-0.5">
         <AnimatedDigit digit={m1} />
         <AnimatedDigit digit={m2} />
       </div>
@@ -77,12 +75,10 @@ export const TimeComponent = () => {
       //   "transition-opacity duration-300",
       //   showColon ? "opacity-100" : "opacity-0"
       // )}
-      >
-        :
-      </span>
+      >:</span>
 
       {/* Seconds */}
-      <div className="space-x-0.5">
+      <div className="space-x-0.5 mr-0.5">
         <AnimatedDigit digit={s1} />
         <AnimatedDigit digit={s2} />
       </div>
@@ -93,7 +89,7 @@ export const TimeComponent = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.3 }}
-        className="ml-2 text-xs"
+        className="ml-1 text-xs"
       >
         {isAM ? "AM" : "PM"}
       </motion.span>

@@ -15,9 +15,9 @@ export const AnimatedDigit = ({ digit }: { digit: number }) => {
       <AnimatePresence mode="wait">
         <motion.span
           key={digit}
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: -5, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 10, opacity: 0 }}
+          exit={{ y: 5, opacity: 0 }}
           style={{ backfaceVisibility: "hidden" }}
           className="absolute left-0 top-0 w-full"
         >
@@ -30,7 +30,7 @@ export const AnimatedDigit = ({ digit }: { digit: number }) => {
 
 function App() {
   // const { user, token } = useAuth();
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(100);
   const [isLoading, setIsLoading] = useState(true);
 
   const onLoadingComplete = useCallback(() => setIsLoading(false), []);
@@ -43,7 +43,7 @@ function App() {
       // Increment by 1% every 100ms (takes ~5 seconds to complete)
       timer = setTimeout(() => {
         setProgress((prev) => prev + 1);
-      }, 100);
+      }, 50);
     } else {
       // When we reach 100%, trigger the callback after a small delay
       const completeTimer = setTimeout(() => {

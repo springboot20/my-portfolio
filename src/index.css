@@ -38,7 +38,7 @@
     @apply transition duration-75;
   }
   body {
-    @apply bg-port-light-bg dark:bg-port-bg font-fira-code;
+    @apply bg-port-light-bg dark:!bg-port-bg font-fira-code;
   }
 }
 
