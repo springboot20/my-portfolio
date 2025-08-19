@@ -132,7 +132,7 @@ const HeroSection = () => {
                       hover:bg-port-light-accent dark:hover:bg-white/10 
                       active:bg-port-light-accent/80 dark:active:bg-white/10 
                       border border-port-light-border dark:border-port-primary
-                      hover:border-port-light-primary dark:hover:border-port-primary hover:ring-2 hover:ring-port-light-primary dark:hover:ring-port-primary
+                      hover:border-port-light-primary dark:hover:border-port-primary focus:ring-2 hover:ring-port-light-primary dark:hover:ring-port-primary
                       px-8 py-2.5 flex items-center space-x-3 
                       transition-all"
                   >
