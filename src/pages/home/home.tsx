@@ -114,7 +114,7 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
                   to=""
-                  className="inline-block w-fitbg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
+                  className="inline-block w-fit bg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
                     dark:active:bg-port-primary/25 dark:hover:bg-port-primary/25 
                     border border-port-light-border dark:border-port-primary
                     text-port-light-text dark:text-white 
@@ -478,9 +478,9 @@ const AboutSection = () => {
               </span>
             </Link>
           </div>
-          <div className="relative oveflow-hidden place-self-end">
-            <div className="w-full flex items-center justify-center h-[30rem]">
-              <img src={AboutImage} alt="about image" className="h-full w-[20rem]" />
+          <div className="relative oveflow-hidden xl:place-self-end">
+            <div className="w-full flex items-center justify-center">
+              <img src={AboutImage} alt="about image" className="h-full" />
             </div>
           </div>
         </div>

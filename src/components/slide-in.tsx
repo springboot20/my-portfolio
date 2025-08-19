@@ -1,11 +1,13 @@
 import { m, domAnimation, LazyMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { classNames } from "../utils";
 
 interface SlideProps {
   children: React.ReactNode;
   direction?: "left" | "top" | "right" | "bottom";
   duration?: number;
   trigger?: boolean;
+  classnames?: string;
 }
 
 export const SlideIn: React.FC<SlideProps> = ({
@@ -13,6 +15,7 @@ export const SlideIn: React.FC<SlideProps> = ({
   duration = 0.5,
   children,
   trigger = true,
+  classnames = "",
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: trigger,
@@ -40,6 +43,7 @@ export const SlideIn: React.FC<SlideProps> = ({
         initial="hidden"
         transition={{ duration }}
         animate={inView ? "visible" : "hidden"}
+        className={classNames(classnames)}
       >
         {children}
       </m.div>

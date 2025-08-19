@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import AboutImage from "../../assets/images/about-image.png";
 import { SkillCard } from "../../components/card/cards";
 import { languages, dataBases, frameworks, others, tools } from "../../data/skills";
+import { SlideIn } from "../../components/slide-in";
 
 const skills = {
   languages: {
@@ -100,45 +101,50 @@ export default function AboutPageComponent() {
         </header>
 
         <section className="py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="space-y-6 flex flex-col justify-center">
-              <h3 className="text-2xl font-semibold font-fira-code text-port-light-text dark:text-port-gray">
-                {SplittedAnimatedText({
-                  content: ["Hello, i'm Abbas!"],
-                  type: "letter",
-                })}
-              </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center">
+            <SlideIn classnames="">
+              <div className="space-y-6 flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold font-fira-code text-port-light-text dark:text-port-gray">
+                  {SplittedAnimatedText({
+                    content: ["Hello, i'm Abbas!"],
+                    type: "letter",
+                  })}
+                </h3>
 
-              <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-                <h1 className="text-xl text-port-light-muted dark:text-white font-bold font-fira-code leading-normal cursor-hover">
+                <motion.div initial="hidden" animate="visible" className="overflow-hidden">
+                  <h1 className="text-xl text-port-light-muted dark:text-white font-bold font-fira-code leading-normal cursor-hover">
+                    {SplittedAnimatedText({
+                      content: [
+                        "I'm a ",
+                        <span>Front-end developer</span>,
+                        " with a zeal for ",
+                        <span>crafting intuitive</span>,
+                        " and ",
+                        <span>responsive digital experience.</span>,
+                      ],
+                      type: "word",
+                    })}
+                  </h1>
+                </motion.div>
+
+                <p className="text-xl font-fira-code font-normal text-port-gray cursor-hover">
                   {SplittedAnimatedText({
                     content: [
-                      "I'm a ",
-                      <span>Front-end developer</span>,
-                      " with a zeal for ",
-                      <span>crafting intuitive</span>,
-                      " and ",
-                      <span>responsive digital experience.</span>,
+                      "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
                     ],
                     type: "word",
                   })}
-                </h1>
-              </motion.div>
-
-              <p className="text-xl font-fira-code font-normal text-port-gray cursor-hover">
-                {SplittedAnimatedText({
-                  content: [
-                    "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
-                  ],
-                  type: "word",
-                })}
-              </p>
-            </div>
-            <div className="relative oveflow-hidden place-self-end">
-              <div className="w-full flex items-center justify-center h-[30rem]">
-                <img src={AboutImage} alt="about image" className="h-full w-[20rem]" />
+                </p>
               </div>
-            </div>
+            </SlideIn>
+
+            <SlideIn direction="right" classnames="xl:place-self-end">
+              <div className="relative oveflow-hidden">
+                <div className="w-full flex items-center justify-center">
+                  <img src={AboutImage} alt="about image" className="h-full w-full" />
+                </div>
+              </div>
+            </SlideIn>
           </div>
         </section>
 
