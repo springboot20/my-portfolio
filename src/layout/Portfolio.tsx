@@ -1,5 +1,5 @@
 import { Disclosure } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose, faCode, faCopyright } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,135 @@ import { TimeComponent } from "../components/time/time";
 import GsapCustomCursor from "../components/mirror-cursor/gsap-mirror";
 import { ThemeSwitch } from "../components/theme-switch/theme-switch";
 import { useTheme } from "../hooks/useTheme";
+import gsap from "gsap";
+
+type RollupLinkProps = {
+  path: string;
+  title: string;
+  onClick?: () => void;
+};
+
+const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
+  const topLinksRef = useRef<HTMLDivElement>(null);
+  const bottomLinksRef = useRef<HTMLDivElement>(null);
+  const gsapTimeline = useRef<gsap.core.Timeline | null>(null);
+
+  const splitText = (words: string) => {
+    return words.split("").map((word, index) => {
+      const realWord = word === " " ? "\u00A0" : word;
+      return (
+        <span
+          key={`${word}-${index}`}
+          className="splitted-link-text inline-block will-change-transform"
+        >
+          {realWord}
+        </span>
+      );
+    });
+  };
+
+  useEffect(() => {
+    const topLinks = topLinksRef.current?.querySelectorAll(".splitted-link-text");
+    const bottomLinks = bottomLinksRef.current?.querySelectorAll(".splitted-link-text");
+
+    if (!topLinks || !bottomLinks) return;
+
+    // gsap.set(topLinks, { yPercent: 0 });
+    gsap.set(bottomLinks, { yPercent: 100 });
+
+    const timeline = gsap.timeline({ paused: true });
+
+    timeline
+      .to(topLinks, {
+        yPercent: -100,
+        duration: 0.3,
+        ease: "power2.out",
+        stagger: 0.02,
+      })
+      .to(
+        bottomLinks,
+        {
+          yPercent: 0,
+          duration: 0.3,
+          ease: "power2.in",
+          stagger: 0.02,
+        },
+        "<"
+      );
+
+    gsapTimeline.current = timeline;
+    // Cleanup function
+    return () => {
+      if (gsapTimeline.current) {
+        gsapTimeline.current.kill();
+      }
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (gsapTimeline.current) {
+      gsapTimeline.current.play();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (gsapTimeline.current) {
+      gsapTimeline.current?.reverse();
+    }
+  };
+
+  return (
+    <NavLink
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      to={path}
+      className="group relative block overflow-hidden"
+      onClick={() => {
+        // Make sure close function exists before calling
+        if (onClick && typeof onClick === "function") {
+          onClick();
+        }
+      }}
+    >
+      {({ isActive }) => (
+        <div className="flex items-center justify-center relative">
+          <div
+            ref={topLinksRef}
+            className={classNames(
+              " w-full z-10",
+              "font-fira-code text-lg",
+              isActive
+                ? "text-port-light-text dark:text-white font-medium"
+                : "text-port-light-muted dark:text-port-gray font-normal"
+            )}
+          >
+            <span className="text-port-light-primary dark:text-port-primary splitted-link-text will-change-transform">
+              #
+            </span>
+            {splitText(title)}
+          </div>
+
+          <div
+            ref={bottomLinksRef}
+            className={classNames(
+              "absolute top-0 left-0",
+              "w-full z-10",
+              "font-fira-code text-lg",
+              isActive
+                ? "text-port-light-text dark:text-white font-medium"
+                : "text-port-light-muted dark:text-port-gray font-normal"
+            )}
+          >
+            <span className="text-port-light-primary dark:text-port-primary splitted-link-text will-change-transform">
+              #
+            </span>
+            {splitText(title)}
+          </div>
+        </div>
+      )}
+    </NavLink>
+  );
+};
 
 export default function PortfolioLayout() {
   const [enableBackground, setEnableBackground] = useState<boolean>(false);
@@ -36,15 +165,6 @@ export default function PortfolioLayout() {
     },
   ];
 
-  const splitText = (words: string) => {
-    const splittedWords = words.split("");
-
-    return splittedWords.map((word, index) => {
-      const realWord = word === " " ? "\n" : word;
-      return <motion.span key={`${word}-${index}`}>{realWord}</motion.span>;
-    });
-  };
-
   useEffect(() => {
     const handleWindowScroll = () => setEnableBackground(window.scrollY > 0);
 
@@ -52,22 +172,6 @@ export default function PortfolioLayout() {
 
     return () => window.removeEventListener("scroll", handleWindowScroll);
   }, []);
-
-  const listItem = (index: number) => {
-    return {
-      hidden: {
-        opacity: 0,
-        y: 10,
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: 0.15 * index,
-        },
-      },
-    };
-  };
 
   const socialLinks = [
     {
@@ -192,38 +296,9 @@ export default function PortfolioLayout() {
                       </h3>
                     </div>
                   </Link>
-                  <div className="lg:flex hidden items-center gap-6">
-                    {navigations.map(({ path, title }, index) => {
-                      return (
-                        <NavLink
-                          key={`${title}-${index}`}
-                          to={path}
-                          className="group"
-                          onClick={() => close()}
-                        >
-                          {({ isActive }) => (
-                            <motion.div
-                              variants={{ ...listItem(index) }}
-                              initial="hidden"
-                              animate="visible"
-                            >
-                              <p
-                                className={classNames(
-                                  "font-fira-code text-lg group-hover:text-port-light-text dark:group-hover:text-white",
-                                  isActive
-                                    ? "text-port-light-text dark:text-white font-medium"
-                                    : "text-port-light-muted dark:text-port-gray font-normal"
-                                )}
-                              >
-                                <span className="text-port-light-primary dark:text-port-primary">
-                                  #
-                                </span>
-                                {splitText(title)}
-                              </p>
-                            </motion.div>
-                          )}
-                        </NavLink>
-                      );
+                  <div className="lg:flex hidden items-center gap-6 shrink-0">
+                    {navigations.map((link, index) => {
+                      return <RollupLinks key={index} {...link} />;
                     })}
                   </div>
 
@@ -261,9 +336,7 @@ export default function PortfolioLayout() {
                   initial="initial"
                   animate="animate"
                   exit="exit"
-                  className={classNames(
-                    "lg:hidden fixed transition-all top-0 w-full z-20 h-full"
-                  )}
+                  className={classNames("lg:hidden fixed transition-all top-0 w-full z-20 h-full")}
                 >
                   <div className="flex flex-col justify-between h-3/4">
                     <div className="space-y-10">
@@ -286,39 +359,19 @@ export default function PortfolioLayout() {
                           <FontAwesomeIcon icon={faClose} className="h-10" strokeWidth={1.5} />
                         </Disclosure.Button>
                       </div>
-                      <div className="flex flex-col space-y-14 px-4">
-                        {navigations.map(({ path, title }, index) => {
+                      <div className="flex flex-col !items-start space-y-14 px-4">
+                        {navigations.map((link, index) => {
                           const localIndex = index + navigations.length;
-
                           return (
-                            <NavLink
-                              to={path}
-                              key={`${title}-${localIndex}`}
-                              className="group"
-                              onClick={() => close()}
-                            >
-                              {({ isActive }) => (
-                                <motion.div
-                                  variants={{ ...listItem(localIndex) }}
-                                  initial="hidden"
-                                  animate="visible"
-                                >
-                                  <p
-                                    className={classNames(
-                                      "font-medium font-fira-code text-4xl group-hover:text-port-light-text dark:group-hover:text-white",
-                                      isActive
-                                        ? "text-port-light-text dark:text-white font-medium"
-                                        : "text-port-light-muted dark:text-port-gray font-normal"
-                                    )}
-                                  >
-                                    <span className="text-port-light-primary dark:text-port-primary">
-                                      #
-                                    </span>
-                                    {splitText(title)}
-                                  </p>
-                                </motion.div>
-                              )}
-                            </NavLink>
+                            <RollupLinks
+                              key={`${link.title}-${localIndex}`}
+                              {...link}
+                              onClick={() => {
+                                if (typeof close === "function") {
+                                  close();
+                                }
+                              }}
+                            />
                           );
                         })}
                       </div>
