@@ -31,7 +31,10 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
       return (
         <span
           key={`${word}-${index}`}
-          className="splitted-link-text inline-block will-change-transform"
+          className={classNames(
+            realWord === "#" && "text-port-light-primary dark:text-port-primary",
+            "splitted-link-text inline-block will-change-transform"
+          )}
         >
           {realWord}
         </span>
@@ -114,10 +117,7 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
                 : "text-port-light-muted dark:text-port-gray font-normal"
             )}
           >
-            <span className="text-port-light-primary dark:text-port-primary splitted-link-text will-change-transform">
-              #
-            </span>
-            {splitText(title)}
+            {splitText(`#${title}`)}
           </div>
 
           <div
@@ -131,10 +131,7 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
                 : "text-port-light-muted dark:text-port-gray font-normal"
             )}
           >
-            <span className="text-port-light-primary dark:text-port-primary splitted-link-text will-change-transform">
-              #
-            </span>
-            {splitText(title)}
+            {splitText(`#${title}`)}
           </div>
         </div>
       )}
