@@ -108,7 +108,7 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
             ref={topLinksRef}
             className={classNames(
               " w-full z-10",
-              "font-fira-code text-lg",
+              "font-fira-code text-2xl",
               isActive
                 ? "text-port-light-text dark:text-white font-medium"
                 : "text-port-light-muted dark:text-port-gray font-normal"
@@ -125,7 +125,7 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
             className={classNames(
               "absolute top-0 left-0",
               "w-full z-10",
-              "font-fira-code text-lg",
+              "font-fira-code text-2xl",
               isActive
                 ? "text-port-light-text dark:text-white font-medium"
                 : "text-port-light-muted dark:text-port-gray font-normal"
@@ -359,7 +359,7 @@ export default function PortfolioLayout() {
                           <FontAwesomeIcon icon={faClose} className="h-10" strokeWidth={1.5} />
                         </Disclosure.Button>
                       </div>
-                      <div className="flex flex-col !items-start space-y-14 px-4">
+                      <div className="flex flex-col !items-start space-y-10 px-4">
                         {navigations.map((link, index) => {
                           const localIndex = index + navigations.length;
                           return (
