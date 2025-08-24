@@ -15,33 +15,13 @@ export const projects = [
   },
   {
     image: ProjectDemoImage,
-    url: "https://e-commerce-api-6wjr.onrender.com",
+    url: "https://e-commerce-api-production-6f9e.up.railway.app/",
     githubUrl: "https://github.com/springboot20/e-commerce-api",
     title: "E-commerce RESTful API",
     alt: "E-commerce Backend API Service",
     description:
       "A comprehensive RESTful API service that powers the e-commerce platform. The API handles product management, user authentication and authorization, order processing, payment integration, and inventory control. It includes robust error handling, data validation, rate limiting, and comprehensive logging. The API documentation provides detailed endpoint descriptions, request/response examples, and testing capabilities for developers.",
     frameworks: ["Node.js", "Express.Js", "MongoDB", "JWT", "Swagger", "JavaScript"],
-  },
-  {
-    image: ProjectDemoImage,
-    url: "https://github.com/springboot20/event-booking",
-    githubUrl: "https://github.com/springboot20/event-booking",
-    title: "Event Booking System",
-    alt: "Event Booking and Management Platform",
-    description:
-      "An interactive event booking platform that allows users to discover, book, and manage event tickets. Features include event listings with detailed information, interactive seating maps, calendar integration, and QR code ticket generation. The system includes user profiles with booking history, event recommendations based on past attendance, and notification systems for upcoming events. For organizers, the platform offers tools for event creation, attendee management, and analytics.",
-    frameworks: ["React.Js", "TypeScript", "Headless UI", "Tailwind CSS"],
-  },
-  {
-    image: ProjectDemoImage,
-    url: "https://github.com/springboot20/event-booking-api",
-    githubUrl: "https://github.com/springboot20/event-booking-api",
-    title: "Event Booking API",
-    alt: "Event Booking Backend API Service",
-    description:
-      "A scalable API backend that powers the event booking platform. This service handles event creation and management, seat reservation, ticket generation, user authentication, and payment processing. The API implements real-time updates using WebSockets for seat availability, supports multiple payment gateways, and provides analytics endpoints for event organizers. The well-documented API allows for easy integration with mobile applications and third-party services.",
-    frameworks: ["Node.js", "Express.Js", "TypeScript", "MongoDB", "Socket.io", "JWT"],
   },
   {
     image: BankingProjectImage,
@@ -55,7 +35,7 @@ export const projects = [
   },
   {
     image: BankingProjectImage,
-    url: "https://affiliate-dashboard-4sgw.vercel.app",
+    url: "https://my-api-production-a8ed.up.railway.app/",
     githubUrl: "https://github.com/springboot20/my-api",
     title: "Banking Restful API",
     alt: "Secure Banking Restful API",
