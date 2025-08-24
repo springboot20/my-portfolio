@@ -110,8 +110,8 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
           <div
             ref={topLinksRef}
             className={classNames(
-              " w-full z-10",
-              "font-fira-code text-2xl",
+              "w-full z-10",
+              "font-fira-code text-2xl lg:text-xl",
               isActive
                 ? "text-port-light-text dark:text-white font-medium"
                 : "text-port-light-muted dark:text-port-gray font-normal"
@@ -125,7 +125,7 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
             className={classNames(
               "absolute top-0 left-0",
               "w-full z-10",
-              "font-fira-code text-2xl",
+              "font-fira-code text-2xl lg:text-xl",
               isActive
                 ? "text-port-light-text dark:text-white font-medium"
                 : "text-port-light-muted dark:text-port-gray font-normal"

@@ -1,8 +1,10 @@
 import ProjectDemoImage from "../assets/images/project-demo-image.jpg";
+import EcommerceProjectImage from "../assets/images/e-commerce-project-image.jpg";
+import BankingProjectImage from "../assets/images/banking-project-image.jpg";
 
 export const projects = [
   {
-    image: ProjectDemoImage,
+    image: EcommerceProjectImage,
     url: "https://cv-ecommerce-project.vercel.app/",
     githubUrl: "https://github.com/springboot20/cv-ecommerce-project",
     title: "E-commerce Online Shopping",
@@ -42,7 +44,7 @@ export const projects = [
     frameworks: ["Node.js", "Express.Js", "TypeScript", "MongoDB", "Socket.io", "JWT"],
   },
   {
-    image: ProjectDemoImage,
+    image: BankingProjectImage,
     url: "https://affiliate-dashboard-4sgw.vercel.app",
     githubUrl: "https://github.com/springboot20/affiliate-dashboard",
     title: "Banking Web Application",
@@ -52,7 +54,7 @@ export const projects = [
     frameworks: ["React.Js", "Redux", "Tailwind CSS", "TypeScript"],
   },
   {
-    image: ProjectDemoImage,
+    image: BankingProjectImage,
     url: "https://affiliate-dashboard-4sgw.vercel.app",
     githubUrl: "https://github.com/springboot20/my-api",
     title: "Banking Restful API",
