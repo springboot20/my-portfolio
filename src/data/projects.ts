@@ -1,6 +1,6 @@
-import ProjectDemoImage from "../assets/images/project-demo-image.jpg";
 import EcommerceProjectImage from "../assets/images/e-commerce-project-image.jpg";
 import EcommerceApiProjectImage from "../assets/images/ecommerce-api-project-image.jpg";
+import ChaAppProjectImage from "../assets/images/chat-application-project-image.jpg";
 import BankingProjectImage from "../assets/images/banking-project-image.jpg";
 
 export const projects = [
@@ -25,7 +25,7 @@ export const projects = [
     frameworks: ["Node.js", "Express.Js", "MongoDB", "JWT", "Swagger", "JavaScript"],
   },
   {
-    image: ProjectDemoImage,
+    image: ChaAppProjectImage,
     url: "https://chat-application-wine-six.vercel.app/",
     githubUrl: "https://github.com/springboot20/chat-application",
     title: "Real-Time Chat Application",
