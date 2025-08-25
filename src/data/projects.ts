@@ -10,7 +10,7 @@ export const projects = [
     title: "E-commerce Online Shopping",
     alt: "E-commerce Online Shopping Platform",
     description:
-      "A full-featured e-commerce platform that allows users to browse products, add items to cart, and complete purchases. The application includes user authentication, product filtering and search, user reviews, wishlist functionality, and a secure checkout process. The responsive design ensures optimal viewing across all device sizes, while the admin dashboard allows for inventory management and sales tracking.",
+      "A full-featured shopping platform with product browsing, cart functionality, secure checkout, user authentication, reviews, wishlist, responsive design, and an admin dashboard for inventory and sales management.",
     frameworks: ["React.Js", "Redux", "Tailwind CSS", "TypeScript", "Headless UI"],
   },
   {
@@ -20,8 +20,23 @@ export const projects = [
     title: "E-commerce RESTful API",
     alt: "E-commerce Backend API Service",
     description:
-      "A comprehensive RESTful API service that powers the e-commerce platform. The API handles product management, user authentication and authorization, order processing, payment integration, and inventory control. It includes robust error handling, data validation, rate limiting, and comprehensive logging. The API documentation provides detailed endpoint descriptions, request/response examples, and testing capabilities for developers.",
+      "A backend service supporting the e-commerce platform. Handles products, authentication, orders, payments, and inventory. Features robust error handling, validation, rate limiting, logging, and complete API documentation.",
     frameworks: ["Node.js", "Express.Js", "MongoDB", "JWT", "Swagger", "JavaScript"],
+  },
+  {
+    image: ProjectDemoImage,
+    url: "https://chat-application-wine-six.vercel.app/",
+    githubUrl: "https://github.com/springboot20/chat-application",
+    title: "Real-Time Chat Application",
+    alt: "Real-Time Chat Application",
+    description:
+      "A Vite + React + TypeScript-based chat app with real-time messaging, responsive UI, and clean design. Built to demonstrate modern front-end and real-time communication capabilities.",
+    frameworks: [
+      "Vite",
+      "React",
+      "TypeScript",
+      "Real-time messaging infrastructure (e.g., WebSocket, Socket.io)",
+    ],
   },
   {
     image: BankingProjectImage,
@@ -30,7 +45,7 @@ export const projects = [
     title: "Banking Web Application",
     alt: "Secure Banking Web Application",
     description:
-      "A secure banking web application that enables users to manage their finances online. The platform includes account overview, transaction history, fund transfers between accounts, bill payments, and scheduled transactions. Security features include two-factor authentication, session timeouts, and encrypted data transmission. The application also provides spending analytics with visual representations, budget planning tools, and financial goal tracking for users to monitor their financial health.",
+      "A secure online banking platform with features like account overview, transaction history, fund transfers, bill payments, spending analytics, budget tools, and strong security (2FA, session timeouts, encryption).",
     frameworks: ["React.Js", "Redux", "Tailwind CSS", "TypeScript"],
   },
   {
@@ -40,7 +55,27 @@ export const projects = [
     title: "Banking Restful API",
     alt: "Secure Banking Restful API",
     description:
-      "A robust and secure RESTful API designed to support a banking web application. This API handles user authentication, account management, transaction processing, and bill payments. It includes features such as two-factor authentication, encrypted data storage, and role-based access control to ensure security. The API also provides endpoints for generating financial reports, managing scheduled transactions, and tracking user activity. Comprehensive documentation and testing ensure seamless integration with frontend applications.",
+      "A secure API backend for a banking app. Manages authentication, accounts, transactions, and billing. Supports 2FA, encrypted storage, role-based access, reporting endpoints, and integration-ready documentation.",
     frameworks: ["Node.js", "Express", "MongoDB", "JWT", "JavaScript"],
+  },
+];
+
+export const smallProjects = [
+  {
+    githubUrl: "https://github.com/springboot20/rest-countries",
+    title: "Rest Countries Explorer",
+    url: "https://rest-countries-hb96.vercel.app/",
+    description:
+      "A web application that provides information about countries, including population, area, and more. Built with React and Tailwind CSS.",
+    frameworks: [
+      "React",
+      "Tailwind CSS",
+      "Vite",
+      "React",
+      "TypeScript",
+      "REST Countries API",
+      "Responsive design",
+      "Theme toggling",
+    ],
   },
 ];

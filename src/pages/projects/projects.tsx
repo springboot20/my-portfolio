@@ -1,5 +1,5 @@
 import { ProjectCardComponent } from "../../components/card/cards";
-import { projects } from "../../data/projects";
+import { projects, smallProjects } from "../../data/projects";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -158,14 +158,15 @@ export default function ProjectPageComponent() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {Array.from({ length: 5 }, (_, index) => {
+              {smallProjects.map((project, index) => {
                 return (
                   <ProjectCardComponent
                     key={index}
-                    description="Minecraft servers hosting"
-                    url="/"
-                    title="ChertNodes"
-                    frameworks={["HTML", "CSS", "JavaScript", "Python", "Tailwind CSS"]}
+                    description={project.description}
+                    url={project.url}
+                    githubUrl={project.githubUrl}
+                    title={project.title}
+                    frameworks={project.frameworks}
                   />
                 );
               })}
