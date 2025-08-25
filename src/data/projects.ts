@@ -1,5 +1,6 @@
 import ProjectDemoImage from "../assets/images/project-demo-image.jpg";
 import EcommerceProjectImage from "../assets/images/e-commerce-project-image.jpg";
+import EcommerceApiProjectImage from "../assets/images/ecommerce-api-project-image.jpg";
 import BankingProjectImage from "../assets/images/banking-project-image.jpg";
 
 export const projects = [
@@ -14,7 +15,7 @@ export const projects = [
     frameworks: ["React.Js", "Redux", "Tailwind CSS", "TypeScript", "Headless UI"],
   },
   {
-    image: ProjectDemoImage,
+    image: EcommerceApiProjectImage,
     url: "https://e-commerce-api-production-6f9e.up.railway.app/",
     githubUrl: "https://github.com/springboot20/e-commerce-api",
     title: "E-commerce RESTful API",
