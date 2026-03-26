@@ -1,18 +1,18 @@
-import { Disclosure } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faClose, faCode, faCopyright } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
-import { classNames } from "../utils";
-import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { SlideIn } from "../components/slide-in";
-import { TimeComponent } from "../components/time/time";
-import GsapCustomCursor from "../components/mirror-cursor/gsap-mirror";
-import { ThemeSwitch } from "../components/theme-switch/theme-switch";
-import { useTheme } from "../hooks/useTheme";
-import gsap from "gsap";
+import { Disclosure } from '@headlessui/react';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faClose, faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
+import { classNames } from '../utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { SlideIn } from '../components/slide-in';
+import { TimeComponent } from '../components/time/time';
+import GsapCustomCursor from '../components/mirror-cursor/gsap-mirror';
+import { ThemeSwitch } from '../components/theme-switch/theme-switch';
+import { useTheme } from '../hooks/useTheme';
+import gsap from 'gsap';
 
 type RollupLinkProps = {
   path: string;
@@ -26,16 +26,15 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
   const gsapTimeline = useRef<gsap.core.Timeline | null>(null);
 
   const splitText = (words: string) => {
-    return words.split("").map((word, index) => {
-      const realWord = word === " " ? "\u00A0" : word;
+    return words.split('').map((word, index) => {
+      const realWord = word === ' ' ? '\u00A0' : word;
       return (
         <span
           key={`${word}-${index}`}
           className={classNames(
-            realWord === "#" && "text-port-light-primary dark:text-port-primary",
-            "splitted-link-text inline-block will-change-transform"
-          )}
-        >
+            realWord === '#' && 'text-port-light-primary dark:text-port-primary',
+            'splitted-link-text inline-block will-change-transform',
+          )}>
           {realWord}
         </span>
       );
@@ -43,8 +42,8 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
   };
 
   useEffect(() => {
-    const topLinks = topLinksRef.current?.querySelectorAll(".splitted-link-text");
-    const bottomLinks = bottomLinksRef.current?.querySelectorAll(".splitted-link-text");
+    const topLinks = topLinksRef.current?.querySelectorAll('.splitted-link-text');
+    const bottomLinks = bottomLinksRef.current?.querySelectorAll('.splitted-link-text');
 
     if (!topLinks || !bottomLinks) return;
 
@@ -57,7 +56,7 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
       .to(topLinks, {
         yPercent: -100,
         duration: 0.3,
-        ease: "power2.out",
+        ease: 'power2.out',
         stagger: 0.02,
       })
       .to(
@@ -65,10 +64,10 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
         {
           yPercent: 0,
           duration: 0.3,
-          ease: "power2.in",
+          ease: 'power2.in',
           stagger: 0.02,
         },
-        "<"
+        '<',
       );
 
     gsapTimeline.current = timeline;
@@ -97,40 +96,37 @@ const RollupLinks = ({ path, title, onClick }: RollupLinkProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       to={path}
-      className="group relative block overflow-hidden"
+      className='group relative block overflow-hidden'
       onClick={() => {
         // Make sure close function exists before calling
-        if (onClick && typeof onClick === "function") {
+        if (onClick && typeof onClick === 'function') {
           onClick();
         }
-      }}
-    >
+      }}>
       {({ isActive }) => (
-        <div className="flex items-center justify-center relative">
+        <div className='flex items-center justify-center relative'>
           <div
             ref={topLinksRef}
             className={classNames(
-              "w-full z-10",
-              "font-fira-code text-2xl lg:text-xl",
+              'w-full z-10',
+              'font-fira-code text-2xl lg:text-xl',
               isActive
-                ? "text-port-light-text dark:text-white font-medium"
-                : "text-port-light-muted dark:text-port-gray font-normal"
-            )}
-          >
+                ? 'text-port-light-text dark:text-white font-medium'
+                : 'text-port-light-muted dark:text-port-gray font-normal',
+            )}>
             {splitText(`#${title}`)}
           </div>
 
           <div
             ref={bottomLinksRef}
             className={classNames(
-              "absolute top-0 left-0",
-              "w-full z-10",
-              "font-fira-code text-2xl lg:text-xl",
+              'absolute top-0 left-0',
+              'w-full z-10',
+              'font-fira-code text-2xl lg:text-xl',
               isActive
-                ? "text-port-light-text dark:text-white font-medium"
-                : "text-port-light-muted dark:text-port-gray font-normal"
-            )}
-          >
+                ? 'text-port-light-text dark:text-white font-medium'
+                : 'text-port-light-muted dark:text-port-gray font-normal',
+            )}>
             {splitText(`#${title}`)}
           </div>
         </div>
@@ -145,55 +141,55 @@ export default function PortfolioLayout() {
 
   const navigations = [
     {
-      title: "home",
-      path: "/",
+      title: 'home',
+      path: '/',
     },
     {
-      title: "works",
-      path: "/projects",
+      title: 'works',
+      path: '/projects',
     },
     {
-      title: "about-me",
-      path: "/about-me",
+      title: 'about-me',
+      path: '/about-me',
     },
     {
-      title: "contacts",
-      path: "/contact-me",
+      title: 'contacts',
+      path: '/contact-me',
     },
   ];
 
   useEffect(() => {
     const handleWindowScroll = () => setEnableBackground(window.scrollY > 0);
 
-    window.addEventListener("scroll", handleWindowScroll);
+    window.addEventListener('scroll', handleWindowScroll);
 
-    return () => window.removeEventListener("scroll", handleWindowScroll);
+    return () => window.removeEventListener('scroll', handleWindowScroll);
   }, []);
 
   const socialLinks = [
     {
-      url: "https://github.com/springboot20",
+      url: 'https://github.com/springboot20',
       component: (
         <>
-          <span className="sr-only">Github</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-10" viewBox="0 0 496 512">
+          <span className='sr-only'>Github</span>
+          <svg xmlns='http://www.w3.org/2000/svg' className='h-10' viewBox='0 0 496 512'>
             <path
-              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-              className="fill-port-light-muted dark:fill-white"
+              d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'
+              className='fill-port-light-muted dark:fill-white'
             />
           </svg>
         </>
       ),
     },
     {
-      url: "",
+      url: '',
       component: (
         <>
-          <span className="sr-only">Linkedin</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-10" viewBox="0 0 448 512">
+          <span className='sr-only'>Linkedin</span>
+          <svg xmlns='http://www.w3.org/2000/svg' className='h-10' viewBox='0 0 448 512'>
             <path
-              d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-              className="fill-port-light-muted dark:fill-white"
+              d='M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z'
+              className='fill-port-light-muted dark:fill-white'
             />
           </svg>
         </>
@@ -208,8 +204,21 @@ export default function PortfolioLayout() {
         {({ open, close }) => (
           <Fragment>
             <SlideIn>
-              <div className="fixed left-6 top-0 hidden xl:flex flex-col items-center space-y-4">
-                <div className="h-[25rem] bg-port-light-border dark:bg-port-gray w-0.5" />
+              <div className='fixed left-6 top-0 hidden xl:flex flex-col items-center space-y-4'>
+                <motion.div
+                  initial={{
+                    height: '0rem',
+                  }}
+                  animate={{
+                    height: '25rem',
+                    transition: {
+                      delay: 0.5,
+                      duration: 0.7,
+                    },
+                  }}
+                  className='bg-port-light-border dark:bg-port-gray w-0.5'
+                />
+
                 <motion.div
                   initial={{
                     opacity: 0,
@@ -223,27 +232,31 @@ export default function PortfolioLayout() {
                       ease: [0.25, 0.46, 0.45, 0.94],
                     },
                   }}
-                  className="flex flex-col items-center space-y-4"
-                >
+                  className='flex flex-col items-center space-y-4'>
                   {socialLinks.map((link, index) => {
                     return (
                       <Link
                         to={link.url}
                         key={`${link.url}-${index}`}
-                        className="inline-block shrink-0"
-                      >
+                        className='inline-block shrink-0'>
                         <motion.div
                           initial={{ opacity: 0, scale: 0.85 }}
-                          animate={{ opacity: 1, scale: 1 }}
+                          animate={{
+                            opacity: 1,
+                            scale: 1,
+                            transition: {
+                              delay: index > 0 ? 0.65 : 0.7,
+                              duration: index > 0 ? 0.75 : 0.7,
+                            },
+                          }}
                           whileHover={{ scale: 1.15 }}
                           whileTap={{ scale: 0.95 }}
                           transition={{
                             delay: 0.35 * index,
-                            type: "spring",
+                            type: 'spring',
                             stiffness: 300,
                             damping: 20,
-                          }}
-                        >
+                          }}>
                           {link.component}
                         </motion.div>
                       </Link>
@@ -254,13 +267,12 @@ export default function PortfolioLayout() {
             </SlideIn>
             <Disclosure.Button
               className={
-                "z-10 lg:hidden fixed right-8 bottom-4 text-port-light-muted dark:text-port-gray h-10 w-10 flex items-center justify-center border border-port-light-border dark:border-port-gray rounded-md bg-port-light-surface dark:bg-transparent"
-              }
-            >
+                'z-10 lg:hidden fixed right-8 bottom-4 text-port-light-muted dark:text-port-gray h-10 w-10 flex items-center justify-center border border-port-light-border dark:border-port-gray rounded-md bg-port-light-surface dark:bg-transparent'
+              }>
               {open ? (
-                <FontAwesomeIcon icon={faClose} className="h-5" />
+                <FontAwesomeIcon icon={faClose} className='h-5' />
               ) : (
-                <FontAwesomeIcon icon={faBars} className="h-5" />
+                <FontAwesomeIcon icon={faBars} className='h-5' />
               )}
             </Disclosure.Button>
             <motion.header
@@ -270,36 +282,51 @@ export default function PortfolioLayout() {
                 opacity: 1,
               }}
               transition={{
-                type: "spring",
+                type: 'spring',
                 stiffness: 260,
                 damping: 20,
               }}
-              className={classNames(
-                "h-20 fixed inset-x-0 top-0",
-                enableBackground &&
-                  "bg-port-light-surface/80 backdrop-blur-md dark:bg-black/40 z-20 border-[1.8px] border-port-light-border dark:border-port-gray sm:inset-x-14 xl:inset-x-44 !h-16 rounded-full sm:px-8"
-              )}
-            >
-              <nav className={classNames("max-w-7xl mx-auto h-full 2xl:px-0 px-4")}>
-                <div className="w-full h-full flex items-center justify-between">
-                  <Link to="/" className="cursor-hover ">
-                    <div className="flex items-center space-x-3">
-                      <FontAwesomeIcon
-                        icon={faCode}
-                        className="h-10 text-port-light-primary dark:text-port-primary"
+              className={classNames('h-20 fixed inset-x-0 top-0 z-30')}>
+              <nav
+                className={classNames(
+                  'max-w-6xl mx-auto h-full px-4',
+                  enableBackground &&
+                    'bg-port-light-surface/80 backdrop-blur-md dark:bg-black/40 z-20 border-[1.8px] border-port-light-border dark:border-port-gray sm:inset-x-14 !h-16 rounded-full sm:px-8',
+                )}>
+                <div className='w-full h-full flex items-center justify-between'>
+                  <Link to='/' className='cursor-hover '>
+                    <svg
+                      width='120'
+                      height='90'
+                      viewBox='0 0 120 90'
+                      fill='none'
+                      className='!h-10'
+                      xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M120 90H60L75 75H105V45H90V30H120V90ZM76.8506 58.1387L44.9648 89.8926L44.9268 89.8545H0V74.9893H38.8643L66.3613 47.6055L76.8506 58.1387ZM45 15H15V45H30V60H0V0H60L45 15ZM75.0439 0.0380859H119.971V14.9033H81.1064L53.6094 42.2871L43.1201 31.7539L75.0059 0L75.0439 0.0380859Z'
+                        fill='url(#paint0_linear_95_2019)'
                       />
-                      <h3 className="text-xl font-fira-code font-semibold text-port-light-primary dark:text-port-primary">
-                        Abbas Opeyemi
-                      </h3>
-                    </div>
+                      <defs>
+                        <linearGradient
+                          id='paint0_linear_95_2019'
+                          x1='60'
+                          y1='0'
+                          x2='60'
+                          y2='90'
+                          gradientUnits='userSpaceOnUse'>
+                          <stop stopColor='#c778dd' />
+                          <stop offset='1' stopColor='#c778dd' />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </Link>
-                  <div className="lg:flex hidden items-center gap-6 shrink-0">
+                  <div className='lg:flex hidden items-center gap-6 shrink-0'>
                     {navigations.map((link, index) => {
                       return <RollupLinks key={index} {...link} />;
                     })}
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className='flex items-center gap-3'>
                     <TimeComponent />
                     <ThemeSwitch />
                   </div>
@@ -308,55 +335,70 @@ export default function PortfolioLayout() {
             </motion.header>
 
             {/* <AnimatePresence initial={false} mode="wait"> */}
-            <AnimatePresence initial={false} mode="wait">
+            <AnimatePresence initial={false} mode='wait'>
               {open && (
                 <motion.div
                   variants={{
                     initial: {
-                      clipPath: "circle(0% at 0% 50%)",
-                      x: "-100%",
-                      backgroundColor: theme === "dark" ? "#32363d" : "#f0f0f0",
+                      clipPath: 'circle(0% at 0% 50%)',
+                      x: '-100%',
+                      backgroundColor: theme === 'dark' ? '#32363d' : '#f0f0f0',
                     },
                     animate: {
-                      clipPath: "circle(150% at 0% 50%)",
-                      backgroundColor: theme === "dark" ? "#282C33" : "#ffffff",
+                      clipPath: 'circle(150% at 0% 50%)',
+                      backgroundColor: theme === 'dark' ? '#282C33' : '#ffffff',
                       x: 0,
-                      transition: { duration: 0.5, ease: "easeInOut" },
+                      transition: { duration: 0.5, ease: 'easeInOut' },
                     },
                     exit: {
-                      clipPath: "circle(0% at 0% 50%)",
-                      x: "-100%",
-                      backgroundColor: theme === "dark" ? "#32363d" : "#f0f0f0",
-                      transition: { duration: 0.5, ease: "easeInOut" },
+                      clipPath: 'circle(0% at 0% 50%)',
+                      x: '-100%',
+                      backgroundColor: theme === 'dark' ? '#32363d' : '#f0f0f0',
+                      transition: { duration: 0.5, ease: 'easeInOut' },
                     },
                   }}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  className={classNames("lg:hidden fixed transition-all top-0 w-full z-20 h-full")}
-                >
-                  <div className="flex flex-col justify-between h-3/4">
-                    <div className="space-y-10">
-                      <div className="p-4 flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <FontAwesomeIcon
-                            icon={faCode}
-                            className="h-12 text-port-light-primary dark:text-port-primary"
-                          />
-                          <h3 className="text-2xl font-fira-code font-semibold text-port-light-primary dark:text-port-primary">
-                            Abbas Opeyemi
-                          </h3>
-                        </div>
+                  initial='initial'
+                  animate='animate'
+                  exit='exit'
+                  className={classNames('lg:hidden fixed transition-all top-0 w-full z-50 h-full')}>
+                  <div className='flex flex-col justify-between h-3/4'>
+                    <div className='space-y-10'>
+                      <div className='p-4 flex items-center justify-between'>
+                        <Link to='/' className='cursor-hover'>
+                          <svg
+                            width='120'
+                            height='90'
+                            viewBox='0 0 120 90'
+                            fill='none'
+                            className='!h-10'
+                            xmlns='http://www.w3.org/2000/svg'>
+                            <path
+                              d='M120 90H60L75 75H105V45H90V30H120V90ZM76.8506 58.1387L44.9648 89.8926L44.9268 89.8545H0V74.9893H38.8643L66.3613 47.6055L76.8506 58.1387ZM45 15H15V45H30V60H0V0H60L45 15ZM75.0439 0.0380859H119.971V14.9033H81.1064L53.6094 42.2871L43.1201 31.7539L75.0059 0L75.0439 0.0380859Z'
+                              fill='url(#paint0_linear_95_2019)'
+                            />
+                            <defs>
+                              <linearGradient
+                                id='paint0_linear_95_2019'
+                                x1='60'
+                                y1='0'
+                                x2='60'
+                                y2='90'
+                                gradientUnits='userSpaceOnUse'>
+                                <stop stopColor='#c778dd' />
+                                <stop offset='1' stopColor='#c778dd' />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </Link>
 
                         <Disclosure.Button
                           className={
-                            "text-port-light-text dark:text-white h-10 w-10 flex items-center justify-center"
-                          }
-                        >
-                          <FontAwesomeIcon icon={faClose} className="h-10" strokeWidth={1.5} />
+                            'text-port-light-text dark:text-white h-10 w-10 flex items-center justify-center'
+                          }>
+                          <FontAwesomeIcon icon={faClose} className='h-6' strokeWidth={1.5} />
                         </Disclosure.Button>
                       </div>
-                      <div className="flex flex-col !items-start space-y-10 px-4">
+                      <div className='flex flex-col !items-start space-y-10 px-4'>
                         {navigations.map((link, index) => {
                           const localIndex = index + navigations.length;
                           return (
@@ -364,7 +406,7 @@ export default function PortfolioLayout() {
                               key={`${link.title}-${localIndex}`}
                               {...link}
                               onClick={() => {
-                                if (typeof close === "function") {
+                                if (typeof close === 'function') {
                                   close();
                                 }
                               }}
@@ -374,34 +416,32 @@ export default function PortfolioLayout() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-center space-x-4 py-10">
-                      <Link to="https://github.com/springboot20" className="inline-block shrink-0">
-                        <span className="sr-only">Github</span>
+                    <div className='flex items-center justify-center space-x-4 py-10'>
+                      <Link to='https://github.com/springboot20' className='inline-block shrink-0'>
+                        <span className='sr-only'>Github</span>
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-10"
-                          viewBox="0 0 496 512"
-                        >
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='h-10'
+                          viewBox='0 0 496 512'>
                           <path
-                            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                            className="fill-port-light-muted dark:fill-white"
+                            d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'
+                            className='fill-port-light-muted dark:fill-white'
                           />
                         </svg>
                       </Link>
-                      <Link to="" className="inline-block shrink-0">
-                        <span className="sr-only">Linkedin</span>
+                      <Link to='' className='inline-block shrink-0'>
+                        <span className='sr-only'>Linkedin</span>
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-10"
-                          viewBox="0 0 448 512"
-                        >
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='h-10'
+                          viewBox='0 0 448 512'>
                           <path
-                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-                            className="fill-port-light-muted dark:fill-white"
+                            d='M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z'
+                            className='fill-port-light-muted dark:fill-white'
                           />
                         </svg>
                       </Link>
-                      <Link to=""></Link>
+                      <Link to=''></Link>
                     </div>
                   </div>
                 </motion.div>
@@ -420,9 +460,8 @@ export default function PortfolioLayout() {
                       ease: [0.25, 0.46, 0.45, 0.94],
                     },
                   },
-                }}
-              >
-                <div className="max-w-7xl mx-auto px-4 2xl:px-0">
+                }}>
+                <div className='max-w-6xl mx-auto px-4 2xl:px-0'>
                   <Outlet context={{ close }} />
                 </div>
                 <motion.footer
@@ -430,56 +469,52 @@ export default function PortfolioLayout() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
-                  className="border-t-[3px] border-port-light-border dark:border-port-gray bg-port-light-surface dark:bg-transparent"
-                >
-                  <div className="max-w-7xl mx-auto px-4 xl:px-0">
-                    <div className="flex items-center justify-between py-5">
+                  className='border-t-2 border-port-light-border dark:border-port-gray bg-port-light-surface dark:bg-transparent'>
+                  <div className='max-w-6xl mx-auto px-4 xl:px-0'>
+                    <div className='flex items-center justify-between py-5'>
                       <>
-                        <div className="space-y-6">
-                          <h3 className="text-2xl font-fira-code font-medium text-port-light-text dark:text-white">
+                        <div className='space-y-6'>
+                          <h3 className='text-2xl font-fira-code font-medium text-port-light-text dark:text-white'>
                             Media
                           </h3>
-                          <div className="flex items-center space-x-4">
+                          <div className='flex items-center space-x-4'>
                             <Link
-                              to="https://github.com/springboot20"
-                              className="inline-block shrink-0"
-                            >
-                              <span className="sr-only">Github</span>
+                              to='https://github.com/springboot20'
+                              className='inline-block shrink-0'>
+                              <span className='sr-only'>Github</span>
                               <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-10"
-                                viewBox="0 0 496 512"
-                              >
+                                xmlns='http://www.w3.org/2000/svg'
+                                className='h-10'
+                                viewBox='0 0 496 512'>
                                 <path
-                                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                                  className="fill-port-light-muted dark:fill-white"
+                                  d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'
+                                  className='fill-port-light-muted dark:fill-white'
                                 />
                               </svg>
                             </Link>
-                            <Link to="" className="inline-block shrink-0">
-                              <span className="sr-only">Linkedin</span>
+                            <Link to='' className='inline-block shrink-0'>
+                              <span className='sr-only'>Linkedin</span>
                               <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-10"
-                                viewBox="0 0 448 512"
-                              >
+                                xmlns='http://www.w3.org/2000/svg'
+                                className='h-10'
+                                viewBox='0 0 448 512'>
                                 <path
-                                  d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-                                  className="fill-port-light-muted dark:fill-white"
+                                  d='M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z'
+                                  className='fill-port-light-muted dark:fill-white'
                                 />
                               </svg>
                             </Link>
-                            <Link to=""></Link>
+                            <Link to=''></Link>
                           </div>
                         </div>
                       </>
                     </div>
-                    <div className="text-center py-5">
-                      <p className="text-xl font-normal font-fira-code text-port-light-muted dark:text-port-gray">
-                        <small className="inline-block mr-2">
+                    <div className='text-center py-5'>
+                      <p className='text-lg font-normal font-fira-code text-port-light-muted dark:text-port-gray'>
+                        <small className='inline-block mr-2'>
                           <FontAwesomeIcon
                             icon={faCopyright}
-                            className="h-4 text-port-light-muted dark:text-port-gray"
+                            className='h-5 text-port-light-muted dark:text-port-gray'
                           />
                         </small>
                         Copyright {new Date(Date.now()).getFullYear()}. Made by Abbas Opeyemi

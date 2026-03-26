@@ -1,34 +1,35 @@
-import React, { Fragment } from "react";
-import { SplittedAnimatedText } from "../../components/splitted-text/splitted-text";
-import { motion } from "framer-motion";
-import AboutImage from "../../assets/images/about-image.png";
-import { SkillCard } from "../../components/card/cards";
-import { languages, dataBases, frameworks, others, tools } from "../../data/skills";
-import { SlideIn } from "../../components/slide-in";
+import React, { Fragment } from 'react';
+import { SplittedAnimatedText } from '../../components/splitted-text/splitted-text';
+import { motion } from 'framer-motion';
+import AboutImage from '../../assets/images/about-image.png';
+import { SkillCard } from '../../components/card/cards';
+import { languages, dataBases, frameworks, others, tools } from '../../data/skills';
+import { SlideIn } from '../../components/slide-in';
+import { useSearchEngineOptimization } from '../../hooks/useSEO';
 
 const skills = {
   languages: {
-    title: "languages",
+    title: 'languages',
     skills: languages,
   },
 
   databases: {
-    title: "databases",
+    title: 'databases',
     skills: dataBases,
   },
 
   tools: {
-    title: "tools",
+    title: 'tools',
     skills: tools,
   },
 
   others: {
-    title: "others",
+    title: 'others',
     skills: others,
   },
 
   frameworks: {
-    title: "frameworks",
+    title: 'frameworks',
     skills: frameworks,
   },
 };
@@ -51,15 +52,32 @@ const lineVariants = {
   },
   animate: {
     opacity: 1,
-    width: "50%",
+    width: '25%',
   },
 };
 
 export default function AboutPageComponent() {
+  const baseUrl = import.meta.env.PROD
+    ? 'https://codesuite-portfolio.vercel.app'
+    : 'http://localhost:3001';
+
+  useSearchEngineOptimization({
+    title: 'About | Abbas - Crafting Digital Experiences',
+    description:
+      'Learn more about Abbas’s journey in web development, specializing in aesthetically pleasing UI designs and efficient, scalable code.',
+    canonical: `${baseUrl}/about-me`,
+    keywords: [
+      'About Abbas',
+      'Web Development Experience',
+      'UI Design Specialist',
+      'Software Engineer Portfolio',
+    ],
+  });
+
   return (
-    <article className="w-full py-28">
-      <div className="w-full">
-        <header className="space-y-3">
+    <article className='w-full py-28'>
+      <div className='w-full'>
+        <header className='space-y-3'>
           <motion.h1
             initial={{
               opacity: 0,
@@ -69,13 +87,12 @@ export default function AboutPageComponent() {
               opacity: 1,
               y: 0,
               transition: {
-                type: "spring",
+                type: 'spring',
                 delay: 0.3,
               },
             }}
-            className="font-fira-code font-semibold text-3xl text-port-light-text dark:text-white"
-          >
-            <span className="text-port-light-primary dark:text-port-primary">/</span>about me
+            className='font-fira-code font-semibold text-3xl text-port-light-text dark:text-white'>
+            <span className='text-port-light-primary dark:text-port-primary'>/</span>about me
           </motion.h1>
           <motion.p
             variants={{
@@ -87,70 +104,69 @@ export default function AboutPageComponent() {
                 opacity: 1,
                 y: 0,
                 transition: {
-                  type: "spring",
+                  type: 'spring',
                   delay: 0.5,
                 },
               },
             }}
-            initial="initial"
-            animate="animate"
-            className="text-port-light-text dark:text-white font-fira-code font-normal text-lg"
-          >
+            initial='initial'
+            animate='animate'
+            className='text-port-light-text dark:text-white font-fira-code font-normal text-lg'>
             who am i?
           </motion.p>
         </header>
 
-        <section className="py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center">
-            <SlideIn classnames="">
-              <div className="space-y-6 flex flex-col justify-center">
-                <h3 className="text-2xl font-semibold font-fira-code text-port-light-text dark:text-port-gray">
+        <section className='py-10'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 place-items-center'>
+            <SlideIn classnames=''>
+              <div className='space-y-6 flex flex-col justify-center'>
+                <h3 className='text-2xl font-semibold font-fira-code text-port-light-text dark:text-port-gray'>
                   {SplittedAnimatedText({
                     content: ["Hello, i'm Abbas!"],
-                    type: "letter",
+                    type: 'letter',
                   })}
                 </h3>
 
-                <motion.div initial="hidden" animate="visible" className="overflow-hidden">
-                  <h1 className="text-xl text-port-light-muted dark:text-white font-bold font-fira-code leading-normal cursor-hover">
+                <motion.div initial='hidden' animate='visible' className='overflow-hidden'>
+                  <h1 className='text-xl text-port-light-muted dark:text-white font-bold font-fira-code leading-normal cursor-hover'>
                     {SplittedAnimatedText({
                       content: [
-                        "I'm a ",
-                        <span>Front-end developer</span>,
-                        " with a zeal for ",
+                        "I'm a",
+                        <span>Web developer</span>,
+                        ' with a zeal for',
                         <span>crafting intuitive</span>,
-                        " and ",
+                        ' and',
                         <span>responsive digital experience.</span>,
                       ],
-                      type: "word",
+                      type: 'word',
                     })}
                   </h1>
                 </motion.div>
 
-                <p className="text-xl font-fira-code font-normal text-port-gray cursor-hover">
+                <p className='text-xl font-fira-code font-normal text-port-gray cursor-hover'>
                   {SplittedAnimatedText({
                     content: [
-                      "He specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
+                      'Specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.',
                     ],
-                    type: "word",
+                    type: 'word',
                   })}
                 </p>
               </div>
             </SlideIn>
 
-            <SlideIn direction="right" classnames="xl:place-self-end">
-              <div className="relative oveflow-hidden">
-                <div className="w-full flex items-center justify-center">
-                  <img src={AboutImage} alt="about image" className="h-full w-full" />
+            <SlideIn direction='right' classnames='xl:place-self-end'>
+              <div className='relative oveflow-hidden'>
+                <div className='w-full flex items-center justify-center'>
+                  <img src={AboutImage} alt='about image' className='h-full w-full' />
                 </div>
               </div>
             </SlideIn>
           </div>
         </section>
 
-        <section className="py-10">
-          <div className="w-full space-y-10">
-            <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1">
+        <section className='py-10'>
+          <div className='w-full space-y-10'>
+            <div className='flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1'>
               <motion.h2
                 variants={{
                   ...titleVariants,
@@ -161,12 +177,11 @@ export default function AboutPageComponent() {
                     },
                   },
                 }}
-                initial="initial"
-                whileInView="animate"
+                initial='initial'
+                whileInView='animate'
                 viewport={{ amount: 0.7, once: false }}
-                className="text-port-light-text dark:text-white font-medium font-fira-code text-2xl"
-              >
-                <span className="text-port-light-primary dark:text-port-primary">#</span>skills
+                className='text-port-light-text dark:text-white font-medium font-fira-code text-2xl'>
+                <span className='text-port-light-primary dark:text-port-primary'>#</span>skills
               </motion.h2>
               <motion.div
                 variants={{
@@ -178,14 +193,14 @@ export default function AboutPageComponent() {
                     },
                   },
                 }}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ amount: "all", once: false }}
-                className="h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block"
+                initial='initial'
+                whileInView='animate'
+                viewport={{ amount: 'all', once: false }}
+                className='h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block'
               />
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1 gap-2">
+            <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1 gap-2'>
               {React.Children.toArray(
                 Object.values(skills).map((skill, index) => {
                   return (
@@ -193,7 +208,7 @@ export default function AboutPageComponent() {
                       <SkillCard key={index} {...skill} />
                     </Fragment>
                   );
-                })
+                }),
               )}
             </div>
           </div>

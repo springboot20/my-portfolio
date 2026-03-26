@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Point to your dynamically generated sitemap
+Sitemap: https://codesuite-portfolio.vercel.app/sitemap.xml

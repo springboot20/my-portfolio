@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const GsapCustomCursor = () => {
   const cursorRef = useRef(null);
@@ -19,7 +19,7 @@ const GsapCustomCursor = () => {
       mouseY = e.clientY;
     };
 
-    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener('mousemove', moveCursor);
 
     gsap.ticker.add(() => {
       posX += (mouseX - posX) * 0.15;
@@ -38,25 +38,25 @@ const GsapCustomCursor = () => {
 
     const addHoverEvents = () => {
       const elements = document.querySelectorAll(
-        "a, button, .cursor-hover, header > img, img, div > a, svg"
+        'a, button, .cursor-hover, header > img, img, div > a, svg',
       );
 
       elements.forEach((el) => {
-        el.addEventListener("mouseenter", () => {
+        el.addEventListener('mouseenter', () => {
           gsap.to(follower, {
             scale: 2,
-            backgroundColor: "#fffff", // Tailwind blue-500
+            backgroundColor: '#fffff', // Tailwind blue-500
             duration: 0.3,
-            ease: "power2.out",
+            ease: 'power2.out',
           });
         });
 
-        el.addEventListener("mouseleave", () => {
+        el.addEventListener('mouseleave', () => {
           gsap.to(follower, {
             scale: 1,
-            backgroundColor: "#ffffff",
+            backgroundColor: '#ffffff',
             duration: 0.3,
-            ease: "power2.out",
+            ease: 'power2.out',
           });
         });
       });
@@ -65,7 +65,7 @@ const GsapCustomCursor = () => {
     addHoverEvents();
 
     return () => {
-      document.removeEventListener("mousemove", moveCursor);
+      document.removeEventListener('mousemove', moveCursor);
     };
   }, []);
 
@@ -73,12 +73,10 @@ const GsapCustomCursor = () => {
     <>
       <div
         ref={cursorRef}
-        className="pointer-events-none fixed z-[9999] h-4 w-4 rounded-full bg-white mix-blend-difference"
-      ></div>
+        className='pointer-events-none fixed z-[9999] h-4 w-4 rounded-full bg-white mix-blend-difference'></div>
       <div
         ref={followerRef}
-        className="pointer-events-none fixed z-[9998] h-20 w-20 rounded-full bg-white mix-blend-difference"
-      ></div>
+        className='pointer-events-none fixed z-[9998] h-20 w-20 rounded-full bg-white mix-blend-difference'></div>
     </>
   );
 };
