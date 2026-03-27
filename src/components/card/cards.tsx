@@ -17,10 +17,10 @@ interface ProjectCardComponentProps {
 export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
   const { title, frameworks, image, url, description } = props;
   return (
-    <article className='overflow-hidden border border-port-light-border dark:border-white'>
+    <article className='overflow-hidden border border-port-light-border dark:border-port-light-border/30'>
       <div className='w-full'>
         {image && (
-          <header className='h-64'>
+          <header className='h-52'>
             <img
               src={image}
               alt='project image'
@@ -29,27 +29,29 @@ export const ProjectCardComponent = (props: ProjectCardComponentProps) => {
           </header>
         )}
 
-        <div className='p-2 flex items-center flex-wrap gap-4'>
+        <div className='p-2 flex items-center flex-wrap gap-4 border-t border-port-light-border dark:border-port-light-border/30'>
           {frameworks.map((framework) => {
             return (
               <p
                 key={framework}
-                className='text-port-light-muted dark:text-port-gray font-normal font-fira-code'>
+                className='text-port-light-muted dark:text-port-gray font-normal font-fira-code text-sm'>
                 {framework}
               </p>
             );
           })}
         </div>
 
-        <div className='p-4 border-t px-4 space-y-3'>
-          <h3 className='text-port-light-text dark:text-white font-medium font-fira-code text-lg sm:text-xl'>
+        <div className='p-4 border-t border-port-light-border dark:border-port-light-border/30 px-4 space-y-3'>
+          <h3 className='text-port-light-text dark:text-white font-medium font-fira-code text-lg'>
             {title}
           </h3>
-          <p className='text-port-gray font-normal font-fira-code'>{truncate(description, 70)}</p>
+          <p className='text-port-gray font-normal font-fira-code text-sm'>
+            {truncate(description, 70)}
+          </p>
           <div className='flex items-center gap-2 flex-wrap'>
             <Link
               to={url}
-              className='inline-block w-fitbg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
+              className='inline-block w-fit bg-transparent hover:bg-port-light-accent active:bg-port-light-accent/80
                     dark:active:bg-port-primary/25 dark:hover:bg-port-primary/25 
                     border border-port-light-border dark:border-port-primary
                     text-port-light-text dark:text-white 
@@ -122,14 +124,31 @@ export const SkillCard = (props: SkillCardProps) => {
         y: 0,
         opacity: 1,
         transition: {
-          delay: index * 0.15,
+          delay: index * 0.35,
         },
       },
     };
   };
 
   return (
-    <div className='overflow-hidden border border-port-light-border dark:border-port-light-border/30 h-max'>
+    <motion.div
+      variants={{
+        initial: {
+          y: Math.floor(Math.random() * -20) + Number(index),
+          opacity: 0,
+        },
+        animate: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: Number(index) * 0.15,
+          },
+        },
+      }}
+      initial='initial'
+      whileInView='animate'
+      viewport={{ once: false, amount: 0.5 }}
+      className='overflow-hidden border border-port-light-border dark:border-port-light-border/30 h-max'>
       <div className='w-full h-full'>
         <div className='p-2.5'>
           <motion.h3
@@ -144,7 +163,7 @@ export const SkillCard = (props: SkillCardProps) => {
           </motion.h3>
         </div>
 
-        <div className='p-2 flex items-center flex-wrap gap-2 border-t borderport-light-border dark:border-port-light-border/30'>
+        <div className='p-2 flex items-center flex-wrap gap-2 border-t border-port-light-border dark:border-port-light-border/30'>
           {skills &&
             skills.map((skill, index) => {
               return (
@@ -174,6 +193,6 @@ export const SkillCard = (props: SkillCardProps) => {
             })}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

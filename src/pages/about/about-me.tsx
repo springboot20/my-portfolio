@@ -146,7 +146,7 @@ export default function AboutPageComponent() {
                 <p className='text-xl font-fira-code font-normal text-port-gray cursor-hover'>
                   {SplittedAnimatedText({
                     content: [
-                      'Specialized on using his experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.',
+                      "I'm Specialized on using my experience to implement aesthetically pleasing UI designs and building scalable applications that perform efficiently.",
                     ],
                     type: 'word',
                   })}
@@ -205,7 +205,7 @@ export default function AboutPageComponent() {
                 Object.values(skills).map((skill, index) => {
                   return (
                     <Fragment key={index}>
-                      <SkillCard key={index} {...skill} />
+                      <SkillCard key={index} {...skill} index={index} />
                     </Fragment>
                   );
                 }),
