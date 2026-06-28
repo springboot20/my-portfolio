@@ -1,7 +1,7 @@
 import { ProjectCardComponent } from '../../components/card/cards';
-import { projects } from '../../data/projects';
-import React from 'react';
-import { motion } from 'framer-motion';
+import { projects, ProjectType } from '../../data/projects';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useSearchEngineOptimization } from '../../hooks/useSEO';
 
 export default function ProjectPageComponent() {
@@ -128,9 +128,9 @@ export default function ProjectPageComponent() {
               {React.Children.toArray(
                 projects.map((project, index) => {
                   return (
-                    <ProjectCardComponent
-                      key={`${project['project-title']}-${index}`}
+                    <AnimatedCard
                       index={index + 1}
+                      key={`${project['project-title']}-${index}`}
                       project={project}
                     />
                   );
@@ -143,3 +143,29 @@ export default function ProjectPageComponent() {
     </article>
   );
 }
+
+const AnimatedCard = ({ index, project }: { index: number; project: ProjectType }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+
+  const scale = useTransform(scrollYProgress, [0, 0.15, 1], [0.95, 1, 0.98]);
+  const y = useTransform(scrollYProgress, [0, 0.15], [40, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className='sticky bg-port-light-bg dark:bg-port-bg backdrop-blur-xs rounded-xl overflow-hidden hover:translate-y-[-4px] transform transition-all'
+      style={{
+        top: `${80 + index * 24}px`,
+        opacity,
+        y,
+        scale,
+      }}>
+      <ProjectCardComponent project={project} index={index} />
+    </motion.div>
+  );
+};

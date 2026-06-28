@@ -45,11 +45,15 @@ export default function ProjectPreview({ url, image, alt, title }: ProjectPrevie
   }, [isOnline, loaded]);
 
   if (!isOnline || showFallback) {
-    return <img src={image} alt={alt} className='w-full h-full object-cover' />;
+    return (
+      <div className='relative w-full h-full border border-port-light-border dark:border-port-light-primary/20 overflow-hidden rounded-xl'>
+        <img src={image} alt={alt} className='w-full h-full object-cover' />{' '}
+      </div>
+    );
   }
 
   return (
-    <div className='relative w-full h-full'>
+    <div className='relative w-full h-full border border-port-light-border dark:border-port-light-primary/20 overflow-hidden rounded-xl'>
       {!loaded && (
         <img src={image} alt={alt} className='absolute inset-0 w-full h-full object-cover' />
       )}
@@ -57,8 +61,7 @@ export default function ProjectPreview({ url, image, alt, title }: ProjectPrevie
       <iframe
         src={url}
         title={title}
-        loading='lazy'
-        className={`absolute inset-0 w-full h-full border-0 transition-opacity duration-500 ${
+        className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
         onLoad={() => setLoaded(true)}
