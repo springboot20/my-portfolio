@@ -44,11 +44,10 @@ function App() {
           clearInterval(timer);
           return 100;
         }
-        // Increment by a random small amount to make it feel like a real count-up
-        const increment = Math.floor(Math.random() * 3) + 1; // 1 to 3%
+        const increment = Math.floor(Math.random() * 8) + 3; // 3 to 10%
         return Math.min(prev + increment, 100);
       });
-    }, 350); // 100ms interval gives enough time for the 250ms animation to begin
+    }, 80); // was 350ms
 
     return () => clearInterval(timer);
   }, [isLoading]);
@@ -56,10 +55,8 @@ function App() {
   useEffect(() => {
     if (progress >= 100) {
       const completeTimer = setTimeout(() => {
-        if (onLoadingComplete) {
-          onLoadingComplete();
-        }
-      }, 350);
+        onLoadingComplete();
+      }, 150); // was 350ms
       return () => clearTimeout(completeTimer);
     }
   }, [progress, onLoadingComplete]);

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Irish+Grover&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Irish+Grover&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,31 +6,31 @@
 
 /* fira code */
 @font-face {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
   src: url(./font/FiraCode-Bold.ttf);
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
   src: url(./font/FiraCode-SemiBold.ttf);
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
   src: url(./font/FiraCode-Medium.ttf);
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
   src: url(./font/FiraCode-Regular.ttf);
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
   src: url(./font/FiraCode-Light.ttf);
   font-weight: 300;
 }
@@ -40,35 +40,69 @@
     @apply transition duration-75;
   }
   body {
-    @apply bg-port-light-bg dark:!bg-port-bg font-fira-code;
+    @apply grid-decoration dark:!bg-port-bg font-fira-code;
   }
 }
 
 @layer components {
+  .grid-decoration {
+    background-image:
+      linear-gradient(rgba(124, 58, 237, 0.04) 1.8px, transparent 1.8px),
+      linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1.8px, transparent 1.8px);
+    background-size: 60px 60px;
+  }
+
   .loader {
     width: 50px;
     aspect-ratio: 1;
     --c: linear-gradient(#767676 0 0);
     --m: radial-gradient(farthest-side, #767676 92%, #767676);
     background: var(--c), var(--m), var(--c), var(--m), var(--c), var(--m);
-    background-size: 8px 25px, 8px 8px;
+    background-size:
+      8px 25px,
+      8px 8px;
     background-repeat: no-repeat;
     animation: l14 1s infinite alternate;
   }
+
   @keyframes l14 {
     0%,
     10% {
-      background-position: 0 0, 0 100%, 50% 0, 50% 100%, 100% 0, 100% 100%;
+      background-position:
+        0 0,
+        0 100%,
+        50% 0,
+        50% 100%,
+        100% 0,
+        100% 100%;
     }
     33% {
-      background-position: 0 100%, 0 0, 50% 0, 50% 100%, 100% 0, 100% 100%;
+      background-position:
+        0 100%,
+        0 0,
+        50% 0,
+        50% 100%,
+        100% 0,
+        100% 100%;
     }
     66% {
-      background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 0, 100% 100%;
+      background-position:
+        0 100%,
+        0 0,
+        50% 100%,
+        50% 0,
+        100% 0,
+        100% 100%;
     }
     90%,
     100% {
-      background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 100%, 100% 0;
+      background-position:
+        0 100%,
+        0 0,
+        50% 100%,
+        50% 0,
+        100% 100%,
+        100% 0;
     }
   }
 }

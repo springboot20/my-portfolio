@@ -1,58 +1,85 @@
-import EcommerceProjectImage from '../assets/images/e-commerce-project-image.jpg';
-import EcommerceAPIProjectImage from '../assets/ecommerce_api_placeholder.svg';
-import ChaAppProjectImage from '../assets/images/chat-application-project-image.jpg';
-import ChatAPIProjectImage from '../assets/chat_api_placeholder.svg';
-
-interface ProjectType {
-  image?: string;
+export interface ProjectType {
+  image: string;
   url: string;
-  githubUrl: string;
-  title: string;
-  alt?: string;
-  description: string;
+  alt: string;
+  'project-description': string;
   frameworks: string[];
+  'github-url': string;
+  'project-title': string;
+  company: string;
+  role: string;
+  year: string;
+  type: string;
 }
 
 export const projects: Array<ProjectType> = [
   {
-    image: ChaAppProjectImage,
+    image: './assets/dreamlink.jpg',
+    url: 'https://fit.dreamlink.com.ng/',
+    'github-url': 'https://github.com/springboot20',
+    'project-title': 'Dreamlink — Real Estate Platform',
+    company: 'Dreamlink',
+    role: 'Frontend Engineer',
+    year: '2025 – Present',
+    type: 'professional',
+    alt: 'Dreamlink Real Estate Platform',
+    'project-description':
+      'Contributed to a production-scale real estate platform serving property discovery, bookings, and customer engagement workflows. Built reusable WebSocket-powered messaging and notification systems, implemented multi-step onboarding flows with Formik and Yup, integrated Google OAuth and two-factor authentication, and optimized Redux Toolkit state management to reduce unnecessary re-renders and improve application responsiveness.',
+    frameworks: [
+      'Next.js',
+      'TypeScript',
+      'Redux Toolkit',
+      'RTK Query',
+      'Tailwind CSS',
+      'WebSocket',
+      'Formik',
+      'Yup',
+    ],
+  },
+  {
+    image: './assets/dfosh.jpg',
+    url: 'https://dfosh-webapp.netlify.app',
+    'github-url': 'https://github.com/springboot20',
+    'project-title': 'DfOSH-CMI — Construction Safety Assessment Platform',
+    company: 'Alkaios',
+    role: 'Lead Frontend Engineer',
+    year: '2026 – Present',
+    type: 'professional',
+    alt: 'DfOSH Construction Safety Assessment Tool',
+    'project-description':
+      'Led frontend architecture and implementation of a safety assessment platform for construction projects. Built custom SVG analytics visualizations without charting libraries, implemented IndexedDB-powered offline data persistence, resolved PDF export workflows, and delivered multilingual support using next-intl. Designed a scalable component architecture focused on performance, accessibility, and maintainability.',
+    frameworks: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Framer Motion',
+      'IndexedDB',
+      'next-intl',
+      'React Hook Form',
+    ],
+  },
+  {
+    image: './assets/chat-app.jpg',
     url: 'https://codesuite-chatting-application.vercel.app/',
-    githubUrl: 'https://github.com/springboot20/chat-application',
-    title: 'Real-Time Chat Application',
-    alt: 'Real-Time Chat Application preview',
-    description:
-      'A real-time chat application built with React and TypeScript, enabling users to send and receive messages instantly. Features a clean, responsive UI styled with Tailwind CSS and deployed on Vercel for fast, reliable access.',
-    frameworks: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-  },
-  {
-    image: EcommerceProjectImage,
-    url: 'https://cv-ecommerce-project.vercel.app',
-    githubUrl: 'https://github.com/springboot20/cv-ecommerce-project',
-    title: 'E-Commerce Platform',
-    alt: 'E-Commerce Platform preview',
-    description:
-      'A fully responsive e-commerce storefront built with React and TypeScript, featuring product listings, shopping cart functionality, and a smooth checkout flow. Styled with Tailwind CSS and deployed on Vercel.',
-    frameworks: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-  },
-  {
-    image: ChatAPIProjectImage,
-    url: 'https://github.com/springboot20/chat-api',
-    githubUrl: 'https://github.com/springboot20/chat-api',
-    title: 'Chat REST API',
-    alt: 'Chat API project preview',
-    description:
-      'A Node.js/Express backend powering the real-time chat application. Handles user authentication with JWT, room management, and message persistence via MongoDB, with Socket.io integrated for live event broadcasting.',
-    frameworks: ['Node.js', 'Express', 'Socket.io', 'MongoDB', 'JWT'],
-  },
-  {
-    image: EcommerceAPIProjectImage,
-    url: 'https://e-commerce-api-psi-five.vercel.app',
-    githubUrl: 'https://github.com/springboot20/e-commerce-api',
-    title: 'E-Commerce REST API',
-    alt: 'E-Commerce API project preview',
-    description:
-      'A scalable REST API for e-commerce operations built with Node.js and Express. Covers products, orders, cart, users, and payments — secured with JWT auth, input validation middleware, a clean service layer, and full Swagger/OpenAPI documentation.',
-    frameworks: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Swagger'],
+    'github-url': 'https://github.com/springboot20',
+    'project-title': 'CodeSuite — Real-Time Messaging Platform',
+    company: 'Personal Project',
+    role: 'Full-Stack Developer',
+    year: '2024 – 2025',
+    type: 'personal',
+    alt: 'CodeSuite Real-Time Chat Application',
+    'project-description':
+      'Developed a full-stack real-time communication platform featuring instant messaging, file sharing, voice messages, email verification, persistent chat history, and optimistic UI updates. Implemented Socket.IO-powered communication channels and IndexedDB-based local persistence for improved reliability and seamless user experience across sessions.',
+    frameworks: [
+      'React',
+      'TypeScript',
+      'Redux Toolkit',
+      'RTK Query',
+      'Socket.IO',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+    ],
   },
 ];
 

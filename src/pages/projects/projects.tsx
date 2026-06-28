@@ -1,5 +1,5 @@
 import { ProjectCardComponent } from '../../components/card/cards';
-import { projects, smallProjects } from '../../data/projects';
+import { projects } from '../../data/projects';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useSearchEngineOptimization } from '../../hooks/useSEO';
@@ -124,66 +124,18 @@ export default function ProjectPageComponent() {
               />
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='flex flex-col gap-6'>
               {React.Children.toArray(
                 projects.map((project, index) => {
-                  return <ProjectCardComponent key={`${project.title}-${index}`} {...project} />;
+                  return (
+                    <ProjectCardComponent
+                      key={`${project['project-title']}-${index}`}
+                      index={index + 1}
+                      project={project}
+                    />
+                  );
                 }),
               )}
-            </div>
-          </div>
-        </section>
-
-        <section className='py-10'>
-          <div className='w-full space-y-10'>
-            <div className='flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-2 shrink-0 flex-1'>
-              <motion.h2
-                variants={{
-                  ...titleVariants,
-                  animate: {
-                    ...titleVariants.animate,
-                    transition: {
-                      delay: 0.4,
-                    },
-                  },
-                }}
-                initial='initial'
-                whileInView='animate'
-                viewport={{ amount: 'all', once: false }}
-                className='text-port-light-text dark:text-white font-medium font-fira-code text-2xl'>
-                <span className='text-port-light-primary dark:text-port-primary'>#</span>small
-                projects
-              </motion.h2>
-              <motion.div
-                variants={{
-                  ...lineVariants,
-                  animate: {
-                    ...lineVariants.animate,
-                    transition: {
-                      delay: 0.4,
-                    },
-                  },
-                }}
-                initial='initial'
-                whileInView='animate'
-                viewport={{ amount: 'all', once: false }}
-                className='h-0.5 w-full sm:w-1/2 bg-port-light-primary dark:bg-port-primary block'
-              />
-            </div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {smallProjects.map((project, index) => {
-                return (
-                  <ProjectCardComponent
-                    key={index}
-                    description={project.description}
-                    url={project.url}
-                    githubUrl={project.githubUrl}
-                    title={project.title}
-                    frameworks={project.frameworks}
-                  />
-                );
-              })}
             </div>
           </div>
         </section>
